@@ -7,11 +7,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.hoverable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsHoveredAsState
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -19,40 +17,17 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.input.key.Key
-import androidx.compose.ui.input.key.KeyEvent
-import androidx.compose.ui.input.key.key
-import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import kotlinmultiplatform.composeapp.generated.resources.*
+import kotlinmultiplatform.composeapp.generated.resources.Res
+import kotlinmultiplatform.composeapp.generated.resources.navigation_ic_back
+import kotlinmultiplatform.composeapp.generated.resources.navigation_ic_last
+import kotlinmultiplatform.composeapp.generated.resources.navigation_ic_next
 import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.vectorResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import ui.theme.BackgroundColor
-
-@Composable
-fun rememberNavigationBarControllerState() = remember { NavigationBarControllerState() }
-
-class NavigationBarControllerState {
-    var action by mutableStateOf<Action?>(null)
-        private set
-
-    fun next() {
-        action = Action.Next
-    }
-
-    fun back() {
-        action = Action.Back
-    }
-
-    fun clear() {
-        action = null
-    }
-
-    enum class Action {
-        Next,
-        Back,
-    }
-}
-
 
 @Composable
 fun NavigationBar(
@@ -90,25 +65,50 @@ fun NavigationBar(
             .padding(4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        IconButton(onClick = onGoToFirstClicked) {
-            Text(text = "<<")
+        IconButton(
+            modifier = Modifier.size(48.dp),
+            onClick = onGoToFirstClicked,
+        ) {
+            Icon(
+                imageVector = vectorResource(Res.drawable.navigation_ic_first),
+                contentDescription = "First screen",
+            )
         }
         Spacer(Modifier.width(2.dp))
-        IconButton(onClick = onPreviousClicked) {
-            Text(text = "<")
+        IconButton(
+            modifier = Modifier.size(48.dp),
+            onClick = onPreviousClicked,
+        ) {
+            Icon(
+                imageVector = vectorResource(Res.drawable.navigation_ic_back),
+                contentDescription = "Back screen",
+            )
         }
         Spacer(Modifier.width(4.dp))
         Text(
-            modifier = Modifier.width(100.dp),
+            modifier = Modifier.width(160.dp),
             text = currentScreen.name.addSpaceForCamelCase(),
+            textAlign = TextAlign.Center,
         )
         Spacer(Modifier.width(4.dp))
-        IconButton(onClick = onNextClicked) {
-            Text(text = ">")
+        IconButton(
+            modifier = Modifier.size(48.dp),
+            onClick = onNextClicked,
+        ) {
+            Icon(
+                imageVector = vectorResource(Res.drawable.navigation_ic_next),
+                contentDescription = "Next screen",
+            )
         }
         Spacer(Modifier.width(2.dp))
-        IconButton(onClick = onGoToLastClicked) {
-            Text(text = ">>")
+        IconButton(
+            modifier = Modifier.size(48.dp),
+            onClick = onGoToLastClicked,
+        ) {
+            Icon(
+                imageVector = vectorResource(Res.drawable.navigation_ic_last),
+                contentDescription = "Last screen",
+            )
         }
     }
 }

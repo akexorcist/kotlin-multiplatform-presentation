@@ -13,6 +13,7 @@ import ui.component.EventLogo
 import ui.component.Tag
 import ui.component.TagData
 import ui.theme.BackgroundColor
+import ui.theme.ContentColor
 import ui.theme.ThemeColors
 
 @Composable
@@ -28,7 +29,10 @@ fun CoverTemplate(
             .padding(64.dp)
     ) {
         Box(modifier = Modifier.wrapContentHeight().fillMaxWidth()) {
-            EventLogo()
+            EventLogo(
+                width = 300.dp,
+                tintColor = ContentColor.Default,
+            )
         }
         Row(
             modifier = Modifier.weight(2f).fillMaxWidth(),

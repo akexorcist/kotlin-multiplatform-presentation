@@ -42,3 +42,7 @@ sealed class TextColor(val color: Color) {
     data object Default : TagColor(ThemeColors.TextPrimary)
     data object Blue : TagColor(ThemeColors.BluePrimary)
 }
+
+sealed class ContentColor(val color: Color) {
+    data object Default : ContentColor(ThemeColors.TextPrimary)
+}

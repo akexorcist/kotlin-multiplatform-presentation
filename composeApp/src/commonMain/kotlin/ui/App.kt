@@ -1,5 +1,6 @@
 package ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
@@ -16,6 +17,7 @@ import ui.introduction.navigateToIntroduction
 import ui.navigation.*
 import ui.thankyou.navigateToThankYou
 import ui.thankyou.thankYou
+import ui.theme.BackgroundColor
 
 @Composable
 fun App(
@@ -34,6 +36,7 @@ fun App(
 
     MaterialTheme {
         AppScaffold(
+            modifier = Modifier.background(BackgroundColor.White.color),
             navigationBar = {
                 NavigationBar(
                     currentScreen = currentScreen,

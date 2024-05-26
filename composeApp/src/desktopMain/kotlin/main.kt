@@ -9,7 +9,6 @@ import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import ui.App
 import ui.component.template.DefaultTemplate
-import ui.navigation.rememberNavigationBarControllerState
 import ui.navigation.rememberScreenNavigationState
 
 private val PreviewCode = """
