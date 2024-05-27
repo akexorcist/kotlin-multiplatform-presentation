@@ -1,6 +1,6 @@
 import androidx.compose.ui.window.ComposeUIViewController
-import ui.App
-import ui.navigation.rememberScreenNavigationState
+import com.akexorcist.kotlin.multiplatform.ui.feature.App
+import com.akexorcist.kotlin.multiplatform.ui.navigation.rememberScreenNavigationState
 
 @Suppress("FunctionName")
 fun MainViewController() = ComposeUIViewController {

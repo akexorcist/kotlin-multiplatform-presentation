@@ -67,7 +67,6 @@ kotlin {
 
             implementation("org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.8.0")
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
-//            implementation("dev.snipme:kodeview:0.8.0")
             implementation("dev.snipme:highlights:0.9.0")
         }
         desktopMain.dependencies {
@@ -119,7 +118,7 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "com.akexorcist.kotlin.multiplatform.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
