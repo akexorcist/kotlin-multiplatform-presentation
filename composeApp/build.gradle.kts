@@ -6,9 +6,15 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
 kotlin {
+    js(IR) {
+        browser()
+        binaries.executable()
+    }
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
@@ -56,6 +62,11 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.compose.ui.tooling)
             implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.compose.runtime.livedata)
+            implementation("androidx.camera:camera-camera2:1.3.3")
+            implementation("androidx.camera:camera-lifecycle:1.3.3")
+            implementation("androidx.camera:camera-view:1.3.3")
+            implementation("com.markodevcic:peko:3.0.5")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -68,10 +79,16 @@ kotlin {
             implementation("org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.8.0")
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("dev.snipme:highlights:0.9.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation("org.jetbrains.compose.ui:ui-tooling-preview-desktop:1.6.10")
+
+            implementation("com.github.sarxos:webcam-capture:0.3.12")
+            implementation("com.github.sarxos:webcam-capture-driver-openimaj:0.3.12")
+            implementation("com.github.eduramiba:webcam-capture-driver-native:master-SNAPSHOT")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.8.1")
         }
     }
 }
@@ -126,4 +143,9 @@ compose.desktop {
             packageVersion = "1.0.0"
         }
     }
+}
+
+javafx {
+    version = "20"
+    modules("javafx.media")
 }

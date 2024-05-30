@@ -9,8 +9,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
-import com.akexorcist.kotlin.multiplatform.ui.feature.App
+import com.akexorcist.kotlin.multiplatform.ui.content.App
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
+import com.akexorcist.kotlin.multiplatform.ui.navigation.navigationKeyEvent
 import com.akexorcist.kotlin.multiplatform.ui.navigation.rememberScreenNavigationState
 
 fun main() = application {
@@ -22,35 +23,14 @@ fun main() = application {
             size = DpSize(1280.dp, 720.dp),
         ),
         onKeyEvent = { event ->
-            println(event)
-            when {
-                event.key == Key.Spacebar && event.type == KeyEventType.KeyDown -> {
-                    screenNavigationState.next()
-                    true
-                }
-
-                event.key == Key.DirectionRight && event.type == KeyEventType.KeyDown && event.isMetaPressed -> {
-                    screenNavigationState.last()
-                    true
-                }
-
-                event.key == Key.DirectionRight && event.type == KeyEventType.KeyDown -> {
-                    screenNavigationState.next()
-                    true
-                }
-
-                event.key == Key.DirectionLeft && event.type == KeyEventType.KeyDown && event.isMetaPressed -> {
-                    screenNavigationState.first()
-                    true
-                }
-
-                event.key == Key.DirectionLeft && event.type == KeyEventType.KeyDown -> {
-                    screenNavigationState.back()
-                    true
-                }
-
-                else -> false
-            }
+            navigationKeyEvent(
+                event = event,
+                onSpace = { screenNavigationState.next() },
+                onMetaRight = { screenNavigationState.last() },
+                onRight = { screenNavigationState.next() },
+                onMetaLeft = { screenNavigationState.first() },
+                onLeft = { screenNavigationState.back() },
+            )
         }
     ) {
         App(

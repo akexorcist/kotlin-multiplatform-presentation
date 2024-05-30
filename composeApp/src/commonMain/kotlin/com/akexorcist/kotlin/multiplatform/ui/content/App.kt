@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.feature
+package com.akexorcist.kotlin.multiplatform.ui.content
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,15 +10,17 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 
-import com.akexorcist.kotlin.multiplatform.ui.feature.aboutkotlin.aboutKotlin
-import com.akexorcist.kotlin.multiplatform.ui.feature.aboutkotlin.navigateToAboutKotlin
-import com.akexorcist.kotlin.multiplatform.ui.feature.introduction.introduction
-import com.akexorcist.kotlin.multiplatform.ui.feature.introduction.navigateToIntroduction
+import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.aboutKotlin
+import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.navigateToAboutKotlin
+import com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder.cameraViewFinder
+import com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder.navigateToCameraViewFinder
+import com.akexorcist.kotlin.multiplatform.ui.content.introduction.introduction
+import com.akexorcist.kotlin.multiplatform.ui.content.introduction.navigateToIntroduction
 import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
-import com.akexorcist.kotlin.multiplatform.ui.feature.thankyou.navigateToThankYou
-import com.akexorcist.kotlin.multiplatform.ui.feature.thankyou.thankYou
+import com.akexorcist.kotlin.multiplatform.ui.content.thankyou.navigateToThankYou
+import com.akexorcist.kotlin.multiplatform.ui.content.thankyou.thankYou
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
@@ -32,6 +34,7 @@ fun App(
         when (currentScreen) {
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
+            Screen.CameraViewFinder -> navController.navigateToCameraViewFinder()
             Screen.ThankYou -> navController.navigateToThankYou()
         }
     }
@@ -55,6 +58,7 @@ fun App(
                 ) {
                     introduction()
                     aboutKotlin()
+                    cameraViewFinder()
                     thankYou()
                 }
             }

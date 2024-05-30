@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.feature.aboutkotlin
+package com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -9,12 +9,14 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 
+private val Route = Screen.AboutKotlin.name
+
 fun NavController.navigateToAboutKotlin() {
-    navigate(Screen.AboutKotlin.name)
+    navigate(Route)
 }
 
 fun NavGraphBuilder.aboutKotlin() {
-    composable(route = Screen.AboutKotlin.name) {
+    composable(route = Route) {
         AboutKotlinScreen()
     }
 }

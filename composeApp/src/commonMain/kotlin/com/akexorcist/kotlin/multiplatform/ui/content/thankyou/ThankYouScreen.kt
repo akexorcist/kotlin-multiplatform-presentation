@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.feature.thankyou
+package com.akexorcist.kotlin.multiplatform.ui.content.thankyou
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -10,12 +10,14 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.component.template.FullCustomTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 
+private val Route = Screen.ThankYou.name
+
 fun NavController.navigateToThankYou() {
-    navigate(Screen.ThankYou.name)
+    navigate(Route)
 }
 
 fun NavGraphBuilder.thankYou() {
-    composable(route = Screen.ThankYou.name) {
+    composable(route = Route) {
         ThankYouScreen()
     }
 }
