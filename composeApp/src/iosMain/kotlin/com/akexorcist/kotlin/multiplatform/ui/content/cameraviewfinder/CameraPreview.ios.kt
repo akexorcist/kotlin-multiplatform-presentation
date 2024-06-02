@@ -1,6 +1,8 @@
 package com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -9,8 +11,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.interop.UIKitView
+import cocoapods.iosPreviewView.IOPreviewView
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -19,29 +23,30 @@ import platform.AVFoundation.AVAuthorizationStatus
 import platform.AVFoundation.AVAuthorizationStatusAuthorized
 import platform.AVFoundation.AVAuthorizationStatusNotDetermined
 import platform.AVFoundation.AVCaptureDevice
+import platform.AVFoundation.AVCaptureDeviceInput
+import platform.AVFoundation.AVCaptureDevicePositionFront
+import platform.AVFoundation.AVCaptureDeviceTypeBuiltInWideAngleCamera
 import platform.AVFoundation.AVCaptureSession
+import platform.AVFoundation.AVCaptureSessionPresetHigh
 import platform.AVFoundation.AVMediaTypeVideo
 import platform.AVFoundation.authorizationStatusForMediaType
+import platform.AVFoundation.defaultDeviceWithDeviceType
 import platform.AVFoundation.requestAccessForMediaType
-import platform.UIKit.UIView
 
 @OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun CameraPreview(modifier: Modifier) {
-//    val previewView = remember {
-//        CaptureSessionPreview()
-//    }
-
+    val previewView = remember { IOPreviewView() }
     val coroutineScope = rememberCoroutineScope()
     val session = remember { AVCaptureSession() }
     var cameraAccessStatus by remember { mutableStateOf(CameraAccessStatus.Denied) }
+    var videoDeviceInput by remember { mutableStateOf<AVCaptureDeviceInput?>(null) }
 
     DisposableEffect(cameraAccessStatus) {
         when (cameraAccessStatus) {
             CameraAccessStatus.Granted -> {
-                println("startRunning")
                 coroutineScope.launch(Dispatchers.IO) {
-                    session.startRunning()
+                    videoDeviceInput = startVideoSession(session)
                 }
                 onDispose {
 //                    coroutineScope.launch(Dispatchers.IO) {
@@ -76,33 +81,47 @@ actual fun CameraPreview(modifier: Modifier) {
         }
     }
 
-    Column(modifier) {
-//        UIKitView(
-//            modifier = Modifier,
-//            interactive = true,
-//            factory = {
-//                previewView
-//            },
-//            update = {
-//
-//            }
-//        )
-        Awesome()
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center,
+    ) {
+        if (videoDeviceInput != null) {
+            UIKitView(
+                modifier = Modifier,
+                interactive = true,
+                factory = {
+                    previewView.apply {
+                        println("Set camera session")
+                        setSession(session)
+                    }
+                },
+                update = {
+                }
+            )
+        } else {
+            Text(text = "Camera is not available on this device.")
+        }
     }
 }
 
 @OptIn(ExperimentalForeignApi::class)
-@Composable
-fun Awesome(modifier: Modifier = Modifier) {
-    UIKitView(
-        modifier = modifier,
-        interactive = false,
-        factory = {
-            UIView().apply {
-
-            }
-        },
-    )
+private fun startVideoSession(session: AVCaptureSession): AVCaptureDeviceInput? {
+    with(session) {
+        beginConfiguration()
+        sessionPreset = AVCaptureSessionPresetHigh
+        val videoDevice = AVCaptureDevice.defaultDeviceWithDeviceType(
+            deviceType = AVCaptureDeviceTypeBuiltInWideAngleCamera,
+            mediaType = AVMediaTypeVideo,
+            position = AVCaptureDevicePositionFront,
+        ) ?: return null
+        val videoDeviceInput = AVCaptureDeviceInput(videoDevice, null)
+        if (canAddInput(videoDeviceInput)) {
+            addInput(videoDeviceInput)
+        } else return null
+        commitConfiguration()
+        startRunning()
+        return videoDeviceInput
+    }
 }
 
 private enum class CameraAccessStatus {
