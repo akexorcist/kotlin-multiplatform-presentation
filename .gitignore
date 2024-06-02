@@ -17,3 +17,5 @@ captures
 **/xcshareddata/WorkspaceSettings.xcsettings
 .fleet
 .kotlin
+iosApp/Pods
+composeApp/composeApp.podspec

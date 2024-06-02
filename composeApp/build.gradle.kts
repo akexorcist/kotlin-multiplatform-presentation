@@ -1,12 +1,15 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.plugin.cocoapods.CocoapodsExtension
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import java.net.URI
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.kotlinComposePlugin)
+    kotlin("native.cocoapods")
     id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
@@ -52,6 +55,27 @@ kotlin {
             baseName = "ComposeApp"
             isStatic = true
         }
+    }
+
+    cocoapods {
+        version = "1.0.0"
+        summary = "Kotlin Multiplatform Library"
+        ios.deploymentTarget = "17.0"
+        homepage = "https://github.com/akexorcist/compose-multiplatform"
+        license = "Apache 2.0"
+        podfile = project.file("../iosApp/Podfile")
+
+//        framework {
+//            baseName = "ComposeApp"
+//            isStatic = false
+//        }
+//        pod("common-ui-kit") {
+//            source = CocoapodsExtension.CocoapodsDependency.PodLocation.Git(
+//                url = URI.create("https://github.com/akexorcist/common-ui-kit.git"),
+//                tag = "1.0.0-alpha02"
+//            )
+//            git("https://github.com/akexorcist/common-ui-kit")
+//        }
     }
 
     sourceSets {

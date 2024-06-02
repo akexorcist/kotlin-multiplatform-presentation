@@ -21,22 +21,18 @@ struct ContentView: View {
     
     var body: some View {
         ComposeView(navigation: navigation)
-            .onKeyPress(.leftArrow) {
-                navigation.onLeftPressed()
-                return .handled
-            }
-            .onKeyPress(.rightArrow) {
-                navigation.onRightPressed()
-                return .handled
-            }
-            .onKeyPress(.rightArrow) {
-                navigation.onSpacePressed()
-                return .handled
-            }
-            .onKeyPress(.space) {
-                navigation.onSpacePressed()
-                return .handled
-            }
+//            .onKeyPress(.leftArrow) {
+//                navigation.onLeftPressed()
+//                return .handled
+//            }
+//            .onKeyPress(.rightArrow) {
+//                navigation.onRightPressed()
+//                return .handled
+//            }
+//            .onKeyPress(.space) {
+//                navigation.onSpacePressed()
+//                return .handled
+//            }
             .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
     }
 }
