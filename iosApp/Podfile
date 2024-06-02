@@ -1,9 +1,7 @@
-use_frameworks!
-platform :ios, '17.0'
-
 target 'iosApp' do
+    use_frameworks!
+    platform :ios, '17.0'
 
-  # Pods for iosApp
-#  pod 'composeApp', :path => '../composeApp'
-#   pod 'CommonUiKit', :git => 'https://github.com/akexorcist/common-ui-kit'
+    pod 'composeApp', :path => '../composeApp'
+    pod 'iosPreviewView', :path => '../iosPreviewView'
 end

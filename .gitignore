@@ -19,3 +19,4 @@ captures
 .kotlin
 iosApp/Pods
 composeApp/composeApp.podspec
+iosApp/Podfile.lock

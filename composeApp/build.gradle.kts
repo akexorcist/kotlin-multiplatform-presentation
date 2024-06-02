@@ -1,8 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.plugin.cocoapods.CocoapodsExtension
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
-import java.net.URI
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -46,16 +44,9 @@ kotlin {
 
     jvm("desktop")
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     cocoapods {
         version = "1.0.0"
@@ -66,16 +57,13 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
 
         framework {
-            baseName = "composeApp"
-            isStatic = true
+            baseName = "ComposeApp"
+            isStatic = false
         }
-//        pod("CommonUiKit") {
-//            source = CocoapodsExtension.CocoapodsDependency.PodLocation.Git(
-//                url = URI.create("https://github.com/Akexorcist/common-ui-kit"),
-//                tag = "0.1.0"
-//            )
-//            git("https://github.com/akexorcist/common-ui-kit")
-//        }
+        pod("iosPreviewView") {
+            version = "0.1.0"
+            source = path(project.file("../iosPreviewView"))
+        }
     }
 
     sourceSets {
