@@ -65,14 +65,14 @@ kotlin {
         license = "Apache 2.0"
         podfile = project.file("../iosApp/Podfile")
 
-//        framework {
-//            baseName = "ComposeApp"
-//            isStatic = false
-//        }
-//        pod("common-ui-kit") {
+        framework {
+            baseName = "composeApp"
+            isStatic = true
+        }
+//        pod("CommonUiKit") {
 //            source = CocoapodsExtension.CocoapodsDependency.PodLocation.Git(
-//                url = URI.create("https://github.com/akexorcist/common-ui-kit.git"),
-//                tag = "1.0.0-alpha02"
+//                url = URI.create("https://github.com/Akexorcist/common-ui-kit"),
+//                tag = "0.1.0"
 //            )
 //            git("https://github.com/akexorcist/common-ui-kit")
 //        }

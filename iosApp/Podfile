@@ -4,6 +4,6 @@ platform :ios, '17.0'
 target 'iosApp' do
 
   # Pods for iosApp
-  pod 'composeApp', :path => '../composeApp'
-#  pod 'common-ui-kit', :git => 'https://github.com/akexorcist/common-ui-kit.git'
+#  pod 'composeApp', :path => '../composeApp'
+#   pod 'CommonUiKit', :git => 'https://github.com/akexorcist/common-ui-kit'
 end
