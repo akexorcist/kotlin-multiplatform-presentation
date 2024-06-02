@@ -16,6 +16,8 @@ import com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder.cameraVie
 import com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder.navigateToCameraViewFinder
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.introduction
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.navigateToIntroduction
+import com.akexorcist.kotlin.multiplatform.ui.content.maps.googleMaps
+import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToGoogleMaps
 import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
@@ -34,6 +36,7 @@ fun App(
         when (currentScreen) {
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
+            Screen.GoogleMaps -> navController.navigateToGoogleMaps()
             Screen.CameraViewFinder -> navController.navigateToCameraViewFinder()
             Screen.ThankYou -> navController.navigateToThankYou()
         }
@@ -47,8 +50,8 @@ fun App(
                     currentScreen = currentScreen,
                     onPreviousClicked = { screenNavigationState.back() },
                     onNextClicked = { screenNavigationState.next() },
-                    onGoToFirstClicked ={ screenNavigationState.first() },
-                    onGoToLastClicked ={ screenNavigationState.last() },
+                    onGoToFirstClicked = { screenNavigationState.first() },
+                    onGoToLastClicked = { screenNavigationState.last() },
                 )
             },
             content = {
@@ -58,6 +61,7 @@ fun App(
                 ) {
                     introduction()
                     aboutKotlin()
+                    googleMaps()
                     cameraViewFinder()
                     thankYou()
                 }
@@ -65,23 +69,6 @@ fun App(
         )
     }
 }
-
-//@Composable
-//private fun Demo() {
-//    var showContent by remember { mutableStateOf(false) }
-//    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//        Button(onClick = { showContent = !showContent }) {
-//            Text1("Click me!")
-//        }
-//        AnimatedVisibility(showContent) {
-//            val greeting = remember { Greeting().greet() }
-//            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//                Image(painterResource(Res.drawable.compose_multiplatform), null)
-//                Text1("Compose: $greeting")
-//            }
-//        }
-//    }
-//}
 
 @Composable
 fun AppScaffold(
@@ -91,13 +78,15 @@ fun AppScaffold(
 ) {
     Box(modifier = modifier) {
         content()
-        Box(
+        Row(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-            contentAlignment = Alignment.BottomEnd,
+            verticalAlignment = Alignment.Bottom,
+            horizontalArrangement = Arrangement.End,
         ) {
             navigationBar()
+            Spacer(Modifier.width(80.dp))
         }
     }
 }

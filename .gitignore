@@ -20,3 +20,4 @@ captures
 iosApp/Pods
 composeApp/composeApp.podspec
 iosApp/Podfile.lock
+secrets.properties

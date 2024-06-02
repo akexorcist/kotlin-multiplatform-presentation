@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.kotlinComposePlugin)
     kotlin("native.cocoapods")
     id("org.openjfx.javafxplugin") version "0.1.0"
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 kotlin {
@@ -80,6 +81,7 @@ kotlin {
             implementation("androidx.camera:camera-lifecycle:1.3.3")
             implementation("androidx.camera:camera-view:1.3.3")
             implementation("com.markodevcic:peko:3.0.5")
+            implementation("com.google.maps.android:maps-compose:5.0.1")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -144,6 +146,10 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
+}
+
+secrets {
+    propertiesFileName = "secrets.properties"
 }
 
 compose.desktop {

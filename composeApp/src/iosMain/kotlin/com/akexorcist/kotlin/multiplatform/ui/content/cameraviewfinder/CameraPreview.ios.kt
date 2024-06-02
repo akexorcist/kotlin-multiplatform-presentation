@@ -1,7 +1,6 @@
 package com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
