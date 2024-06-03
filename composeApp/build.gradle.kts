@@ -59,11 +59,15 @@ kotlin {
 
         framework {
             baseName = "ComposeApp"
-            isStatic = false
+            isStatic = true
         }
         pod("iosPreviewView") {
             version = "0.1.0"
             source = path(project.file("../iosPreviewView"))
+        }
+        pod("GoogleMaps") {
+            version = "9.0.0"
+            extraOpts += listOf("-compiler-option", "-fmodules")
         }
     }
 

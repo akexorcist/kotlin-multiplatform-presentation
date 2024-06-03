@@ -21,3 +21,4 @@ iosApp/Pods
 composeApp/composeApp.podspec
 iosApp/Podfile.lock
 secrets.properties
+iosApp/iosApp/AppSecrets.plist

@@ -1,6 +1,7 @@
 import UIKit
 import SwiftUI
 import ComposeApp
+import GoogleMaps
 
 struct ComposeView: UIViewControllerRepresentable {
     private let navigation: PlatformKeyboardNavigation
@@ -10,10 +11,18 @@ struct ComposeView: UIViewControllerRepresentable {
     }
     
     func makeUIViewController(context: Context) -> UIViewController {
-        MainViewControllerKt.MainViewController(navigation: navigation)
+        setupGoogleMaps()
+        return MainViewControllerKt.MainViewController(navigation: navigation)
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    
+    private func setupGoogleMaps() {
+        let filePath = Bundle.main.path(forResource: "AppSecrets", ofType: "plist")!
+        let plist = NSDictionary(contentsOfFile: filePath)!
+        let googleMapsApiKey = plist["GOOGLE_MAPS_API_KEY"] as! String
+        GMSServices.provideAPIKey(googleMapsApiKey)
+    }
 }
 
 struct ContentView: View {
