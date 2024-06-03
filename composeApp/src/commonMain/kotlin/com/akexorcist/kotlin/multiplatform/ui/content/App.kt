@@ -12,12 +12,12 @@ import androidx.navigation.compose.rememberNavController
 
 import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.aboutKotlin
 import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.navigateToAboutKotlin
-import com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder.cameraViewFinder
-import com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder.navigateToCameraViewFinder
+import com.akexorcist.kotlin.multiplatform.ui.content.camera.cameraViewFinder
+import com.akexorcist.kotlin.multiplatform.ui.content.camera.navigateToCameraViewFinder
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.introduction
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.navigateToIntroduction
-import com.akexorcist.kotlin.multiplatform.ui.content.maps.googleMaps
-import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToGoogleMaps
+import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
+import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
 import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
@@ -36,7 +36,7 @@ fun App(
         when (currentScreen) {
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
-            Screen.GoogleMaps -> navController.navigateToGoogleMaps()
+            Screen.Map -> navController.navigateToMap()
             Screen.CameraViewFinder -> navController.navigateToCameraViewFinder()
             Screen.ThankYou -> navController.navigateToThankYou()
         }
@@ -61,7 +61,7 @@ fun App(
                 ) {
                     introduction()
                     aboutKotlin()
-                    googleMaps()
+                    map()
                     cameraViewFinder()
                     thankYou()
                 }
@@ -78,15 +78,13 @@ fun AppScaffold(
 ) {
     Box(modifier = modifier) {
         content()
-        Row(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.End,
+            contentAlignment = Alignment.BottomCenter,
         ) {
             navigationBar()
-            Spacer(Modifier.width(80.dp))
         }
     }
 }

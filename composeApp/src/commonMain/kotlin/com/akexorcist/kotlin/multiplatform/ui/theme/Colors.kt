@@ -18,6 +18,7 @@ object ThemeColors {
     val DarkBackground = Color(0xFF1E1F22)
     val BlackTransparent30 = Color(0x0A000000)
     val BorderPrimary = TextPrimary
+    val White = Color.White
 }
 
 sealed class BackgroundColor(val color: Color) {
@@ -28,7 +29,7 @@ sealed class BackgroundColor(val color: Color) {
     data object Gray : BackgroundColor(ThemeColors.GrayBackground)
     data object Code : BackgroundColor(ThemeColors.DarkBackground)
     data object IconButton : BackgroundColor(ThemeColors.BlackTransparent30)
-    data object Bar : BackgroundColor(ThemeColors.BlackTransparent30)
+    data object Bar : BackgroundColor(ThemeColors.White)
 }
 
 sealed class TagColor(val color: Color) {
