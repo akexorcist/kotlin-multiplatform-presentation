@@ -7,7 +7,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.interop.UIKitView
 import cocoapods.GoogleMaps.GMSCameraPosition
-import cocoapods.GoogleMaps.GMSCameraPosition.Companion.cameraWithLatitude
 import cocoapods.GoogleMaps.GMSMapView
 import cocoapods.GoogleMaps.GMSMapViewDelegateProtocol
 import cocoapods.GoogleMaps.GMSMarker
@@ -17,7 +16,7 @@ import platform.darwin.NSObject
 
 @OptIn(ExperimentalForeignApi::class)
 @Composable
-actual fun GoogleMapsContent(modifier: Modifier) {
+actual fun MapContent(modifier: Modifier) {
     val bangkok = remember { Pair(13.7563, 100.5018) }
     val googleMapView = remember {
         GMSMapView().apply {

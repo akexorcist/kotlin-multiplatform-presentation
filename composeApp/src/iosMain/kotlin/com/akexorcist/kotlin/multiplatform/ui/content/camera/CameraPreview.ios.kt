@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder
+package com.akexorcist.kotlin.multiplatform.ui.content.camera
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.Text

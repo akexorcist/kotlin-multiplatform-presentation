@@ -9,4 +9,3 @@ actual fun getPlatform(): Platform = IOSPlatform()
 actual fun getDeviceInformation(): List<String> {
     return listOf()
 }
-

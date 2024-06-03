@@ -22,3 +22,4 @@ composeApp/composeApp.podspec
 iosApp/Podfile.lock
 secrets.properties
 iosApp/iosApp/AppSecrets.plist
+kotlin-js-store/yarn.lock

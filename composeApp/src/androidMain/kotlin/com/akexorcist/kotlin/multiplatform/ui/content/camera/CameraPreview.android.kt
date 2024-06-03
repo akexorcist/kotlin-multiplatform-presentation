@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.cameraviewfinder
+package com.akexorcist.kotlin.multiplatform.ui.content.camera
 
 import android.Manifest
 import android.content.Context

@@ -12,7 +12,7 @@ import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
-actual fun GoogleMapsContent(modifier: Modifier) {
+actual fun MapContent(modifier: Modifier) {
     val bangkok = remember { LatLng(13.7563, 100.5018) }
     val markerState = remember { MarkerState(position = bangkok) }
     val cameraPositionState = rememberCameraPositionState {

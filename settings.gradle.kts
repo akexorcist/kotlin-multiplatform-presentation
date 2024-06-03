@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 rootProject.name = "KotlinMultiplatform"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
@@ -25,7 +27,8 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
-        maven { setUrl("https://jitpack.io") }
+        maven(url = "https://jitpack.io")
+        maven(url = "https://josm.openstreetmap.de/nexus/content/repositories/releases/")
     }
 }
 

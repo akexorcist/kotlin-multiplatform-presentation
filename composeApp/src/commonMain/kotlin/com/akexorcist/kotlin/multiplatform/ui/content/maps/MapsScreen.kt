@@ -11,31 +11,31 @@ import com.akexorcist.kotlin.multiplatform.ui.component.template.CustomContentTe
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-private val Route = Screen.GoogleMaps.name
+private val Route = Screen.Map.name
 
-fun NavController.navigateToGoogleMaps() {
+fun NavController.navigateToMap() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.googleMaps() {
+fun NavGraphBuilder.map() {
     composable(route = Route) {
-        GoogleMapsScreen()
+        MapScreen()
     }
 }
 
 @Composable
-fun GoogleMapsScreen() {
+fun MapScreen() {
     CustomContentTemplate(
-        title = "Google Maps Showcase",
+        title = "Map Showcase",
         content = "",
-        custom = { GoogleMapsContent(modifier = Modifier.fillMaxSize()) },
+        custom = { MapContent(modifier = Modifier.fillMaxSize()) },
     )
 }
 
 @Preview
 @Composable
-fun GoogleMapsScreenPreview() {
+fun MapScreenPreview() {
     MaterialTheme {
-        GoogleMapsScreen()
+        MapScreen()
     }
 }
