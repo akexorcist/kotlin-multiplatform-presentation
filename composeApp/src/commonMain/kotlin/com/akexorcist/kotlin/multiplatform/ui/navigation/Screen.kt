@@ -5,6 +5,7 @@ enum class Screen {
     AboutKotlin,
     Map,
     CameraViewFinder,
+    DayAndNight,
     ThankYou,
 }
 
@@ -13,5 +14,6 @@ val IndexedScreens = listOf(
     Screen.AboutKotlin,
     Screen.Map,
     Screen.CameraViewFinder,
+    Screen.DayAndNight,
     Screen.ThankYou,
 )

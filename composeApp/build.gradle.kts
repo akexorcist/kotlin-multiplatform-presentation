@@ -74,8 +74,6 @@ kotlin {
             implementation(libs.compose.ui.tooling)
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
-            implementation(libs.compose.ui.tooling)
-            implementation(libs.compose.ui.tooling.preview)
             implementation(libs.compose.runtime.livedata)
             implementation("androidx.camera:camera-camera2:1.3.3")
             implementation("androidx.camera:camera-lifecycle:1.3.3")
@@ -95,6 +93,8 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("dev.snipme:highlights:0.9.0")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+            implementation("com.akexorcist.kotlin.multiplatform:dayandnight:1.0.0")
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

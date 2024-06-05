@@ -14,6 +14,8 @@ import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.aboutKotlin
 import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.navigateToAboutKotlin
 import com.akexorcist.kotlin.multiplatform.ui.content.camera.cameraViewFinder
 import com.akexorcist.kotlin.multiplatform.ui.content.camera.navigateToCameraViewFinder
+import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.dayAndNight
+import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.navigateToDayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.introduction
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.navigateToIntroduction
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
@@ -38,6 +40,7 @@ fun App(
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
             Screen.Map -> navController.navigateToMap()
             Screen.CameraViewFinder -> navController.navigateToCameraViewFinder()
+            Screen.DayAndNight -> navController.navigateToDayAndNight()
             Screen.ThankYou -> navController.navigateToThankYou()
         }
     }
@@ -63,6 +66,7 @@ fun App(
                     aboutKotlin()
                     map()
                     cameraViewFinder()
+                    dayAndNight()
                     thankYou()
                 }
             }
