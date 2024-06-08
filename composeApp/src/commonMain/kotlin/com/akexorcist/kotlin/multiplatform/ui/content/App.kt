@@ -14,6 +14,8 @@ import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.aboutKotlin
 import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.navigateToAboutKotlin
 import com.akexorcist.kotlin.multiplatform.ui.content.camera.cameraViewFinder
 import com.akexorcist.kotlin.multiplatform.ui.content.camera.navigateToCameraViewFinder
+import com.akexorcist.kotlin.multiplatform.ui.content.cover.cover
+import com.akexorcist.kotlin.multiplatform.ui.content.cover.navigateToCover
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.dayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.navigateToDayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.introduction
@@ -36,6 +38,7 @@ fun App(
 
     LaunchedEffect(currentScreen) {
         when (currentScreen) {
+            Screen.Cover -> navController.navigateToCover()
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
             Screen.Map -> navController.navigateToMap()
@@ -62,6 +65,7 @@ fun App(
                     navController = navController,
                     startDestination = currentScreen.name,
                 ) {
+                    cover()
                     introduction()
                     aboutKotlin()
                     map()

@@ -6,7 +6,7 @@ import androidx.compose.runtime.*
 fun rememberScreenNavigationState() = remember { ScreenNavigationState() }
 
 class ScreenNavigationState {
-    var currentScreen by mutableStateOf(Screen.Introduction)
+    var currentScreen by mutableStateOf(IndexedScreens.first())
         private set
 
     fun next() {
