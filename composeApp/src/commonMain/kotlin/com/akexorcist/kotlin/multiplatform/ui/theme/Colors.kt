@@ -19,6 +19,16 @@ object ThemeColors {
     val BlackTransparent30 = Color(0x0A000000)
     val BorderPrimary = TextPrimary
     val White = Color.White
+
+    val BlueEvent = Color(0xFF4285F4)
+    val GreenEvent = Color(0xFF34A853)
+    val YellowEvent = Color(0xFFFBBC04)
+    val RedEvent = Color(0xFFEA4335)
+    val YellowBlend = Color(0xFFFFCB32)
+    val PurpleBlend = Color(0xFF9F6CD4)
+    val OrangeBlend = Color(0xFFF46831)
+    val GreenBlend = Color(0xFFAEBC44)
+    val GrayEvent = Color(0xFFEEEEEE)
 }
 
 sealed class BackgroundColor(val color: Color) {
@@ -37,6 +47,30 @@ sealed class TagColor(val color: Color) {
     data object Yellow : TagColor(ThemeColors.YellowLight)
     data object Blue : TagColor(ThemeColors.BlueLight)
     data object White : TagColor(Color.White)
+}
+
+sealed class GradientColor(
+    val from: Color,
+    val middle: Color,
+    val to: Color
+) {
+    data object BlueRed : GradientColor(
+        from = ThemeColors.BlueEvent,
+        middle = ThemeColors.PurpleBlend,
+        to = ThemeColors.RedEvent,
+    )
+
+    data object YellowGreen : GradientColor(
+        from = ThemeColors.YellowEvent,
+        middle = ThemeColors.GreenBlend,
+        to = ThemeColors.GreenEvent,
+    )
+
+    data object YellowRed : GradientColor(
+        from = ThemeColors.YellowEvent,
+        middle = ThemeColors.OrangeBlend,
+        to = ThemeColors.RedEvent,
+    )
 }
 
 sealed class TextColor(val color: Color) {
