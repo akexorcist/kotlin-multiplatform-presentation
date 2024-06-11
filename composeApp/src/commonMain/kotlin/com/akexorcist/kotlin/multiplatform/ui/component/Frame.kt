@@ -25,7 +25,7 @@ private fun Modifier.frameBorder(cornerRadius: Dp, borderWidth: Dp) = this.borde
     shape = RoundedCornerShape(cornerRadius),
 )
 
-enum class FrameSize(
+enum class DoubleFrameSize(
     val spacing: Dp,
     val cornerRadius: Dp,
     val borderWidth: Dp,
@@ -38,7 +38,7 @@ enum class FrameSize(
 fun DoubleFrame(
     modifier: Modifier = Modifier,
     gradientColor: GradientColor = GradientColor.BlueRed,
-    size: FrameSize = FrameSize.Large,
+    size: DoubleFrameSize = DoubleFrameSize.Large,
     content: @Composable BoxScope.() -> Unit,
 ) {
     Box(
@@ -87,11 +87,76 @@ fun DoubleFrame(
                         borderWidth = size.borderWidth,
                     )
                     .clip(frameShape(size.cornerRadius))
-                    .background(BackgroundColor.Gray.color)
+                    .background(BackgroundColor.GrayEvent.color)
             ) {
                 content()
             }
             Spacer(modifier = Modifier.height(size.spacing * 2))
+        }
+    }
+}
+
+private val SingleFrameCornerRadius = 36.dp
+private val SingleFrameBorderWidth = 2.dp
+private val SingleFrameSpacing = 24.dp
+
+@Composable
+fun SingleFrame(
+    modifier: Modifier = Modifier,
+    gradientColor: GradientColor = GradientColor.BlueRed,
+    content: @Composable BoxScope.() -> Unit,
+) {
+    Box(
+        modifier = modifier
+            .frameBorder(
+                cornerRadius = SingleFrameCornerRadius,
+                borderWidth = SingleFrameBorderWidth,
+            )
+            .clip(frameShape(SingleFrameCornerRadius)),
+    ) {
+        Spacer(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(SingleFrameSpacing * 5)
+                .align(Alignment.BottomCenter)
+                .background(
+                    brush = Brush.linearGradient(
+                        colorStops = arrayOf(
+                            0.1f to gradientColor.from,
+                            0.5f to gradientColor.middle,
+                            1f to gradientColor.to,
+                        ),
+                    ),
+                )
+        )
+//        Column(modifier = Modifier.fillMaxSize()) {
+//            Spacer(
+//                modifier = Modifier
+//                    .weight(1f)
+//                    .fillMaxWidth()
+//                    .frameBorder(
+//                        cornerRadius = size.cornerRadius,
+//                        borderWidth = size.borderWidth,
+//                    )
+//            )
+//            Spacer(modifier = Modifier.height(size.spacing))
+//        }
+
+        Column(modifier = Modifier.fillMaxSize()) {
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .frameBorder(
+                        cornerRadius = SingleFrameCornerRadius,
+                        borderWidth = SingleFrameBorderWidth,
+                    )
+                    .clip(frameShape(SingleFrameCornerRadius))
+                    .background(BackgroundColor.GrayEvent.color)
+            ) {
+                content()
+            }
+            Spacer(modifier = Modifier.height(SingleFrameSpacing * 2))
         }
     }
 }

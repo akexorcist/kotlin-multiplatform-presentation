@@ -7,8 +7,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.akexorcist.kotlin.multiplatform.ui.component.template.CustomContentTemplate
+import com.akexorcist.kotlin.multiplatform.ui.component.TagData
+import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomContentTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 private val Route = Screen.Map.name
@@ -25,10 +27,14 @@ fun NavGraphBuilder.map() {
 
 @Composable
 fun MapScreen() {
-    CustomContentTemplate(
+    RightCustomContentTemplate(
         title = "Map Showcase",
-        content = "",
-        custom = { MapContent(modifier = Modifier.fillMaxSize()) },
+        description = "",
+        tag = TagData(
+            text = "Camera",
+            background = GradientColor.BlueRed
+        ),
+        content = { MapContent(modifier = Modifier.fillMaxSize()) },
     )
 }
 

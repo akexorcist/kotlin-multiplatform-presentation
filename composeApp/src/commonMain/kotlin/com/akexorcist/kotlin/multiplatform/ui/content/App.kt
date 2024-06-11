@@ -7,6 +7,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 
@@ -22,6 +23,7 @@ import com.akexorcist.kotlin.multiplatform.ui.content.introduction.introduction
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.navigateToIntroduction
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
+import com.akexorcist.kotlin.multiplatform.ui.content.preview.*
 import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
@@ -38,6 +40,20 @@ fun App(
 
     LaunchedEffect(currentScreen) {
         when (currentScreen) {
+            Screen.TitleTemplate -> navController.navigateToTitleTemplate()
+            Screen.SectionTitleTemplate -> navController.navigateToSectionTitleTemplate()
+            Screen.DefaultTemplate -> navController.navigateToDefaultTemplate()
+            Screen.RightFrameTemplate -> navController.navigateToRightFrameTemplate()
+            Screen.LeftFrameTemplate -> navController.navigateToLeftFrameTemplate()
+            Screen.LargeFrameTemplate -> navController.navigateToLargeFrameTemplate()
+            Screen.HighlightStatisticTemplate -> navController.navigateToHighlightStatisticTemplate()
+            Screen.MultipleContentTemplate -> navController.navigateToMultipleContentTemplate()
+            Screen.MultipleIconContentTemplate -> navController.navigateToMultipleIconContentTemplate()
+            Screen.RightCustomContentTemplate -> navController.navigateToRightCustomContentTemplate()
+            Screen.FullCustomTemplate -> navController.navigateToFullCustomTemplate()
+            Screen.CodeTemplate -> navController.navigateToCodeTemplate()
+            Screen.CodeCustomContentTemplate -> navController.navigateToCodeCustomContent()
+            Screen.ThankYouTemplate -> navController.navigateToThankYouTemplate()
             Screen.Cover -> navController.navigateToCover()
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
@@ -48,7 +64,13 @@ fun App(
         }
     }
 
-    MaterialTheme {
+    MaterialTheme(
+        typography = MaterialTheme.typography.copy(
+            h4 = MaterialTheme.typography.h4.copy(
+                lineHeight = 48.sp,
+            ),
+        )
+    ) {
         AppScaffold(
             modifier = Modifier.background(BackgroundColor.White.color),
             navigationBar = {
@@ -65,6 +87,20 @@ fun App(
                     navController = navController,
                     startDestination = currentScreen.name,
                 ) {
+                    titleTemplate()
+                    sectionTitleTemplate()
+                    defaultTemplate()
+                    rightFrameTemplate()
+                    leftFrameTemplate()
+                    largeFrameTemplate()
+                    highlightStatisticTemplate()
+                    multipleContentTemplate()
+                    multipleIconContentTemplate()
+                    rightCustomContentTemplate()
+                    fullCustomTemplate()
+                    codeTemplate()
+                    codeCustomContentTemplate()
+                    thankYouTemplate()
                     cover()
                     introduction()
                     aboutKotlin()

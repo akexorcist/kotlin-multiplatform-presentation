@@ -14,7 +14,6 @@ object ThemeColors {
 
     val TextPrimary = Color(0xFF202124)
 
-    val GrayBackground = Color(0xFFE8EAED)
     val DarkBackground = Color(0xFF1E1F22)
     val BlackTransparent30 = Color(0x0A000000)
     val BorderPrimary = TextPrimary
@@ -36,7 +35,7 @@ sealed class BackgroundColor(val color: Color) {
     data object Yellow : BackgroundColor(ThemeColors.YellowPrimary)
     data object Blue : BackgroundColor(ThemeColors.BluePrimary)
     data object White : BackgroundColor(Color.White)
-    data object Gray : BackgroundColor(ThemeColors.GrayBackground)
+    data object GrayEvent : BackgroundColor(ThemeColors.GrayEvent)
     data object Code : BackgroundColor(ThemeColors.DarkBackground)
     data object IconButton : BackgroundColor(ThemeColors.BlackTransparent30)
     data object Bar : BackgroundColor(ThemeColors.White)

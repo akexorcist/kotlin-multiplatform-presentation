@@ -5,37 +5,36 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.jetbrains.compose.resources.DrawableResource
-import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
-import com.akexorcist.kotlin.multiplatform.ui.component.Tag
-import com.akexorcist.kotlin.multiplatform.ui.component.TagData
-import com.akexorcist.kotlin.multiplatform.ui.component.TitleText
+import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 
 @Composable
-fun LeftImageTemplate(
+fun LeftFrameTemplate(
     title: String,
-    content: String,
-    image: DrawableResource,
+    description: String,
     tag: TagData? = null,
+    frameColor: GradientColor = GradientColor.BlueRed,
+    content: @Composable BoxScope.() -> Unit,
 ) {
     Row(
-        modifier = Modifier.background(BackgroundColor.White.color),
+        modifier = Modifier
+            .background(BackgroundColor.White.color)
+            .fillMaxSize()
+            .padding(64.dp),
     ) {
-        Box(modifier = Modifier.weight(1f)) {
-            Spacer(
-                modifier = Modifier.background(BackgroundColor.Yellow.color).fillMaxSize()
-            )
-//        Image(
-//            painter = painterResource(image),
-//            contentDescription = "",
-//        )
-        }
+        DoubleFrame(
+            modifier = Modifier
+                .weight(2f)
+                .fillMaxHeight(),
+            gradientColor = frameColor,
+            content = content
+        )
+        Spacer(Modifier.width(64.dp))
         Column(
             modifier = Modifier
-                .weight(1f)
+                .weight(3f)
                 .fillMaxHeight()
-                .padding(64.dp)
         ) {
             if (tag != null) {
                 Tag(data = tag)
@@ -48,7 +47,7 @@ fun LeftImageTemplate(
             Spacer(modifier = Modifier.height(24.dp))
             ContentText(
                 modifier = Modifier.fillMaxWidth(),
-                text = content,
+                text = description,
             )
         }
     }

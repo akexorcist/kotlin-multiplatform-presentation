@@ -13,7 +13,7 @@ import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 fun MultipleContentTemplate(
     title: String,
     contents: List<Pair<String, String>>,
-    tag: TagData? = null,
+    tag: TagData,
 ) {
     Row(
         modifier = Modifier.background(BackgroundColor.White.color),
@@ -23,30 +23,41 @@ fun MultipleContentTemplate(
                 .fillMaxSize()
                 .padding(64.dp)
         ) {
-            if (tag != null) {
-                Tag(data = tag)
-                Spacer(modifier = Modifier.height(48.dp))
+            Tag(data = tag)
+            Spacer(modifier = Modifier.height(48.dp))
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+                verticalArrangement = Arrangement.Bottom,
+            ) {
+                TitleText(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = title,
+                )
+                Spacer(modifier = Modifier.height(32.dp))
             }
-            TitleText(
-                modifier = Modifier.fillMaxWidth(),
-                text = title,
-            )
             Spacer(modifier = Modifier.height(32.dp))
-            Row(modifier = Modifier.fillMaxSize()) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(2f)
+            ) {
                 contents.forEachIndexed { index, (subtitle, content) ->
                     Column(modifier = Modifier.weight(1f)) {
-                        ContentText(
+                        LargeContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = subtitle,
                             fontWeight = FontWeight.SemiBold,
                         )
-                        SmallContentText(
+                        Spacer(modifier = Modifier.height(24.dp))
+                        ContentText(
                             modifier = Modifier.fillMaxWidth(),
                             text = content,
                         )
                     }
                     if (index != contents.lastIndex) {
-                        Spacer(modifier = Modifier.width(36.dp))
+                        Spacer(modifier = Modifier.width(64.dp))
                     }
                 }
             }

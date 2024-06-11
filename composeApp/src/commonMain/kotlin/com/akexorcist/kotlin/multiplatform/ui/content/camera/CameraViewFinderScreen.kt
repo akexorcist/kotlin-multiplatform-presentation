@@ -10,9 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.akexorcist.kotlin.multiplatform.ui.component.template.CustomContentTemplate
+import com.akexorcist.kotlin.multiplatform.ui.component.TagData
+import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomContentTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 private val Route = Screen.CameraViewFinder.name
@@ -29,10 +31,14 @@ fun NavGraphBuilder.cameraViewFinder() {
 
 @Composable
 fun CameraViewFinderScreen() {
-    CustomContentTemplate(
+    RightCustomContentTemplate(
         title = "Camera Showcase",
-        content = "",
-        custom = { ViewFinder(modifier = Modifier.fillMaxSize()) },
+        description = "",
+        tag = TagData(
+            text = "Camera",
+            background = GradientColor.BlueRed
+        ),
+        content = { ViewFinder(modifier = Modifier.fillMaxSize()) },
     )
 }
 
@@ -41,7 +47,7 @@ fun ViewFinder(
     modifier: Modifier = Modifier,
 ) {
     Box(
-        modifier = modifier.background(BackgroundColor.Gray.color),
+        modifier = modifier.background(BackgroundColor.GrayEvent.color),
         contentAlignment = Alignment.Center,
     ) {
         CameraPreview()

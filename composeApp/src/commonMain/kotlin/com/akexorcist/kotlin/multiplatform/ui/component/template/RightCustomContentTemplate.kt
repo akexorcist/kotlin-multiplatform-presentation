@@ -5,22 +5,22 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
-import com.akexorcist.kotlin.multiplatform.ui.component.Tag
-import com.akexorcist.kotlin.multiplatform.ui.component.TagData
-import com.akexorcist.kotlin.multiplatform.ui.component.TitleText
+import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 
 @Composable
-fun CustomContentTemplate(
+fun RightCustomContentTemplate(
     title: String,
-    content: String,
-    custom: @Composable () -> Unit,
-    tag: TagData? = null,
+    description: String,
+    tag: TagData,
+    frameColor: GradientColor = GradientColor.BlueRed,
+    content: @Composable BoxScope.() -> Unit,
 ) {
     Row(
-        modifier = Modifier.background(BackgroundColor.White.color),
+        modifier = Modifier
+            .background(BackgroundColor.White.color)
+            .fillMaxSize(),
     ) {
         Column(
             modifier = Modifier
@@ -28,10 +28,8 @@ fun CustomContentTemplate(
                 .fillMaxHeight()
                 .padding(64.dp)
         ) {
-            if (tag != null) {
-                Tag(data = tag)
-                Spacer(modifier = Modifier.height(48.dp))
-            }
+            Tag(data = tag)
+            Spacer(modifier = Modifier.height(48.dp))
             TitleText(
                 modifier = Modifier.fillMaxWidth(),
                 text = title,
@@ -39,16 +37,16 @@ fun CustomContentTemplate(
             Spacer(modifier = Modifier.height(24.dp))
             ContentText(
                 modifier = Modifier.fillMaxWidth(),
-                text = content,
+                text = description,
             )
         }
+        Spacer(Modifier.width(64.dp))
         Box(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
-                .background(ThemeColors.GrayBackground),
         ) {
-            custom()
+            content()
         }
     }
 }

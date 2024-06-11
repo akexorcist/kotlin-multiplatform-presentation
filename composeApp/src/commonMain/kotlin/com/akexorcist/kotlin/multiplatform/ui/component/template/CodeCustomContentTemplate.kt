@@ -22,7 +22,7 @@ import com.akexorcist.kotlin.multiplatform.ui.component.CodeView
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
-fun CodeWithCustomContent(
+fun CodeCustomContent(
     code: String,
     fontSize: TextUnit = 48.sp,
     custom: @Composable () -> Unit,

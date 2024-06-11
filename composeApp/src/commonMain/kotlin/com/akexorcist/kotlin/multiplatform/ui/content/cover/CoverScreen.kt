@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.akexorcist.kotlin.multiplatform.ui.component.template.CoverTemplate
+import com.akexorcist.kotlin.multiplatform.ui.component.template.TitleTemplate
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 
@@ -23,8 +23,10 @@ fun NavGraphBuilder.cover() {
 
 @Composable
 fun CoverScreen() {
-    CoverTemplate(
+    TitleTemplate(
         title = "Hello! Kotlin Multiplatform",
+        name = "Akexorcist",
+        position = "Android GDE",
     )
 }
 

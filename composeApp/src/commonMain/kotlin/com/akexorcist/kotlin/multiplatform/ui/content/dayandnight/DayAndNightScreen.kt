@@ -14,9 +14,11 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.dayandnight.DayAndNightContainer
 import com.akexorcist.kotlin.multiplatform.dayandnight.DayAndNightSwitch
-import com.akexorcist.kotlin.multiplatform.ui.component.template.CustomContentTemplate
+import com.akexorcist.kotlin.multiplatform.ui.component.TagData
+import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomContentTemplate
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 
 private val Route = Screen.DayAndNight.name
 
@@ -33,10 +35,14 @@ fun NavGraphBuilder.dayAndNight() {
 @Composable
 fun DayAndNightScreen() {
     var selected by remember { mutableStateOf(true) }
-    CustomContentTemplate(
+    RightCustomContentTemplate(
         title = "Day & Night Switch",
-        content = "",
-        custom = {
+        description = "",
+        tag = TagData(
+            text = "Camera",
+            background = GradientColor.BlueRed
+        ),
+        content = {
             DayAndNightContainer(
                 modifier = Modifier.fillMaxSize(),
                 selected = selected,

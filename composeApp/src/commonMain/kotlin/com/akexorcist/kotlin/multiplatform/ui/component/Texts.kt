@@ -29,23 +29,25 @@ fun TitleText(
     )
 }
 
-//@Composable
-//fun SubTitleText(
-//    modifier: Modifier = Modifier,
-//    text: String,
-//    fontWeight: FontWeight = FontWeight.SemiBold,
-//) {
-//    Text(
-//        modifier = modifier,
-//        text = text,
-//        fontSize = MaterialTheme.typography.h3.fontSize,
-//        color = ThemeColors.TextPrimary,
-//        fontStyle = MaterialTheme.typography.h3.fontStyle,
-//        fontWeight = fontWeight,
-//        letterSpacing = MaterialTheme.typography.h3.letterSpacing,
-//        lineHeight = MaterialTheme.typography.h3.lineHeight,
-//    )
-//}
+@Composable
+fun LargeContentText(
+    modifier: Modifier = Modifier,
+    text: String,
+    fontWeight: FontWeight = FontWeight.Normal,
+    alignment: TextAlign? = null
+) {
+    Text(
+        modifier = modifier,
+        text = text,
+        fontSize = MaterialTheme.typography.h3.fontSize,
+        color = TextColor.Default.color,
+        fontStyle = MaterialTheme.typography.h3.fontStyle,
+        fontWeight = fontWeight,
+        letterSpacing = MaterialTheme.typography.h3.letterSpacing,
+        lineHeight = MaterialTheme.typography.h3.lineHeight,
+        textAlign = alignment,
+    )
+}
 
 @Composable
 fun ContentText(
@@ -97,12 +99,12 @@ fun HighlightText(
     Text(
         modifier = modifier,
         text = text,
-        fontSize = 200.sp,
+        fontSize = 240.sp,
         color = TextColor.Blue.color,
         fontStyle = MaterialTheme.typography.h1.fontStyle,
         fontWeight = fontWeight,
         letterSpacing = (-2).sp,
-        lineHeight = 220.sp,
+        lineHeight = 260.sp,
         textAlign = alignment,
     )
 }
