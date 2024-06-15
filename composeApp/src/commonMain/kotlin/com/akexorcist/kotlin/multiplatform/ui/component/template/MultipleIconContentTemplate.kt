@@ -15,12 +15,15 @@ fun MultipleIconContentTemplate(
     tag: TagData,
 ) {
     Row(
-        modifier = Modifier.background(BackgroundColor.White.color),
+        modifier = Modifier.background(BackgroundColor.GrayEvent.color),
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(64.dp)
+                .padding(
+                    vertical = VerticalScreenPadding,
+                    horizontal = HorizontalScreenPadding,
+                ),
         ) {
             Tag(data = tag)
             Spacer(modifier = Modifier.weight(1f))

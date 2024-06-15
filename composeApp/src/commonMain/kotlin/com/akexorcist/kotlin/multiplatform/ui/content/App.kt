@@ -19,8 +19,7 @@ import com.akexorcist.kotlin.multiplatform.ui.content.cover.cover
 import com.akexorcist.kotlin.multiplatform.ui.content.cover.navigateToCover
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.dayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.navigateToDayAndNight
-import com.akexorcist.kotlin.multiplatform.ui.content.introduction.introduction
-import com.akexorcist.kotlin.multiplatform.ui.content.introduction.navigateToIntroduction
+import com.akexorcist.kotlin.multiplatform.ui.content.introduction.*
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
 import com.akexorcist.kotlin.multiplatform.ui.content.preview.*
@@ -40,6 +39,11 @@ fun App(
 
     LaunchedEffect(currentScreen) {
         when (currentScreen) {
+            Screen.Cover -> navController.navigateToCover()
+            Screen.IntroKotlin -> navController.navigateToIntroKotlin()
+            Screen.KotlinAndAndroid -> navController.navigateToKotlinAndAndroid()
+            Screen.KotlinMultiplatform -> navController.navigateToKotlinMultiplatform()
+            Screen.Introduction -> navController.navigateToIntroduction()
             Screen.TitleTemplate -> navController.navigateToTitleTemplate()
             Screen.SectionTitleTemplate -> navController.navigateToSectionTitleTemplate()
             Screen.DefaultTemplate -> navController.navigateToDefaultTemplate()
@@ -54,8 +58,6 @@ fun App(
             Screen.CodeTemplate -> navController.navigateToCodeTemplate()
             Screen.CodeCustomContentTemplate -> navController.navigateToCodeCustomContent()
             Screen.ThankYouTemplate -> navController.navigateToThankYouTemplate()
-            Screen.Cover -> navController.navigateToCover()
-            Screen.Introduction -> navController.navigateToIntroduction()
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
             Screen.Map -> navController.navigateToMap()
             Screen.CameraViewFinder -> navController.navigateToCameraViewFinder()
@@ -87,6 +89,10 @@ fun App(
                     navController = navController,
                     startDestination = currentScreen.name,
                 ) {
+                    cover()
+                    introKotlin()
+                    kotlinAndAndroid()
+                    kotlinMultiplatform()
                     titleTemplate()
                     sectionTitleTemplate()
                     defaultTemplate()
@@ -101,7 +107,6 @@ fun App(
                     codeTemplate()
                     codeCustomContentTemplate()
                     thankYouTemplate()
-                    cover()
                     introduction()
                     aboutKotlin()
                     map()

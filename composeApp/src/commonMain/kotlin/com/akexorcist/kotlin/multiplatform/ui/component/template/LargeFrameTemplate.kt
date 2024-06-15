@@ -19,9 +19,12 @@ fun LargeFrameTemplate(
 ) {
     Row(
         modifier = Modifier
-            .background(BackgroundColor.White.color)
+            .background(BackgroundColor.GrayEvent.color)
             .fillMaxSize()
-            .padding(64.dp),
+            .padding(
+                vertical = VerticalScreenPadding,
+                horizontal = HorizontalScreenPadding,
+            ),
     ) {
         Column(
             modifier = Modifier

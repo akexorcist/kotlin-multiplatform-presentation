@@ -10,12 +10,13 @@ import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
 fun FullCustomTemplate(
+    background: BackgroundColor = BackgroundColor.White,
     content: @Composable BoxScope.() -> Unit,
 ) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundColor.White.color),
+            .background(background.color),
         contentAlignment = Alignment.Center,
     ) {
         content()

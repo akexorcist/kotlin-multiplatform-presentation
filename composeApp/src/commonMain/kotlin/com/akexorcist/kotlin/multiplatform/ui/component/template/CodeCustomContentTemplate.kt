@@ -19,6 +19,8 @@ import dev.snipme.highlights.Highlights
 import dev.snipme.highlights.model.SyntaxLanguage
 import dev.snipme.highlights.model.SyntaxThemes
 import com.akexorcist.kotlin.multiplatform.ui.component.CodeView
+import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
+import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
@@ -43,7 +45,10 @@ fun CodeCustomContent(
             modifier = Modifier
                 .weight(3f)
                 .fillMaxHeight()
-                .padding(64.dp),
+                .padding(
+                    vertical = VerticalScreenPadding,
+                    horizontal = HorizontalScreenPadding,
+                ),
             contentAlignment = Alignment.CenterStart,
         ) {
             CompositionLocalProvider(

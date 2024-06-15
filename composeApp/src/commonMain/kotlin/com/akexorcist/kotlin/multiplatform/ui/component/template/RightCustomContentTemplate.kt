@@ -14,19 +14,21 @@ fun RightCustomContentTemplate(
     title: String,
     description: String,
     tag: TagData,
-    frameColor: GradientColor = GradientColor.BlueRed,
     content: @Composable BoxScope.() -> Unit,
 ) {
     Row(
         modifier = Modifier
-            .background(BackgroundColor.White.color)
+            .background(BackgroundColor.GrayEvent.color)
             .fillMaxSize(),
     ) {
         Column(
             modifier = Modifier
-                .weight(1f)
+                .weight(1.25f)
                 .fillMaxHeight()
-                .padding(64.dp)
+                .padding(
+                    vertical = VerticalScreenPadding,
+                    horizontal = HorizontalScreenPadding,
+                ),
         ) {
             Tag(data = tag)
             Spacer(modifier = Modifier.height(48.dp))

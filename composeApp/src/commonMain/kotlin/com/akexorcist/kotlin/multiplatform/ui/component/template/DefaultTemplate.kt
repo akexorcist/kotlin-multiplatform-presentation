@@ -21,13 +21,16 @@ fun DefaultTemplate(
     tag: TagData? = null,
 ) {
     Row(
-        modifier = Modifier.background(BackgroundColor.White.color),
+        modifier = Modifier.background(BackgroundColor.GrayEvent.color),
     ) {
         Column(
             modifier = Modifier
                 .weight(3f)
                 .fillMaxHeight()
-                .padding(DefaultScreenPadding)
+                .padding(
+                    vertical = VerticalScreenPadding,
+                    horizontal = HorizontalScreenPadding,
+                ),
         ) {
             if (tag != null) {
                 Tag(data = tag)

@@ -24,6 +24,8 @@ import dev.snipme.highlights.model.SyntaxLanguage
 import dev.snipme.highlights.model.SyntaxThemes
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.component.CodeView
+import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
+import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
@@ -44,7 +46,10 @@ fun CodeTemplate(
         modifier = Modifier
             .fillMaxSize()
             .background(BackgroundColor.Code.color)
-            .padding(64.dp),
+            .padding(
+                vertical = VerticalScreenPadding,
+                horizontal = HorizontalScreenPadding,
+            ),
         contentAlignment = Alignment.CenterStart,
     ) {
         CompositionLocalProvider(

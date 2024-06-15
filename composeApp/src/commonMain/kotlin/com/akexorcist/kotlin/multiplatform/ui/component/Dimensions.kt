@@ -2,5 +2,5 @@ package com.akexorcist.kotlin.multiplatform.ui.component
 
 import androidx.compose.ui.unit.dp
 
-val DefaultScreenPadding = 96.dp
-val ExtraScreenPadding = 96.dp
+val VerticalScreenPadding = 64.dp
+val HorizontalScreenPadding = 96.dp

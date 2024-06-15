@@ -2,6 +2,9 @@ package com.akexorcist.kotlin.multiplatform.ui.navigation
 
 enum class Screen {
     Cover,
+    IntroKotlin,
+    KotlinAndAndroid,
+    KotlinMultiplatform,
     Introduction,
     AboutKotlin,
     Map,
@@ -25,6 +28,11 @@ enum class Screen {
 }
 
 val IndexedScreens = listOf(
+    Screen.Cover,
+    Screen.IntroKotlin,
+    Screen.KotlinAndAndroid,
+    Screen.KotlinMultiplatform,
+    Screen.Introduction,
     Screen.ThankYouTemplate,
     Screen.TitleTemplate,
     Screen.SectionTitleTemplate,
@@ -39,8 +47,6 @@ val IndexedScreens = listOf(
     Screen.FullCustomTemplate,
     Screen.CodeTemplate,
     Screen.CodeCustomContentTemplate,
-    Screen.Cover,
-    Screen.Introduction,
     Screen.AboutKotlin,
     Screen.Map,
     Screen.CameraViewFinder,

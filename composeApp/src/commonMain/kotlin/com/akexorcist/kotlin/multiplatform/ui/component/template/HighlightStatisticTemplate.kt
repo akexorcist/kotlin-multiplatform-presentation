@@ -10,6 +10,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.HighlightText
+import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
+import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
@@ -20,8 +22,11 @@ fun HighlightStatisticTemplate(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BackgroundColor.White.color)
-            .padding(64.dp),
+            .background(BackgroundColor.GrayEvent.color)
+            .padding(
+                vertical = VerticalScreenPadding,
+                horizontal = HorizontalScreenPadding,
+            ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {

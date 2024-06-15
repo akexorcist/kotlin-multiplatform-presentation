@@ -35,7 +35,6 @@ fun RightCustomContentTemplateScreen() {
             text = "Section 1",
             background = GradientColor.YellowGreen,
         ),
-        frameColor = GradientColor.YellowGreen,
     ) {
         Text(
             modifier = Modifier.align(Alignment.Center),

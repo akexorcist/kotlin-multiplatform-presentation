@@ -34,7 +34,10 @@ fun ThankYouTemplate(
         modifier = Modifier
             .fillMaxSize()
             .background(BackgroundColor.GrayEvent.color)
-            .padding(DefaultScreenPadding)
+            .padding(
+                vertical = VerticalScreenPadding,
+                horizontal = HorizontalScreenPadding,
+            ),
     ) {
         EventLogo(
             modifier = Modifier

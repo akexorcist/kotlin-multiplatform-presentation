@@ -25,7 +25,7 @@ fun NavGraphBuilder.cover() {
 fun CoverScreen() {
     TitleTemplate(
         title = "Hello! Kotlin Multiplatform",
-        name = "Akexorcist",
+        name = "Somkiat Khitwongwattana",
         position = "Android GDE",
     )
 }

@@ -11,8 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.akexorcist.kotlin.multiplatform.ui.component.DefaultScreenPadding
+import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.component.EventLogo
+import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
 import kotlinmultiplatform.composeapp.generated.resources.Res
@@ -30,9 +31,14 @@ fun TitleTemplate(
             modifier = Modifier
                 .fillMaxSize()
                 .background(BackgroundColor.GrayEvent.color)
-                .padding(DefaultScreenPadding)
+                .padding(
+                    vertical = VerticalScreenPadding,
+                    horizontal = HorizontalScreenPadding,
+                ),
         ) {
-            EventLogo()
+            EventLogo(
+                modifier = Modifier.offset(y = (-32).dp)
+            )
             Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
@@ -65,16 +71,16 @@ fun TitleTemplate(
                     letterSpacing = MaterialTheme.typography.h4.letterSpacing,
                     lineHeight = MaterialTheme.typography.h4.lineHeight,
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(2.dp))
                 Text(
                     modifier = Modifier.offset(x = 4.dp),
                     text = position,
-                    fontSize = MaterialTheme.typography.h4.fontSize,
+                    fontSize = MaterialTheme.typography.h5.fontSize,
                     color = ThemeColors.TextPrimary,
-                    fontStyle = MaterialTheme.typography.h4.fontStyle,
+                    fontStyle = MaterialTheme.typography.h5.fontStyle,
                     fontWeight = FontWeight.Normal,
-                    letterSpacing = MaterialTheme.typography.h4.letterSpacing,
-                    lineHeight = MaterialTheme.typography.h4.lineHeight,
+                    letterSpacing = MaterialTheme.typography.h5.letterSpacing,
+                    lineHeight = MaterialTheme.typography.h5.lineHeight,
                 )
             }
         }
