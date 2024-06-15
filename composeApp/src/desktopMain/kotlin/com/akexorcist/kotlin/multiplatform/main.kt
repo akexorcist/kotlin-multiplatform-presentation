@@ -3,6 +3,7 @@ package com.akexorcist.kotlin.multiplatform
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.input.key.*
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -13,6 +14,12 @@ import com.akexorcist.kotlin.multiplatform.ui.content.App
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.navigationKeyEvent
 import com.akexorcist.kotlin.multiplatform.ui.navigation.rememberScreenNavigationState
+import io.kamel.core.config.KamelConfig
+import io.kamel.core.config.takeFrom
+import io.kamel.image.config.Default
+import io.kamel.image.config.LocalKamelConfig
+import io.kamel.image.config.batikSvgDecoder
+import io.kamel.image.config.resourcesFetcher
 
 fun main() = application {
     val screenNavigationState = rememberScreenNavigationState()
@@ -20,7 +27,7 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "Kotlin Multiplatform",
         state = WindowState(
-            size = DpSize(1280.dp, 720.dp),
+            size = DpSize(1920.dp, 1080.dp),
         ),
         onKeyEvent = { event ->
             navigationKeyEvent(
@@ -33,9 +40,16 @@ fun main() = application {
             )
         }
     ) {
-        App(
-            screenNavigationState = screenNavigationState
-        )
+        CompositionLocalProvider(
+            value = LocalKamelConfig provides KamelConfig {
+                takeFrom(KamelConfig.Default)
+                resourcesFetcher()
+            }
+        ) {
+            App(
+                screenNavigationState = screenNavigationState
+            )
+        }
     }
 }
 

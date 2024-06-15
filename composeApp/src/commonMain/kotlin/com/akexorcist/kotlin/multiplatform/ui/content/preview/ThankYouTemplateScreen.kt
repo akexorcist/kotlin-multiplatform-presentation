@@ -5,7 +5,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.ThankYouTemplate
-import com.akexorcist.kotlin.multiplatform.ui.component.template.TitleTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 
@@ -27,6 +26,7 @@ fun ThankYouTemplateScreen() {
         title = "Thank You",
         name = "Somkiat Khitwongwattana",
         position = "Android GDE",
+        profileUrl = "https://akexorcist.dev/content/images/size/w2000/2020/06/about_me_header.jpg",
         frameColor = GradientColor.YellowGreen,
     )
 }

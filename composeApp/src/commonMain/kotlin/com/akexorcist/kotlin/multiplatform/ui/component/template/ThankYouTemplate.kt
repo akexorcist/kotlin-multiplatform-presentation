@@ -1,26 +1,35 @@
 package com.akexorcist.kotlin.multiplatform.ui.component.template
 
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.ContentColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
+import io.kamel.core.Resource
+import io.kamel.image.KamelImage
+import io.kamel.image.asyncPainterResource
 
 @Composable
 fun ThankYouTemplate(
     title: String,
     name: String,
     position: String,
+    profileUrl: String,
     frameColor: GradientColor,
 ) {
+    val resource = asyncPainterResource(profileUrl)
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -57,14 +66,31 @@ fun ThankYouTemplate(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     DoubleFrame(
-                        modifier = Modifier.size(120.dp),
+                        modifier = Modifier.width(120.dp).height(130.dp),
                         size = DoubleFrameSize.Small,
                         gradientColor = frameColor,
                     ) {
-                        Text(
-                            modifier = Modifier.align(Alignment.Center),
-                            text = "Awesome",
-                        )
+                        when (resource) {
+                            is Resource.Loading -> {
+                                CircularProgressIndicator(
+                                    modifier = Modifier
+                                        .size(36.dp)
+                                        .align(Alignment.Center),
+                                    color = ContentColor.Blue.color,
+                                )
+                            }
+
+                            is Resource.Success -> {
+                                KamelImage(
+                                    resource = resource,
+                                    contentDescription = "profile_image",
+                                    contentScale = ContentScale.Crop,
+                                    animationSpec = tween(),
+                                )
+                            }
+
+                            is Resource.Failure -> {}
+                        }
                     }
                     Spacer(modifier = Modifier.width(32.dp))
                     Column(

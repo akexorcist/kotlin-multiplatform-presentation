@@ -80,6 +80,7 @@ kotlin {
             implementation("androidx.camera:camera-view:1.3.3")
             implementation("com.markodevcic:peko:3.0.5")
             implementation("com.google.maps.android:maps-compose:5.0.1")
+            implementation("io.ktor:ktor-client-android:2.3.11")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -94,7 +95,8 @@ kotlin {
             implementation("dev.snipme:highlights:0.9.0")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
             implementation("com.akexorcist.kotlin.multiplatform:dayandnight:1.0.0")
-
+            implementation("media.kamel:kamel-image:0.9.5")
+            implementation("io.ktor:ktor-client-core:2.3.11")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -105,6 +107,13 @@ kotlin {
             implementation("com.github.eduramiba:webcam-capture-driver-native:master-SNAPSHOT")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.8.1")
             implementation("org.openstreetmap.jmapviewer:jmapviewer:2.16")
+            implementation("io.ktor:ktor-client-cio:2.3.11")
+        }
+        iosMain.dependencies {
+            implementation("io.ktor:ktor-client-darwin:2.3.11")
+        }
+        wasmJsMain.dependencies {
+            implementation("io.ktor:ktor-client-js:2.3.11")
         }
     }
 }
