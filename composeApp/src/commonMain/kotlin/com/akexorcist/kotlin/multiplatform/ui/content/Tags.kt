@@ -7,3 +7,7 @@ val IntroductionTag = TagData(
     text = "Introduction",
     background = GradientColor.BlueRed,
 )
+val StrategyTag = TagData(
+    text = "Strategy",
+    background = GradientColor.YellowRed,
+)

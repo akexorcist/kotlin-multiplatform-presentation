@@ -23,6 +23,8 @@ import com.akexorcist.kotlin.multiplatform.ui.content.introduction.*
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
 import com.akexorcist.kotlin.multiplatform.ui.content.preview.*
+import com.akexorcist.kotlin.multiplatform.ui.content.strategy.navigateToShareCodeStrategy
+import com.akexorcist.kotlin.multiplatform.ui.content.strategy.shareCodeStrategy
 import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
@@ -45,6 +47,7 @@ fun App(
             Screen.KotlinMultiplatform -> navController.navigateToKotlinMultiplatform()
             Screen.KotlinMultiplatformLogo -> navController.navigateToKotlinMultiplatformLogo()
             Screen.PlatformSupport -> navController.navigateToPlatformSupport()
+            Screen.ShareCodeStrategy -> navController.navigateToShareCodeStrategy()
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.TitleTemplate -> navController.navigateToTitleTemplate()
             Screen.SectionTitleTemplate -> navController.navigateToSectionTitleTemplate()
@@ -97,6 +100,7 @@ fun App(
                     kotlinMultiplatform()
                     kotlinMultiplatformLogo()
                     platformSupport()
+                    shareCodeStrategy()
                     titleTemplate()
                     sectionTitleTemplate()
                     defaultTemplate()
