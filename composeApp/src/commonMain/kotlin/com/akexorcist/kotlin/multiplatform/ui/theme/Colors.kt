@@ -3,11 +3,6 @@ package com.akexorcist.kotlin.multiplatform.ui.theme
 import androidx.compose.ui.graphics.Color
 
 object ThemeColors {
-    val GreenLight = Color(0xFF80D592)
-
-    val YellowLight = Color(0xFFFFD971)
-
-    val BlueLight = Color(0xFF86B8FF)
     val BluePrimary = Color(0xFF428EFF)
 
     val TextPrimary = Color(0xFF202124)
