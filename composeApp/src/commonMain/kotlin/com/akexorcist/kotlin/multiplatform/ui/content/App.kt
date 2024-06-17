@@ -24,6 +24,7 @@ import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
 import com.akexorcist.kotlin.multiplatform.ui.content.preview.*
 import com.akexorcist.kotlin.multiplatform.ui.content.strategy.*
+import com.akexorcist.kotlin.multiplatform.ui.content.structure.*
 import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
@@ -50,6 +51,13 @@ fun App(
             Screen.SharePartialCode -> navController.navigateToSharePartialCode()
             Screen.ShareLogicCode -> navController.navigateToShareLogicCode()
             Screen.ShareAllCode -> navController.navigateToShareAllCode()
+            Screen.PlatformBinary -> navController.navigateToPlatformBinary()
+            Screen.PlatformAndroid -> navController.navigateToPlatformAndroid()
+            Screen.PlatformJvm -> navController.navigateToPlatformJvm()
+            Screen.PlatformJs -> navController.navigateToPlatformJs()
+            Screen.PlatformWasm -> navController.navigateToPlatformWasm()
+            Screen.PlatformNative -> navController.navigateToPlatformNative()
+            Screen.PlatformTarget -> navController.navigateToPlatformTarget()
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.TitleTemplate -> navController.navigateToTitleTemplate()
             Screen.SectionTitleTemplate -> navController.navigateToSectionTitleTemplate()
@@ -106,6 +114,13 @@ fun App(
                     sharePartialCode()
                     shareLogicCode()
                     shareAllCode()
+                    platformBinary()
+                    platformAndroid()
+                    platformJvm()
+                    platformJs()
+                    platformWasm()
+                    platformNative()
+                    platformTarget()
                     titleTemplate()
                     sectionTitleTemplate()
                     defaultTemplate()
