@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -66,10 +67,12 @@ fun IdeForKotlinMultiplatformScreen() {
                             modifier = Modifier.wrapContentHeight(),
                             text = "Android Studio",
                             fontWeight = FontWeight.Bold,
+                            alignment = TextAlign.Center,
                         )
                         SmallContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "(Google)",
+                            alignment = TextAlign.Center,
                         )
                     }
                 },
@@ -95,10 +98,12 @@ fun IdeForKotlinMultiplatformScreen() {
                             modifier = Modifier.wrapContentHeight(),
                             text = "IntelliJ IDEA",
                             fontWeight = FontWeight.Bold,
+                            alignment = TextAlign.Center,
                         )
                         SmallContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "(JetBrains)",
+                            alignment = TextAlign.Center,
                         )
                     }
                 },
@@ -124,10 +129,12 @@ fun IdeForKotlinMultiplatformScreen() {
                             modifier = Modifier.wrapContentHeight(),
                             text = "Fleet",
                             fontWeight = FontWeight.Bold,
+                            alignment = TextAlign.Center,
                         )
                         SmallContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "(JetBrains)",
+                            alignment = TextAlign.Center,
                         )
                     }
                 },
