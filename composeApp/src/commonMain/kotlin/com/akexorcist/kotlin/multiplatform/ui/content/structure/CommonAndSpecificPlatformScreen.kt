@@ -18,20 +18,20 @@ import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
 
-private val Route = Screen.PlatformTarget.name
+private val Route = Screen.CommonAndSpecificPlatform.name
 
-fun NavController.navigateToPlatformTarget() {
+fun NavController.navigateToCommonAndSpecificPlatform() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.platformTarget() {
+fun NavGraphBuilder.commonAndSpecificPlatform() {
     composable(route = Route) {
-        PlatformTargetScreen()
+        CommonAndSpecificPlatformScreen()
     }
 }
 
 @Composable
-fun PlatformTargetScreen() {
+fun CommonAndSpecificPlatformScreen() {
     RightCustomContentTemplate(
         title = "Common & Specific Platform Target",
         description = """
@@ -58,8 +58,8 @@ fun PlatformTargetScreen() {
 
 @Preview
 @Composable
-fun PlatformTargetScreenPreview() {
+fun CommonAndSpecificPlatformScreenPreview() {
     MaterialTheme {
-        PlatformTargetScreen()
+        CommonAndSpecificPlatformScreen()
     }
 }

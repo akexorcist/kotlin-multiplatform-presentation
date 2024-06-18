@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.structure
+package com.akexorcist.kotlin.multiplatform.ui.content.platform
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,33 +17,33 @@ import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
 
-private val Route = Screen.PlatformJs.name
+private val Route = Screen.PlatformJvm.name
 
-fun NavController.navigateToPlatformJs() {
+fun NavController.navigateToPlatformJvm() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.platformJs() {
+fun NavGraphBuilder.platformJvm() {
     composable(route = Route) {
-        PlatformJsScreen()
+        PlatformJvmScreen()
     }
 }
 
 @Composable
-fun PlatformJsScreen() {
+fun PlatformJvmScreen() {
     LargeCustomContentTemplate(
-        title = "Kotlin/JS",
+        title = "Kotlin/JVM",
         description = """
-            Kotlin/JS provides the ability to transpile your Kotlin code, the Kotlin standard library, and any compatible dependencies to JavaScript.
+            Kotlin is a great fit for developing desktop application and server-side applications. 
             
-            The current implementation of Kotlin/JS targets ES5.
+            It allows you to write concise and expressive code while maintaining full compatibility with existing Java-based technology stacks.
         """.trimIndent(),
         tag = PlatformTag,
     ) {
         Box(modifier = Modifier.padding(horizontal = 32.dp)) {
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(Res.drawable.image_platform_binary_js),
+                painter = painterResource(Res.drawable.image_platform_binary_jvm),
                 contentDescription = "Platform binary",
             )
         }
@@ -52,8 +52,8 @@ fun PlatformJsScreen() {
 
 @Preview
 @Composable
-fun PlatformJsScreenPreview() {
+fun PlatformJvmScreenPreview() {
     MaterialTheme {
-        PlatformJsScreen()
+        PlatformJvmScreen()
     }
 }

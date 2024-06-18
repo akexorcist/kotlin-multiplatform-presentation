@@ -6,15 +6,11 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.akexorcist.kotlin.multiplatform.ui.component.template.MultipleCustomContentTemplate
-import com.akexorcist.kotlin.multiplatform.ui.component.template.MultipleIconContentTemplate
 import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomContentTemplate
-import com.akexorcist.kotlin.multiplatform.ui.content.IntroductionTag
 import com.akexorcist.kotlin.multiplatform.ui.content.StrategyTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen

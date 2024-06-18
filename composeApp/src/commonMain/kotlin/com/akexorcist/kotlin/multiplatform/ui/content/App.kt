@@ -19,9 +19,12 @@ import com.akexorcist.kotlin.multiplatform.ui.content.cover.cover
 import com.akexorcist.kotlin.multiplatform.ui.content.cover.navigateToCover
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.dayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.navigateToDayAndNight
+import com.akexorcist.kotlin.multiplatform.ui.content.ide.ideForKotlinMultiplatform
+import com.akexorcist.kotlin.multiplatform.ui.content.ide.navigateToIdeForKotlinMultiplatform
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.*
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
+import com.akexorcist.kotlin.multiplatform.ui.content.platform.*
 import com.akexorcist.kotlin.multiplatform.ui.content.preview.*
 import com.akexorcist.kotlin.multiplatform.ui.content.strategy.*
 import com.akexorcist.kotlin.multiplatform.ui.content.structure.*
@@ -57,7 +60,9 @@ fun App(
             Screen.PlatformJs -> navController.navigateToPlatformJs()
             Screen.PlatformWasm -> navController.navigateToPlatformWasm()
             Screen.PlatformNative -> navController.navigateToPlatformNative()
-            Screen.PlatformTarget -> navController.navigateToPlatformTarget()
+            Screen.IdeForKotlinMultiplatform -> navController.navigateToIdeForKotlinMultiplatform()
+            Screen.CommonAndSpecificPlatform -> navController.navigateToCommonAndSpecificPlatform()
+            Screen.ProjectStructureModule -> navController.navigateToProjectStructureModule()
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.TitleTemplate -> navController.navigateToTitleTemplate()
             Screen.SectionTitleTemplate -> navController.navigateToSectionTitleTemplate()
@@ -120,7 +125,9 @@ fun App(
                     platformJs()
                     platformWasm()
                     platformNative()
-                    platformTarget()
+                    ideForKotlinMultiplatform()
+                    commonAndSpecificPlatform()
+                    projectStructureModule()
                     titleTemplate()
                     sectionTitleTemplate()
                     defaultTemplate()

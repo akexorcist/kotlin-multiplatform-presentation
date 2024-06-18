@@ -9,9 +9,16 @@ import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
+data class CustomContentItem(
+    val weight: Float = 1f,
+    val title: String,
+    val description: String,
+    val content: @Composable () -> Unit,
+)
+
 @Composable
 fun MultipleCustomContentTemplate(
-    contents: List<Triple<String, String, @Composable () -> Unit>>,
+    contents: List<CustomContentItem>,
     tag: TagData,
 ) {
     Row(
@@ -33,9 +40,9 @@ fun MultipleCustomContentTemplate(
                     .weight(2f),
                 horizontalArrangement = Arrangement.Center,
             ) {
-                contents.forEachIndexed { index, (subtitle, content, image) ->
-                    Column(modifier = Modifier.weight(1f)) {
-                        image()
+                contents.forEachIndexed { index, (weight, subtitle, description, content) ->
+                    Column(modifier = Modifier.weight(weight)) {
+                        content()
                         Spacer(modifier = Modifier.height(16.dp))
                         ContentText(
                             modifier = Modifier.wrapContentHeight(),
@@ -45,7 +52,7 @@ fun MultipleCustomContentTemplate(
                         Spacer(modifier = Modifier.height(16.dp))
                         SmallContentText(
                             modifier = Modifier.fillMaxWidth(),
-                            text = content,
+                            text = description,
                         )
                     }
                     if (index != contents.lastIndex) {

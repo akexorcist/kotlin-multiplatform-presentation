@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.structure
+package com.akexorcist.kotlin.multiplatform.ui.content.platform
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,33 +17,33 @@ import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
 
-private val Route = Screen.PlatformWasm.name
+private val Route = Screen.PlatformNative.name
 
-fun NavController.navigateToPlatformWasm() {
+fun NavController.navigateToPlatformNative() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.platformWasm() {
+fun NavGraphBuilder.platformNative() {
     composable(route = Route) {
-        PlatformWasmScreen()
+        PlatformNativeScreen()
     }
 }
 
 @Composable
-fun PlatformWasmScreen() {
+fun PlatformNativeScreen() {
     LargeCustomContentTemplate(
-        title = "Kotlin/Wasm",
+        title = "Kotlin/Native",
         description = """
-            Build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through Compose Multiplatform and Kotlin/Wasm.
+            Compiling Kotlin code to native binaries which can run without a virtual machine.
             
-            Specifically for web platforms, Compose Multiplatform uses Kotlin/Wasm as its compilation target.
+            Kotlin/Native is primarily designed to allow compilation for platforms on which virtual machines are not desirable or possible, such as embedded devices or iOS.
         """.trimIndent(),
         tag = PlatformTag,
     ) {
         Box(modifier = Modifier.padding(horizontal = 32.dp)) {
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(Res.drawable.image_platform_binary_wasm),
+                painter = painterResource(Res.drawable.image_platform_binary_native),
                 contentDescription = "Platform binary",
             )
         }
@@ -52,8 +52,8 @@ fun PlatformWasmScreen() {
 
 @Preview
 @Composable
-fun PlatformWasmScreenPreview() {
+fun PlatformNativeScreenPreview() {
     MaterialTheme {
-        PlatformWasmScreen()
+        PlatformNativeScreen()
     }
 }
