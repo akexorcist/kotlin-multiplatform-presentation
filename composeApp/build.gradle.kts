@@ -34,7 +34,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "11"
+                jvmTarget = "17"
             }
         }
     }
@@ -97,6 +97,7 @@ kotlin {
             implementation("com.akexorcist.kotlin.multiplatform:dayandnight:1.0.0")
             implementation("media.kamel:kamel-image:0.9.5")
             implementation("io.ktor:ktor-client-core:2.3.11")
+            implementation("io.github.kevinnzou:compose-webview-multiplatform:1.9.10")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -170,6 +171,11 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.akexorcist.kotlin.multiplatform"
             packageVersion = "1.0.0"
+            includeAllModules = true
+        }
+
+        buildTypes.release.proguard {
+            configurationFiles.from("compose-desktop.pro")
         }
     }
 }
@@ -179,4 +185,19 @@ javafx {
     modules(
         "javafx.media",
     )
+}
+
+// Desktop Setup for Compose WebView Multiplatform
+// https://github.com/KevinnZou/compose-webview-multiplatform/blob/main/README.desktop.md
+afterEvaluate {
+    tasks.withType<JavaExec> {
+        jvmArgs("--add-opens", "java.desktop/sun.awt=ALL-UNNAMED")
+        jvmArgs("--add-opens", "java.desktop/java.awt.peer=ALL-UNNAMED")
+
+        if (System.getProperty("os.name").contains("Mac")) {
+            jvmArgs("--add-opens", "java.desktop/sun.awt=ALL-UNNAMED")
+            jvmArgs("--add-opens", "java.desktop/sun.lwawt=ALL-UNNAMED")
+            jvmArgs("--add-opens", "java.desktop/sun.lwawt.macosx=ALL-UNNAMED")
+        }
+    }
 }

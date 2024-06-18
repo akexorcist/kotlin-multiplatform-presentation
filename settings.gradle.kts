@@ -29,6 +29,7 @@ dependencyResolutionManagement {
         mavenCentral()
         maven(url = "https://jitpack.io")
         maven(url = "https://josm.openstreetmap.de/nexus/content/repositories/releases/")
+        maven(url = "https://jogamp.org/deployment/maven")
     }
 }
 

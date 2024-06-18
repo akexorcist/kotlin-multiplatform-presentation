@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.ide
+package com.akexorcist.kotlin.multiplatform.ui.content.tools
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,7 +17,7 @@ import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.SmallContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.template.CustomContentItem
 import com.akexorcist.kotlin.multiplatform.ui.component.template.MultipleCustomContentTemplate
-import com.akexorcist.kotlin.multiplatform.ui.content.IdeTag
+import com.akexorcist.kotlin.multiplatform.ui.content.ToolsTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import kotlinmultiplatform.composeapp.generated.resources.*
@@ -69,7 +69,7 @@ fun IdeForKotlinMultiplatformScreen() {
                             fontWeight = FontWeight.Bold,
                             alignment = TextAlign.Center,
                         )
-                        SmallContentText(
+                        ContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "(Google)",
                             alignment = TextAlign.Center,
@@ -146,7 +146,7 @@ fun IdeForKotlinMultiplatformScreen() {
                 content = {},
             ),
         ),
-        tag = IdeTag,
+        tag = ToolsTag,
     )
 }
 

@@ -19,8 +19,8 @@ import com.akexorcist.kotlin.multiplatform.ui.content.cover.cover
 import com.akexorcist.kotlin.multiplatform.ui.content.cover.navigateToCover
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.dayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.navigateToDayAndNight
-import com.akexorcist.kotlin.multiplatform.ui.content.ide.ideForKotlinMultiplatform
-import com.akexorcist.kotlin.multiplatform.ui.content.ide.navigateToIdeForKotlinMultiplatform
+import com.akexorcist.kotlin.multiplatform.ui.content.tools.ideForKotlinMultiplatform
+import com.akexorcist.kotlin.multiplatform.ui.content.tools.navigateToIdeForKotlinMultiplatform
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.*
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
@@ -33,6 +33,8 @@ import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
 import com.akexorcist.kotlin.multiplatform.ui.content.thankyou.navigateToThankYou
 import com.akexorcist.kotlin.multiplatform.ui.content.thankyou.thankYou
+import com.akexorcist.kotlin.multiplatform.ui.content.tools.kDoctor
+import com.akexorcist.kotlin.multiplatform.ui.content.tools.navigateToKDoctor
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
@@ -61,6 +63,7 @@ fun App(
             Screen.PlatformWasm -> navController.navigateToPlatformWasm()
             Screen.PlatformNative -> navController.navigateToPlatformNative()
             Screen.IdeForKotlinMultiplatform -> navController.navigateToIdeForKotlinMultiplatform()
+            Screen.KDoctor -> navController.navigateToKDoctor()
             Screen.CommonAndSpecificPlatform -> navController.navigateToCommonAndSpecificPlatform()
             Screen.ProjectStructureModule -> navController.navigateToProjectStructureModule()
             Screen.Introduction -> navController.navigateToIntroduction()
@@ -126,6 +129,7 @@ fun App(
                     platformWasm()
                     platformNative()
                     ideForKotlinMultiplatform()
+                    kDoctor()
                     commonAndSpecificPlatform()
                     projectStructureModule()
                     titleTemplate()

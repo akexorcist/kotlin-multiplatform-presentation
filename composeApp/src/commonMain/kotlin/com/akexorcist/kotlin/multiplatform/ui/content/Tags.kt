@@ -18,8 +18,8 @@ val PlatformTag = TagData(
     background = GradientColor.YellowGreen,
 )
 
-val IdeTag = TagData(
-    text = "IDE",
+val ToolsTag = TagData(
+    text = "Tools",
     background = GradientColor.BlueRed,
 )
 

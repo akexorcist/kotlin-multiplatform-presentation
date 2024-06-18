@@ -23,3 +23,7 @@ iosApp/Podfile.lock
 secrets.properties
 iosApp/iosApp/AppSecrets.plist
 kotlin-js-store/yarn.lock
+composeApp/DawnCache
+composeApp/GPUCache
+composeApp/cache
+composeApp/kcef-bundle
