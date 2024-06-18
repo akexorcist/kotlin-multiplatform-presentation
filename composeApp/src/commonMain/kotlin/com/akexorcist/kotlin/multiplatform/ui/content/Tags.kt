@@ -27,3 +27,23 @@ val StructureTag = TagData(
     text = "Structure",
     background = GradientColor.YellowRed,
 )
+
+val GetStartedTag = TagData(
+    text = "Get Started",
+    background = GradientColor.YellowGreen,
+)
+
+val ComposeTag = TagData(
+    text = "Compose",
+    background = GradientColor.BlueRed,
+)
+
+val AdoptionTag = TagData(
+    text = "Adoption",
+    background = GradientColor.YellowRed,
+)
+
+val SummaryTag = TagData(
+    text = "Summary",
+    background = GradientColor.YellowGreen,
+)

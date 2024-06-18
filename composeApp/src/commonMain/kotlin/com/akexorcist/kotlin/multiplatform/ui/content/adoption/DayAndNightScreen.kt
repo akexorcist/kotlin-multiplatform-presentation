@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.dayandnight
+package com.akexorcist.kotlin.multiplatform.ui.content.adoption
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme

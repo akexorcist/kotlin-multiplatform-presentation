@@ -13,14 +13,15 @@ import androidx.navigation.compose.rememberNavController
 
 import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.aboutKotlin
 import com.akexorcist.kotlin.multiplatform.ui.content.aboutkotlin.navigateToAboutKotlin
+import com.akexorcist.kotlin.multiplatform.ui.content.adoption.*
 import com.akexorcist.kotlin.multiplatform.ui.content.camera.cameraViewFinder
 import com.akexorcist.kotlin.multiplatform.ui.content.camera.navigateToCameraViewFinder
+import com.akexorcist.kotlin.multiplatform.ui.content.compose.*
 import com.akexorcist.kotlin.multiplatform.ui.content.cover.cover
 import com.akexorcist.kotlin.multiplatform.ui.content.cover.navigateToCover
-import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.dayAndNight
-import com.akexorcist.kotlin.multiplatform.ui.content.dayandnight.navigateToDayAndNight
-import com.akexorcist.kotlin.multiplatform.ui.content.tools.ideForKotlinMultiplatform
-import com.akexorcist.kotlin.multiplatform.ui.content.tools.navigateToIdeForKotlinMultiplatform
+import com.akexorcist.kotlin.multiplatform.ui.content.adoption.dayAndNight
+import com.akexorcist.kotlin.multiplatform.ui.content.adoption.navigateToDayAndNight
+import com.akexorcist.kotlin.multiplatform.ui.content.getstarted.*
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.*
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
@@ -28,13 +29,11 @@ import com.akexorcist.kotlin.multiplatform.ui.content.platform.*
 import com.akexorcist.kotlin.multiplatform.ui.content.preview.*
 import com.akexorcist.kotlin.multiplatform.ui.content.strategy.*
 import com.akexorcist.kotlin.multiplatform.ui.content.structure.*
+import com.akexorcist.kotlin.multiplatform.ui.content.summary.*
 import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
-import com.akexorcist.kotlin.multiplatform.ui.content.thankyou.navigateToThankYou
-import com.akexorcist.kotlin.multiplatform.ui.content.thankyou.thankYou
-import com.akexorcist.kotlin.multiplatform.ui.content.tools.kDoctor
-import com.akexorcist.kotlin.multiplatform.ui.content.tools.navigateToKDoctor
+import com.akexorcist.kotlin.multiplatform.ui.content.tools.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 
 @Composable
@@ -64,8 +63,33 @@ fun App(
             Screen.PlatformNative -> navController.navigateToPlatformNative()
             Screen.IdeForKotlinMultiplatform -> navController.navigateToIdeForKotlinMultiplatform()
             Screen.KDoctor -> navController.navigateToKDoctor()
+            Screen.Gradle -> navController.navigateToGradle()
             Screen.CommonAndSpecificPlatform -> navController.navigateToCommonAndSpecificPlatform()
             Screen.ProjectStructureModule -> navController.navigateToProjectStructureModule()
+            Screen.KotlinMultiplatformWizard -> navController.navigateToKotlinMultiplatformWizard()
+            Screen.GetStartedWithDemo -> navController.navigateToGetStartedWithDemo()
+            Screen.NativeExperience -> navController.navigateToNativeExperience()
+            Screen.ComposeMultiplatformIntroduction -> navController.navigateToComposeMultiplatformIntroduction()
+            Screen.ComposeMultiplatformBenefit -> navController.navigateToComposeMultiplatformBenefit()
+            Screen.ComposeMultiplatformRender -> navController.navigateToComposeMultiplatformRender()
+            Screen.ComposeMultiplatformLimitation -> navController.navigateToComposeMultiplatformLimitation()
+            Screen.KotlinMultiplatformBenefit -> navController.navigateToKotlinMultiplatformBenefit()
+            Screen.ReadyForProduction -> navController.navigateToReadyForProduction()
+            Screen.CameraAccess1 -> navController.navigateToCameraAccess1()
+            Screen.CameraAccess2 -> navController.navigateToCameraAccess2()
+            Screen.MapRendering1 -> navController.navigateToMapRendering1()
+            Screen.MapRendering2 -> navController.navigateToMapRendering2()
+            Screen.ThirdPartyLibrary -> navController.navigateToThirdPartyLibrary()
+            Screen.PreviewTools -> navController.navigateToPreviewTools()
+            Screen.OtherLimitation -> navController.navigateToOtherLimitation()
+            Screen.ReallyReadyForProduction -> navController.navigateToReallyReadyForProduction()
+            Screen.DayAndNight -> navController.navigateToDayAndNight()
+            Screen.DecisionMakingFactor -> navController.navigateToDecisionMakingFactor()
+            Screen.Summary1 -> navController.navigateToSummary1()
+            Screen.Summary2 -> navController.navigateToSummary2()
+            Screen.LearningResource -> navController.navigateToLearningResource()
+            Screen.ThankYou -> navController.navigateToThankYou()
+
             Screen.Introduction -> navController.navigateToIntroduction()
             Screen.TitleTemplate -> navController.navigateToTitleTemplate()
             Screen.SectionTitleTemplate -> navController.navigateToSectionTitleTemplate()
@@ -84,8 +108,6 @@ fun App(
             Screen.AboutKotlin -> navController.navigateToAboutKotlin()
             Screen.Map -> navController.navigateToMap()
             Screen.CameraViewFinder -> navController.navigateToCameraViewFinder()
-            Screen.DayAndNight -> navController.navigateToDayAndNight()
-            Screen.ThankYou -> navController.navigateToThankYou()
         }
     }
 
@@ -130,8 +152,32 @@ fun App(
                     platformNative()
                     ideForKotlinMultiplatform()
                     kDoctor()
+                    gradle()
                     commonAndSpecificPlatform()
                     projectStructureModule()
+                    kotlinMultiplatformWizard()
+                    getStartedWithDemo()
+                    nativeExperience()
+                    composeMultiplatformIntroduction()
+                    composeMultiplatformBenefit()
+                    composeMultiplatformRender()
+                    composeMultiplatformLimitation()
+                    kotlinMultiplatformBenefit()
+                    readyForProduction()
+                    cameraAccess1()
+                    cameraAccess2()
+                    mapRendering1()
+                    mapRendering2()
+                    thirdPartyLibrary()
+                    previewTools()
+                    otherLimitation()
+                    reallyReadyForProduction()
+                    dayAndNight()
+                    decisionMakingFactor()
+                    summary1()
+                    summary2()
+                    learningResource()
+                    thankYou()
                     titleTemplate()
                     sectionTitleTemplate()
                     defaultTemplate()
@@ -150,8 +196,6 @@ fun App(
                     aboutKotlin()
                     map()
                     cameraViewFinder()
-                    dayAndNight()
-                    thankYou()
                 }
             }
         )
