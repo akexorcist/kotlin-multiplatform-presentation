@@ -38,7 +38,7 @@ fun DayAndNightScreen() {
     var selected by remember { mutableStateOf(true) }
     RightCustomContentTemplate(
         title = "Day & Night Switch",
-        description = "",
+        description = "Built with Compose Multiplatform",
         tag = AdoptionTag,
         content = {
             DayAndNightContainer(
