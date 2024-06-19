@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -22,7 +23,7 @@ import com.multiplatform.webview.web.WebView
 import com.multiplatform.webview.web.rememberWebViewState
 
 private val Route = Screen.KDoctor.name
-private const val KDoctorWebUrl = "https://github.com/Kotlin/kdoctor"
+private const val KDoctorWebUrl = "github.com/Kotlin/kdoctor"
 
 fun NavController.navigateToKDoctor() {
     navigate(Route)
@@ -56,7 +57,10 @@ fun KDoctorScreen() {
                 Spacer(modifier = Modifier.height(8.dp))
                 SmallContentText(text = "Command-line tool that helps to set up the environment for Kotlin Multiplatform Mobile app development.")
                 Spacer(modifier = Modifier.weight(1f))
-                SmallContentText(text = KDoctorWebUrl)
+                SmallContentText(
+                    text = KDoctorWebUrl,
+                    fontFamily = FontFamily.Monospace,
+                )
             }
             Box(modifier = Modifier.weight(2f)) {
                 KDoctorWebContent()

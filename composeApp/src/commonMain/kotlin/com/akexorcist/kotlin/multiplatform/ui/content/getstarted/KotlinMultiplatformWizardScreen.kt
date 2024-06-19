@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -22,7 +23,7 @@ import com.multiplatform.webview.web.WebView
 import com.multiplatform.webview.web.rememberWebViewState
 
 private val Route = Screen.KotlinMultiplatformWizard.name
-private const val KotlinMultiplatformWizardWebUrl = "https://kmp.jetbrains.com/"
+private const val KotlinMultiplatformWizardWebUrl = "kmp.jetbrains.com"
 
 fun NavController.navigateToKotlinMultiplatformWizard() {
     navigate(Route)
@@ -56,7 +57,10 @@ fun KotlinMultiplatformWizardScreen() {
                 Spacer(modifier = Modifier.height(8.dp))
                 SmallContentText(text = "Tools to help you create projects for Kotlin Multiplatform.")
                 Spacer(modifier = Modifier.weight(1f))
-                SmallContentText(text = KotlinMultiplatformWizardWebUrl)
+                SmallContentText(
+                    text = KotlinMultiplatformWizardWebUrl,
+                    fontFamily = FontFamily.Monospace,
+                )
             }
             Box(modifier = Modifier.weight(2f)) {
                 KotlinMultiplatformWizardWebContent()

@@ -60,6 +60,7 @@ fun ContentText(
     text: String,
     color: TextColor = TextColor.Default,
     fontWeight: FontWeight = FontWeight.Normal,
+    fontFamily: FontFamily? = null,
     alignment: TextAlign? = null
 ) {
     Text(
@@ -69,6 +70,7 @@ fun ContentText(
         color = color.color,
         fontStyle = MaterialTheme.typography.h4.fontStyle,
         fontWeight = fontWeight,
+        fontFamily = fontFamily,
         letterSpacing = MaterialTheme.typography.h4.letterSpacing,
         lineHeight = MaterialTheme.typography.h4.lineHeight,
         textAlign = alignment,
@@ -81,6 +83,7 @@ fun SmallContentText(
     text: String,
     color: ContentColor = ContentColor.Default,
     fontWeight: FontWeight = FontWeight.Normal,
+    fontFamily: FontFamily? = null,
     alignment: TextAlign? = null
 ) {
     Text(
@@ -90,6 +93,7 @@ fun SmallContentText(
         color = color.color,
         fontStyle = MaterialTheme.typography.h5.fontStyle,
         fontWeight = fontWeight,
+        fontFamily = fontFamily,
         letterSpacing = MaterialTheme.typography.h5.letterSpacing,
         lineHeight = 32.sp,
         textAlign = alignment,
