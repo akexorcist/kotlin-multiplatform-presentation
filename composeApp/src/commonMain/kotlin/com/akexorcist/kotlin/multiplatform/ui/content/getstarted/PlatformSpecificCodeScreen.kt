@@ -10,22 +10,22 @@ import com.akexorcist.kotlin.multiplatform.ui.content.GetStartedTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 
-private val Route = Screen.NativeExperience.name
+private val Route = Screen.PlatformSpecificCode.name
 
-fun NavController.navigateToNativeExperience() {
+fun NavController.navigateToPlatformSpecificCode() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.nativeExperience() {
+fun NavGraphBuilder.platformSpecificCode() {
     composable(route = Route) {
-        NativeExperienceScreen()
+        PlatformSpecificCodeScreen()
     }
 }
 
 @Composable
-fun NativeExperienceScreen() {
+fun PlatformSpecificCodeScreen() {
     DefaultTemplate(
-        title = "Native Experience",
+        title = "Platform Specific Code",
         content = "",
         tag = GetStartedTag,
     )
@@ -33,8 +33,8 @@ fun NativeExperienceScreen() {
 
 @Preview
 @Composable
-fun NativeExperienceScreenPreview() {
+fun PlatformSpecificCodeScreenPreview() {
     MaterialTheme {
-        NativeExperienceScreen()
+        PlatformSpecificCodeScreen()
     }
 }

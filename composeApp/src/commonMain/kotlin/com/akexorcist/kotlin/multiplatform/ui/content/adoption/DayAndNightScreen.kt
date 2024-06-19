@@ -16,6 +16,7 @@ import com.akexorcist.kotlin.multiplatform.dayandnight.DayAndNightContainer
 import com.akexorcist.kotlin.multiplatform.dayandnight.DayAndNightSwitch
 import com.akexorcist.kotlin.multiplatform.ui.component.TagData
 import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomContentTemplate
+import com.akexorcist.kotlin.multiplatform.ui.content.AdoptionTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
@@ -38,10 +39,7 @@ fun DayAndNightScreen() {
     RightCustomContentTemplate(
         title = "Day & Night Switch",
         description = "",
-        tag = TagData(
-            text = "Camera",
-            background = GradientColor.BlueRed
-        ),
+        tag = AdoptionTag,
         content = {
             DayAndNightContainer(
                 modifier = Modifier.fillMaxSize(),

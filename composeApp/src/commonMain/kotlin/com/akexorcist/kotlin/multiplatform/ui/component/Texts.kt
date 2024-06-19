@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import com.akexorcist.kotlin.multiplatform.ui.theme.ContentColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.TextColor
 
 @Composable
@@ -73,6 +74,7 @@ fun ContentText(
 fun SmallContentText(
     modifier: Modifier = Modifier,
     text: String,
+    color: ContentColor = ContentColor.Default,
     fontWeight: FontWeight = FontWeight.Normal,
     alignment: TextAlign? = null
 ) {
@@ -80,7 +82,7 @@ fun SmallContentText(
         modifier = modifier,
         text = text,
         fontSize = MaterialTheme.typography.h5.fontSize,
-        color = TextColor.Default.color,
+        color = color.color,
         fontStyle = MaterialTheme.typography.h5.fontStyle,
         fontWeight = fontWeight,
         letterSpacing = MaterialTheme.typography.h5.letterSpacing,

@@ -34,7 +34,7 @@ fun NavGraphBuilder.platformSupport() {
 @Composable
 fun PlatformSupportScreen() {
     RightCustomContentTemplate(
-        title = "Platform Support",
+        title = "Supported Platforms",
         description = """
             Kotlin Multiplatform is a technology that allows you to create applications for various platforms and efficiently reuse code across them while retaining the benefits of native programming.
             

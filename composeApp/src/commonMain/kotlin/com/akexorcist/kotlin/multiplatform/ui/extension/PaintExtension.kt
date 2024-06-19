@@ -5,11 +5,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
+
+@Composable
+fun Modifier.gradientTint(
+    color: GradientColor,
+): Modifier = graphicsLayer { alpha = 0.99f }
+    .drawWithContent {
+        drawContent()
+        drawRect(
+            brush = Brush.linearGradient(
+                colorStops = arrayOf(
+                    0.1f to color.from,
+                    0.5f to color.middle,
+                    0.9f to color.to,
+                ),
+            ),
+            blendMode = BlendMode.SrcIn
+        )
+    }
 
 @Composable
 fun Modifier.innerShadow(

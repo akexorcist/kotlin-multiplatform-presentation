@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
+import com.akexorcist.kotlin.multiplatform.ui.component.template.SectionTitleTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.GetStartedTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
@@ -24,9 +25,9 @@ fun NavGraphBuilder.getStartedWithDemo() {
 
 @Composable
 fun GetStartedWithDemoScreen() {
-    DefaultTemplate(
-        title = "Get Started with Demo",
-        content = "",
+    SectionTitleTemplate(
+        title = "Demonstrate",
+        description = "Talk is cheap. Show me the code",
         tag = GetStartedTag,
     )
 }

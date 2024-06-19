@@ -25,8 +25,19 @@ fun NavGraphBuilder.composeMultiplatformBenefit() {
 @Composable
 fun ComposeMultiplatformBenefitScreen() {
     DefaultTemplate(
-        title = "Compose Multiplatform Benefit",
-        content = "",
+        title = "Why Compose Multiplatform?",
+        content = """
+            
+            • Accelerated UI development
+            
+            • Android UI skills for other platforms
+            
+            • An excellent ecosystem
+            
+            • Easy integration with every platform
+            
+            • Component-level reuse
+        """.trimIndent(),
         tag = ComposeTag,
     )
 }
