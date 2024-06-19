@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.adoption
+package com.akexorcist.kotlin.multiplatform.ui.content.summary
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -7,34 +7,35 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.AdoptionTag
+import com.akexorcist.kotlin.multiplatform.ui.content.SummaryTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 
-private val Route = Screen.ThirdPartyLibrary.name
+private val Route = Screen.DecisionMakingFactor.name
 
-fun NavController.navigateToThirdPartyLibrary() {
+fun NavController.navigateToDecisionMakingFactor() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.thirdPartyLibrary() {
+fun NavGraphBuilder.decisionMakingFactor() {
     composable(route = Route) {
-        ThirdPartyLibraryScreen()
+        DecisionMakingFactorScreen()
     }
 }
 
 @Composable
-fun ThirdPartyLibraryScreen() {
+fun DecisionMakingFactorScreen() {
     DefaultTemplate(
-        title = "Third Parry Library",
+        title = "Decision Making Factor",
         content = "",
-        tag = AdoptionTag,
+        tag = SummaryTag,
     )
 }
 
 @Preview
 @Composable
-fun ThirdPartyLibraryScreenPreview() {
+fun DecisionMakingFactorScreenPreview() {
     MaterialTheme {
-        ThirdPartyLibraryScreen()
+        DecisionMakingFactorScreen()
     }
 }

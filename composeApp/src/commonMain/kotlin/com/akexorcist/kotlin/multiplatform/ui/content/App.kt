@@ -23,6 +23,14 @@ import com.akexorcist.kotlin.multiplatform.ui.content.adoption.dayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.adoption.navigateToDayAndNight
 import com.akexorcist.kotlin.multiplatform.ui.content.getstarted.*
 import com.akexorcist.kotlin.multiplatform.ui.content.introduction.*
+import com.akexorcist.kotlin.multiplatform.ui.content.library.navigateToThirdPartyAllPlatformLibrary
+import com.akexorcist.kotlin.multiplatform.ui.content.library.navigateToThirdPartyMobileLibrary
+import com.akexorcist.kotlin.multiplatform.ui.content.library.thirdPartyAllPlatformLibrary
+import com.akexorcist.kotlin.multiplatform.ui.content.library.thirdPartyMobileLibrary
+import com.akexorcist.kotlin.multiplatform.ui.content.limitation.navigateToOtherLimitation
+import com.akexorcist.kotlin.multiplatform.ui.content.limitation.navigateToPreviewTools
+import com.akexorcist.kotlin.multiplatform.ui.content.limitation.otherLimitation
+import com.akexorcist.kotlin.multiplatform.ui.content.limitation.previewTools
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.map
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.navigateToMap
 import com.akexorcist.kotlin.multiplatform.ui.content.platform.*
@@ -81,7 +89,8 @@ fun App(
             Screen.CameraAccess2 -> navController.navigateToCameraAccess2()
             Screen.MapRendering1 -> navController.navigateToMapRendering1()
             Screen.MapRendering2 -> navController.navigateToMapRendering2()
-            Screen.ThirdPartyLibrary -> navController.navigateToThirdPartyLibrary()
+            Screen.ThirdPartyAllPlatformLibrary -> navController.navigateToThirdPartyAllPlatformLibrary()
+            Screen.ThirdPartyMobileLibrary -> navController.navigateToThirdPartyMobileLibrary()
             Screen.PreviewTools -> navController.navigateToPreviewTools()
             Screen.OtherLimitation -> navController.navigateToOtherLimitation()
             Screen.ReallyReadyForProduction -> navController.navigateToReallyReadyForProduction()
@@ -172,7 +181,8 @@ fun App(
                     cameraAccess2()
                     mapRendering1()
                     mapRendering2()
-                    thirdPartyLibrary()
+                    thirdPartyAllPlatformLibrary()
+                    thirdPartyMobileLibrary()
                     previewTools()
                     otherLimitation()
                     reallyReadyForProduction()

@@ -43,7 +43,17 @@ val AdoptionTag = TagData(
     background = GradientColor.YellowRed,
 )
 
+val LibraryTag = TagData(
+    text = "Library",
+    background = GradientColor.YellowGreen,
+)
+
+val LimitationTag = TagData(
+    text = "Limitation",
+    background = GradientColor.BlueRed,
+)
+
 val SummaryTag = TagData(
     text = "Summary",
-    background = GradientColor.YellowGreen,
+    background = GradientColor.YellowRed,
 )

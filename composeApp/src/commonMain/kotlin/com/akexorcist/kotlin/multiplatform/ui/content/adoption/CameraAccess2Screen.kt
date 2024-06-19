@@ -25,7 +25,7 @@ fun NavGraphBuilder.cameraAccess2() {
 @Composable
 fun CameraAccess2Screen() {
     DefaultTemplate(
-        title = "Camera Access 2",
+        title = "Camera Access",
         content = "",
         tag = AdoptionTag,
     )

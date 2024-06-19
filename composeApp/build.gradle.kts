@@ -105,7 +105,7 @@ kotlin {
 
             implementation("com.github.sarxos:webcam-capture:0.3.12")
             implementation("com.github.sarxos:webcam-capture-driver-openimaj:0.3.12")
-            implementation("com.github.eduramiba:webcam-capture-driver-native:master-SNAPSHOT")
+            implementation("com.github.eduramiba:webcam-capture-driver-native:1.0.0")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.8.1")
             implementation("org.openstreetmap.jmapviewer:jmapviewer:2.16")
             implementation("io.ktor:ktor-client-cio:2.3.11")

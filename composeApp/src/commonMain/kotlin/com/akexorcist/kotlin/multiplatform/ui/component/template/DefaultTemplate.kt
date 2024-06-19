@@ -18,7 +18,7 @@ import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 fun DefaultTemplate(
     title: String,
     content: String,
-    tag: TagData? = null,
+    tag: TagData,
 ) {
     Row(
         modifier = Modifier.background(BackgroundColor.GrayEvent.color),
@@ -32,10 +32,8 @@ fun DefaultTemplate(
                     horizontal = HorizontalScreenPadding,
                 ),
         ) {
-            if (tag != null) {
-                Tag(data = tag)
-                Spacer(modifier = Modifier.height(64.dp))
-            }
+            Tag(data = tag)
+            Spacer(modifier = Modifier.height(48.dp))
             TitleText(
                 modifier = Modifier.fillMaxWidth(),
                 text = title,

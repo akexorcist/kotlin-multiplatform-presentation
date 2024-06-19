@@ -25,7 +25,7 @@ fun NavGraphBuilder.mapRendering2() {
 @Composable
 fun MapRendering2Screen() {
     DefaultTemplate(
-        title = "Map Rendering 2",
+        title = "Display Map",
         content = "",
         tag = AdoptionTag,
     )

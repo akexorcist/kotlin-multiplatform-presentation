@@ -8,11 +8,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import com.akexorcist.kotlin.multiplatform.ui.component.TagData
 import com.akexorcist.kotlin.multiplatform.ui.content.App
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
 import com.akexorcist.kotlin.multiplatform.ui.component.WebViewProvider
 import com.akexorcist.kotlin.multiplatform.ui.navigation.navigationKeyEvent
 import com.akexorcist.kotlin.multiplatform.ui.navigation.rememberScreenNavigationState
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 import io.kamel.core.config.KamelConfig
 import io.kamel.core.config.takeFrom
 import io.kamel.image.config.Default
@@ -61,6 +63,7 @@ fun AppPreview() {
         DefaultTemplate(
             title = "Title",
             content = "Content",
+            tag = TagData("About Kotlin", GradientColor.BlueRed),
         )
     }
 }

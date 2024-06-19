@@ -1,4 +1,4 @@
-package com.akexorcist.kotlin.multiplatform.ui.content.adoption
+package com.akexorcist.kotlin.multiplatform.ui.content.summary
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -7,34 +7,35 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.AdoptionTag
+import com.akexorcist.kotlin.multiplatform.ui.content.SummaryTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 
-private val Route = Screen.OtherLimitation.name
+private val Route = Screen.ReallyReadyForProduction.name
 
-fun NavController.navigateToOtherLimitation() {
+fun NavController.navigateToReallyReadyForProduction() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.otherLimitation() {
+fun NavGraphBuilder.reallyReadyForProduction() {
     composable(route = Route) {
-        OtherLimitationScreen()
+        ReallyReadyForProductionScreen()
     }
 }
 
 @Composable
-fun OtherLimitationScreen() {
+fun ReallyReadyForProductionScreen() {
     DefaultTemplate(
-        title = "Other Limitation",
+        title = "Really Ready for Production?",
         content = "",
-        tag = AdoptionTag,
+        tag = SummaryTag,
     )
 }
 
 @Preview
 @Composable
-fun OtherLimitationScreenPreview() {
+fun ReallyReadyForProductionScreenPreview() {
     MaterialTheme {
-        OtherLimitationScreen()
+        ReallyReadyForProductionScreen()
     }
 }

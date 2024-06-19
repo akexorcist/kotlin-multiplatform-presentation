@@ -54,7 +54,7 @@ sealed class GradientColor(
 
 sealed class TextColor(val color: Color) {
     data object Default : TextColor(ThemeColors.TextPrimary)
-    data object Blue : TextColor(ThemeColors.BluePrimary)
+    data object Blue : TextColor(ThemeColors.BlueEvent)
 }
 
 sealed class ContentColor(val color: Color) {

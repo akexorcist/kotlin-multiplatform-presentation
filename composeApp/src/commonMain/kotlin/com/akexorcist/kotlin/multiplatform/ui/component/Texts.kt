@@ -4,6 +4,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
@@ -34,19 +35,22 @@ fun TitleText(
 fun LargeContentText(
     modifier: Modifier = Modifier,
     text: String,
+    color: TextColor = TextColor.Default,
     fontWeight: FontWeight = FontWeight.Normal,
+    fontFamily: FontFamily? = null,
     alignment: TextAlign? = null
 ) {
     Text(
         modifier = modifier,
         text = text,
         fontSize = MaterialTheme.typography.h3.fontSize,
-        color = TextColor.Default.color,
+        color = color.color,
         fontStyle = MaterialTheme.typography.h3.fontStyle,
         fontWeight = fontWeight,
         letterSpacing = MaterialTheme.typography.h3.letterSpacing,
         lineHeight = MaterialTheme.typography.h3.lineHeight,
         textAlign = alignment,
+        fontFamily = fontFamily,
     )
 }
 
@@ -54,6 +58,7 @@ fun LargeContentText(
 fun ContentText(
     modifier: Modifier = Modifier,
     text: String,
+    color: TextColor = TextColor.Default,
     fontWeight: FontWeight = FontWeight.Normal,
     alignment: TextAlign? = null
 ) {
@@ -61,7 +66,7 @@ fun ContentText(
         modifier = modifier,
         text = text,
         fontSize = MaterialTheme.typography.h4.fontSize,
-        color = TextColor.Default.color,
+        color = color.color,
         fontStyle = MaterialTheme.typography.h4.fontStyle,
         fontWeight = fontWeight,
         letterSpacing = MaterialTheme.typography.h4.letterSpacing,
