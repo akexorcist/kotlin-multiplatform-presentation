@@ -96,7 +96,7 @@ kotlin {
             implementation("dev.snipme:highlights:0.9.0")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
             implementation("com.akexorcist.kotlin.multiplatform:dayandnight:1.0.0")
-            implementation("media.kamel:kamel-image:0.9.5")
+            implementation("media.kamel:kamel-image-default:1.0.0-beta.6")
             implementation("io.ktor:ktor-client-core:2.3.11")
         }
         desktopMain.dependencies {
@@ -118,9 +118,9 @@ kotlin {
         jsMain.dependencies {
             implementation("io.ktor:ktor-client-js:2.3.11")
         }
-//        wasmJsMain.dependencies {
-//            implementation("io.ktor:ktor-client-js:2.3.11")
-//        }
+        wasmJsMain.dependencies {
+            implementation("io.ktor:ktor-client-core-wasm-js:3.0.0-beta-2-eap-941")
+        }
     }
 }
 

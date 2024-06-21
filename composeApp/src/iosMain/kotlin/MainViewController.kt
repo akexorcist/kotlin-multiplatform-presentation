@@ -1,6 +1,11 @@
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.window.ComposeUIViewController
 import com.akexorcist.kotlin.multiplatform.ui.content.App
 import com.akexorcist.kotlin.multiplatform.ui.navigation.rememberScreenNavigationState
+import io.kamel.core.config.KamelConfig
+import io.kamel.core.config.takeFrom
+import io.kamel.image.config.Default
+import io.kamel.image.config.LocalKamelConfig
 
 @Suppress("FunctionName")
 fun MainViewController(navigation: PlatformKeyboardNavigation) = ComposeUIViewController {
@@ -14,9 +19,15 @@ fun MainViewController(navigation: PlatformKeyboardNavigation) = ComposeUIViewCo
             onSpacePressed = { screenNavigationState.next() },
         )
     )
-    App(
-        screenNavigationState = screenNavigationState,
-    )
+    CompositionLocalProvider(
+        value = LocalKamelConfig provides KamelConfig {
+            takeFrom(KamelConfig.Default)
+        }
+    ) {
+        App(
+            screenNavigationState = screenNavigationState,
+        )
+    }
 }
 
 class PlatformKeyboardNavigation {

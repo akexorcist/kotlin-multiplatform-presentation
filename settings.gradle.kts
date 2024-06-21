@@ -30,6 +30,7 @@ dependencyResolutionManagement {
         maven(url = "https://jitpack.io")
         maven(url = "https://josm.openstreetmap.de/nexus/content/repositories/releases/")
         maven(url = "https://jogamp.org/deployment/maven")
+        maven(url = "https://maven.pkg.jetbrains.space/public/p/ktor/eap/")
     }
 }
 

@@ -1,8 +1,13 @@
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.window.CanvasBasedWindow
 import com.akexorcist.kotlin.multiplatform.ui.content.App
 import com.akexorcist.kotlin.multiplatform.ui.navigation.rememberScreenNavigationState
+import io.kamel.core.config.KamelConfig
+import io.kamel.core.config.takeFrom
+import io.kamel.image.config.Default
+import io.kamel.image.config.LocalKamelConfig
 import kotlinx.browser.document
 import org.jetbrains.compose.resources.configureWebResources
 import org.w3c.dom.events.KeyboardEvent
@@ -24,9 +29,15 @@ fun main() {
                 onLeft = { screenNavigationState.back() },
             )
         }
-        App(
-            screenNavigationState = screenNavigationState,
-        )
+        CompositionLocalProvider(
+            value = LocalKamelConfig provides KamelConfig {
+                takeFrom(KamelConfig.Default)
+            }
+        ) {
+            App(
+                screenNavigationState = screenNavigationState,
+            )
+        }
     }
 }
 

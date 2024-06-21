@@ -83,10 +83,10 @@ fun ThankYouTemplate(
 
                             is Resource.Success -> {
                                 KamelImage(
-                                    resource = resource,
+                                    resource = { resource },
                                     contentDescription = "profile_image",
                                     contentScale = ContentScale.Crop,
-                                    animationSpec = tween(),
+                                    animationSpec = tween()
                                 )
                             }
 
