@@ -13,14 +13,13 @@ import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.LargeContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.SmallContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.Tag
+import com.akexorcist.kotlin.multiplatform.ui.component.WebViewContent
 import com.akexorcist.kotlin.multiplatform.ui.component.template.FullCustomTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.ToolsTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
-import com.multiplatform.webview.web.WebView
-import com.multiplatform.webview.web.rememberWebViewState
 
 private val Route = Screen.KDoctor.name
 private const val KDoctorWebUrl = "github.com/Kotlin/kdoctor"
@@ -63,20 +62,9 @@ fun KDoctorScreen() {
                 )
             }
             Box(modifier = Modifier.weight(2f)) {
-                KDoctorWebContent()
+                WebViewContent(url = KDoctorWebUrl)
             }
         }
-    }
-}
-
-@Composable
-private fun KDoctorWebContent() {
-    val state = rememberWebViewState(KDoctorWebUrl)
-    Box(modifier = Modifier.fillMaxSize()) {
-        WebView(
-            modifier = Modifier.fillMaxSize(),
-            state = state,
-        )
     }
 }
 

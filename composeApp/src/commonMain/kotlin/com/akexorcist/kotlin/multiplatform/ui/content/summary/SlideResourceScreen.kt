@@ -3,7 +3,6 @@ package com.akexorcist.kotlin.multiplatform.ui.content.summary
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,14 +12,13 @@ import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.SmallContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.Tag
+import com.akexorcist.kotlin.multiplatform.ui.component.WebViewContent
 import com.akexorcist.kotlin.multiplatform.ui.component.template.FullCustomTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.SummaryTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
-import com.multiplatform.webview.web.WebView
-import com.multiplatform.webview.web.rememberWebViewState
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.image_slide_resource_qr
 import org.jetbrains.compose.resources.vectorResource
@@ -71,20 +69,9 @@ fun SlideResourceScreen() {
                 )
             }
             Box(modifier = Modifier.weight(2f)) {
-                SlideResourceWebContent()
+                WebViewContent(url = SlideResourceWebUrl)
             }
         }
-    }
-}
-
-@Composable
-private fun SlideResourceWebContent() {
-    val state = rememberWebViewState(SlideResourceWebUrl)
-    Box(modifier = Modifier.fillMaxSize()) {
-        WebView(
-            modifier = Modifier.fillMaxSize(),
-            state = state,
-        )
     }
 }
 

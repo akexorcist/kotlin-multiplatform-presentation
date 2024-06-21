@@ -13,14 +13,13 @@ import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.LargeContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.SmallContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.Tag
+import com.akexorcist.kotlin.multiplatform.ui.component.WebViewContent
 import com.akexorcist.kotlin.multiplatform.ui.component.template.FullCustomTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.GetStartedTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
-import com.multiplatform.webview.web.WebView
-import com.multiplatform.webview.web.rememberWebViewState
 
 private val Route = Screen.KotlinMultiplatformWizard.name
 private const val KotlinMultiplatformWizardWebUrl = "kmp.jetbrains.com"
@@ -63,20 +62,9 @@ fun KotlinMultiplatformWizardScreen() {
                 )
             }
             Box(modifier = Modifier.weight(2f)) {
-                KotlinMultiplatformWizardWebContent()
+                WebViewContent(url = KotlinMultiplatformWizardWebUrl)
             }
         }
-    }
-}
-
-@Composable
-private fun KotlinMultiplatformWizardWebContent() {
-    val state = rememberWebViewState(KotlinMultiplatformWizardWebUrl)
-    Box(modifier = Modifier.fillMaxSize()) {
-        WebView(
-            modifier = Modifier.fillMaxSize(),
-            state = state,
-        )
     }
 }
 

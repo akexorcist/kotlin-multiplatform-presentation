@@ -41,6 +41,8 @@ fun ComposeMultiplatformLimitationScreen() {
         ContentText(text = "• UI Inspection Tools")
         Spacer(modifier = Modifier.height(16.scaledDp()))
         ContentText(text = "• WebAssembly requires for Web")
+        Spacer(modifier = Modifier.height(16.scaledDp()))
+        ContentText(text = "• WebView on Web")
     }
 }
 

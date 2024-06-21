@@ -41,33 +41,6 @@ actual fun WebViewProvider(
         }
     }
 
-//    LaunchedEffect(Unit) {
-//        withContext(Dispatchers.IO) {
-//            Cef.init(builder = {
-//                installDir = File("jcef-bundle")
-//                settings {
-//                    cachePath = File("cache").absolutePath
-//                }
-//            }, initProgress = {
-//                onDownloading {
-//                    progress = max(it, 0F)
-//                }
-//                onInitialized {
-//                    initialized = true
-//                }
-//            }, onError = {
-//                it.printStackTrace()
-//            }, onRestartRequired = {
-//                restartRequired = true
-//            })
-//        }
-//    }
-//    DisposableEffect(Unit) {
-//        onDispose {
-//            Cef.dispose()
-//        }
-//    }
-
     Box(modifier = Modifier.fillMaxSize()) {
         when {
             !initialized -> Loading(progress.toInt())
