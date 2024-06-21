@@ -27,8 +27,8 @@ fun main() = application {
         onCloseRequest = ::exitApplication,
         title = "Kotlin Multiplatform",
         state = WindowState(
-            size = DpSize(1280.dp, 720.dp),
-//            placement = WindowPlacement.Maximized,
+//            size = DpSize(1280.dp, 720.dp),
+            size = DpSize(1920.dp, 1080.dp),
         ),
         onKeyEvent = { event ->
             navigationKeyEvent(

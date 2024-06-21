@@ -55,7 +55,7 @@ fun App(
 ) {
     val currentScreen = screenNavigationState.currentScreen
     val navController = rememberNavController()
-    val screenSize = ScreenSize.Medium
+    val screenSize = ScreenSize.Large
 
     LaunchedEffect(currentScreen) {
         when (currentScreen) {

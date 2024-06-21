@@ -27,7 +27,11 @@ fun NavGraphBuilder.reallyReadyForProduction() {
 @Composable
 fun ReallyReadyForProductionScreen() {
     SectionTitleTemplate(
-        title = "Really Ready for Production?",
+        title = """
+            Really Ready for Production?
+            
+            🤔🤔🤔
+        """.trimIndent(),
         description = "",
         tag = SummaryTag,
     )
