@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
+import com.akexorcist.kotlin.multiplatform.ui.component.template.SectionTitleTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.AdoptionTag
 import com.akexorcist.kotlin.multiplatform.ui.content.SummaryTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -25,9 +26,9 @@ fun NavGraphBuilder.reallyReadyForProduction() {
 
 @Composable
 fun ReallyReadyForProductionScreen() {
-    DefaultTemplate(
+    SectionTitleTemplate(
         title = "Really Ready for Production?",
-        content = "",
+        description = "",
         tag = SummaryTag,
     )
 }
