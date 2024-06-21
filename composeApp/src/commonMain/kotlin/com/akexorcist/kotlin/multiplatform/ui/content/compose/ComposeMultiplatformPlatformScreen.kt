@@ -151,7 +151,9 @@ fun ComposeMultiplatformPlatformScreen() {
                             contentAlignment = Alignment.Center,
                         ) {
                             SmallContentText(
-                                modifier = Modifier.wrapContentHeight(),
+                                modifier = Modifier
+                                    .wrapContentHeight()
+                                    .offset(y = (-2).scaledDp()),
                                 text = "Beta",
                                 color = ContentColor.White,
                                 alignment = TextAlign.Center,
@@ -196,7 +198,9 @@ fun ComposeMultiplatformPlatformScreen() {
                             contentAlignment = Alignment.Center,
                         ) {
                             SmallContentText(
-                                modifier = Modifier.wrapContentHeight(),
+                                modifier = Modifier
+                                    .wrapContentHeight()
+                                    .offset(y = (-2).scaledDp()),
                                 text = "Alpha",
                                 color = ContentColor.White,
                                 alignment = TextAlign.Center,

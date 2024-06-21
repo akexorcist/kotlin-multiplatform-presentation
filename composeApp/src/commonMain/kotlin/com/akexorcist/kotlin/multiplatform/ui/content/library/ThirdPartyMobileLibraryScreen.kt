@@ -53,7 +53,7 @@ fun ThirdPartyMobileLibraryScreen() {
                     name = "Moko Biometric",
                 )
             }
-            Spacer(modifier = Modifier.height(48.scaledDp()))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             Row {
                 LibraryContent(
                     modifier = Modifier.weight(1f),
@@ -67,7 +67,7 @@ fun ThirdPartyMobileLibraryScreen() {
                 )
                 Spacer(modifier = Modifier.weight(1f))
             }
-            Spacer(modifier = Modifier.height(48.scaledDp()))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             Row {
                 LibraryContent(
                     modifier = Modifier.weight(1f),

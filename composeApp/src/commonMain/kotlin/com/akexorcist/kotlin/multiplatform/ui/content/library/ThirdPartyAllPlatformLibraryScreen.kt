@@ -53,7 +53,7 @@ fun ThirdPartyAllPlatformLibraryScreen() {
                     name = "Multiplatform Settings, Datastore",
                 )
             }
-            Spacer(modifier = Modifier.height(48.scaledDp()))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             Row {
                 LibraryContent(
                     modifier = Modifier.weight(1f),
@@ -71,7 +71,7 @@ fun ThirdPartyAllPlatformLibraryScreen() {
                     name = "Krossbow",
                 )
             }
-            Spacer(modifier = Modifier.height(48.scaledDp()))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             Row {
                 LibraryContent(
                     modifier = Modifier.weight(1f),

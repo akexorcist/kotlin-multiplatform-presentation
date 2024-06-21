@@ -91,19 +91,20 @@ private fun PreviewTypeContent(
     preview: String,
 ) {
     Column(modifier = Modifier.gradientTint(GradientColor.BlueRed)) {
-        ContentText(
+        SmallContentText(
             text = ide,
             fontWeight = FontWeight.Medium,
         )
-        ContentText(
+        SmallContentText(
             modifier = Modifier.offset(y = (-4).scaledDp()),
             text = module,
             fontWeight = FontWeight.Medium,
         )
     }
-    LargeContentText(
+    ContentText(
         text = preview,
         fontFamily = FontFamily.Monospace,
+        fontWeight = FontWeight.Medium,
     )
 }
 

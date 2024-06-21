@@ -59,7 +59,7 @@ fun Tag(data: TagData) {
                         0.875f to data.background.middle,
                         1f to data.background.to,
                     ),
-                    start = Offset(backgroundColorOffsetX - (TagWidth.px() * 4), 0f),
+                    start = Offset(backgroundColorOffsetX - (TagWidth.scaled().px() * 4), 0f),
                     end = Offset(backgroundColorOffsetX, 0f),
                 ),
                 shape = RoundedCornerShape(100),

@@ -40,12 +40,6 @@ fun DecisionMakingFactorScreen() {
     MultipleCustomContentTemplate(
         contents = listOf(
             CustomContentItem(
-                title = "",
-                description = "",
-                content = {},
-                weight = 0.25f,
-            ),
-            CustomContentItem(
                 title = "Team Knowledge",
                 description = "What knowledge does your team already have?",
                 content = {
@@ -100,12 +94,6 @@ fun DecisionMakingFactorScreen() {
                         contentDescription = "Usage",
                     )
                 },
-            ),
-            CustomContentItem(
-                title = "",
-                description = "",
-                content = {},
-                weight = 0.25f,
             ),
         ),
         tag = SummaryTag,

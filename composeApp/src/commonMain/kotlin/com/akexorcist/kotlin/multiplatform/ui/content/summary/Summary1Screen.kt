@@ -12,7 +12,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
-import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultCustomContentTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.SummaryTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -58,8 +57,7 @@ fun Summary1Screen() {
             Column(
                 modifier = Modifier
                     .weight(3f)
-                    .fillMaxHeight()
-                    .padding(horizontal = HorizontalScreenPadding),
+                    .fillMaxHeight(),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Image(

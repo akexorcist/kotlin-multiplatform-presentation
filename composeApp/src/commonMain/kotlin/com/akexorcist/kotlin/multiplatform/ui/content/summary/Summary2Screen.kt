@@ -37,7 +37,7 @@ fun NavGraphBuilder.summary2() {
 @Composable
 fun Summary2Screen() {
     DefaultCustomContentTemplate(
-        title = "Kotlin Multiplatform",
+        title = "Compose Multiplatform",
         tag = SummaryTag,
     ) {
         Row(modifier = Modifier.fillMaxSize()) {
@@ -54,7 +54,7 @@ fun Summary2Screen() {
                 modifier = Modifier
                     .weight(3f)
                     .fillMaxHeight()
-                    .padding(horizontal = HorizontalScreenPadding),
+                    .padding(horizontal = 16.scaledDp()),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Image(

@@ -158,3 +158,33 @@ fun SingleFrame(
         }
     }
 }
+
+@Composable
+fun HighlightFrame(
+    paddingValues: PaddingValues = PaddingValues(horizontal = 32.scaledDp(), vertical = 8.scaledDp()),
+    content: @Composable BoxScope.() -> Unit,
+) {
+    Box(
+        modifier = Modifier
+            .border(
+                width = 4.scaledDp(),
+                brush = GradientColor.BlueRed.let {
+                    Brush.linearGradient(
+                        colorStops = arrayOf(
+                            0.1f to it.from,
+                            0.5f to it.middle,
+                            1f to it.to,
+                        ),
+                    )
+                },
+                shape = RoundedCornerShape(100),
+            )
+            .background(
+                color = BackgroundColor.White.color,
+                shape = RoundedCornerShape(100),
+            )
+            .padding(paddingValues)
+    ) {
+        content()
+    }
+}

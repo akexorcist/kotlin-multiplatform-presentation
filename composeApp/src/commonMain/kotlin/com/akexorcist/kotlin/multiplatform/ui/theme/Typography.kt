@@ -11,6 +11,9 @@ object AppTypography {
         h4 = MaterialTheme.typography.h4.copy(
             lineHeight = 48.sp,
         ),
+        h5 = MaterialTheme.typography.h5.copy(
+            lineHeight = 32.sp,
+        ),
     )
 
     @Composable

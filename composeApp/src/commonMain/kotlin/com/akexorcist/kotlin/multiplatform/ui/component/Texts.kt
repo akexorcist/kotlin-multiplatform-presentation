@@ -95,7 +95,7 @@ fun SmallContentText(
         fontWeight = fontWeight,
         fontFamily = fontFamily,
         letterSpacing = MaterialTheme.typography.h5.letterSpacing,
-        lineHeight = 32.sp,
+        lineHeight = MaterialTheme.typography.h5.lineHeight,
         textAlign = alignment,
     )
 }
