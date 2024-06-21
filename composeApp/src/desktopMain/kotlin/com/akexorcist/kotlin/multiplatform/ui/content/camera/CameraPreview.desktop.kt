@@ -1,6 +1,7 @@
 package com.akexorcist.kotlin.multiplatform.ui.content.camera
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
@@ -38,7 +39,7 @@ actual fun CameraPreview(modifier: Modifier) {
     }
     image?.let {
         Image(
-            modifier = modifier,
+            modifier = modifier.fillMaxSize(),
             bitmap = it,
             contentDescription = "image from camera",
             contentScale = ContentScale.Crop,

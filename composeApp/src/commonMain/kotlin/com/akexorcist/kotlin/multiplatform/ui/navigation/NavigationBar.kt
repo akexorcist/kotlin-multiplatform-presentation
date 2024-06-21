@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.navigation_ic_back
@@ -91,8 +92,10 @@ fun NavigationBar(
         }
         Spacer(Modifier.width(4.dp))
         Text(
-            modifier = Modifier.width(160.dp),
+            modifier = Modifier.width(200.dp),
             text = currentScreen.name.addSpaceForCamelCase(),
+            fontSize = 14.sp,
+            lineHeight = 16.sp,
             textAlign = TextAlign.Center,
         )
         Spacer(Modifier.width(4.dp))
