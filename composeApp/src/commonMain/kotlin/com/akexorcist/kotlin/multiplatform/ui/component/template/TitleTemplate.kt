@@ -1,8 +1,12 @@
 package com.akexorcist.kotlin.multiplatform.ui.component.template
 
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -10,13 +14,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
-import com.akexorcist.kotlin.multiplatform.ui.component.EventLogo
-import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
-import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
-import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
-import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
+import com.akexorcist.kotlin.multiplatform.ui.component.*
+import com.akexorcist.kotlin.multiplatform.ui.theme.*
+import io.kamel.core.Resource
+import io.kamel.image.KamelImage
+import io.kamel.image.asyncPainterResource
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.background_decoration
 import org.jetbrains.compose.resources.painterResource
@@ -26,7 +28,10 @@ fun TitleTemplate(
     title: String,
     name: String,
     position: String,
+    profileUrl: String,
+    frameColor: GradientColor,
 ) {
+    val resource = asyncPainterResource(profileUrl)
     Box {
         Box(
             modifier = Modifier
@@ -44,9 +49,9 @@ fun TitleTemplate(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
             ) {
+                Spacer(modifier = Modifier.weight(1f))
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
@@ -61,28 +66,72 @@ fun TitleTemplate(
                     )
                     Spacer(modifier = Modifier.weight(1f))
                 }
-                Spacer(modifier = Modifier.height(72.scaledDp()))
-                Text(
-                    modifier = Modifier.offset(x = 4.scaledDp()),
-                    text = name,
-                    fontSize = MaterialTheme.typography.h4.fontSize,
-                    color = ThemeColors.TextPrimary,
-                    fontStyle = MaterialTheme.typography.h4.fontStyle,
-                    fontWeight = FontWeight.SemiBold,
-                    letterSpacing = MaterialTheme.typography.h4.letterSpacing,
-                    lineHeight = MaterialTheme.typography.h4.lineHeight,
-                )
-                Spacer(modifier = Modifier.height(2.scaledDp()))
-                Text(
-                    modifier = Modifier.offset(x = 4.scaledDp()),
-                    text = position,
-                    fontSize = MaterialTheme.typography.h5.fontSize,
-                    color = ThemeColors.TextPrimary,
-                    fontStyle = MaterialTheme.typography.h5.fontStyle,
-                    fontWeight = FontWeight.Normal,
-                    letterSpacing = MaterialTheme.typography.h5.letterSpacing,
-                    lineHeight = MaterialTheme.typography.h5.lineHeight,
-                )
+                Spacer(modifier = Modifier.weight(1f))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    DoubleFrame(
+                        modifier = Modifier
+                            .width(120.scaledDp())
+                            .height(130.scaledDp()),
+                        size = DoubleFrameSize.Small,
+                        gradientColor = frameColor,
+                    ) {
+                        when (resource) {
+                            is Resource.Loading -> {
+                                CircularProgressIndicator(
+                                    modifier = Modifier
+                                        .size(36.scaledDp())
+                                        .align(Alignment.Center),
+                                    color = ContentColor.Blue.color,
+                                )
+                            }
+
+                            is Resource.Success -> {
+                                KamelImage(
+                                    resource = resource,
+                                    contentDescription = "profile_image",
+                                    contentScale = ContentScale.Crop,
+                                    animationSpec = tween(),
+                                )
+                            }
+
+                            is Resource.Failure -> {}
+                        }
+                    }
+                    Spacer(modifier = Modifier.width(32.scaledDp()))
+                    Column {
+                        ContentText(
+                            text = name,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                        Spacer(modifier = Modifier.height(8.scaledDp()))
+                        Box(
+                            modifier = Modifier
+                                .border(
+                                    width = 1.5.scaledDp(),
+                                    color = ContentColor.Default.color,
+                                    shape = RoundedCornerShape(100),
+                                )
+                                .background(
+                                    color = BackgroundColor.White.color,
+                                    shape = RoundedCornerShape(100),
+                                )
+                                .padding(
+                                    horizontal = 24.scaledDp(),
+                                    vertical = 4.scaledDp(),
+                                ),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            SmallContentText(
+                                modifier = Modifier.offset(y = (-2).scaledDp()),
+                                text = position,
+                            )
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(32.scaledDp()))
             }
         }
         Image(

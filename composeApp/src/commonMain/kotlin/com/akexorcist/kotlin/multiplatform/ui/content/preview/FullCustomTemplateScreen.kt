@@ -8,7 +8,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.FullCustomTemplate
-import com.akexorcist.kotlin.multiplatform.ui.component.template.TitleTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 
 private val Route = Screen.FullCustomTemplate.name

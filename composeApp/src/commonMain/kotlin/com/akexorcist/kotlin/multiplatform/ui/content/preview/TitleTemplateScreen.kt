@@ -6,6 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.TitleTemplate
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 
 private val Route = Screen.ThankYouTemplate.name
 
@@ -24,6 +25,8 @@ fun TitleTemplateScreen() {
     TitleTemplate(
         title = "Here is a short title for a talk.",
         name = "Somkiat Khitwongwattana",
-        position = "Android GDE"
+        position = "Android GDE",
+        profileUrl = "https://akexorcist.dev/content/images/size/w2000/2020/06/about_me_header.jpg",
+        frameColor = GradientColor.YellowGreen,
     )
 }

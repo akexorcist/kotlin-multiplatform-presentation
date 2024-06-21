@@ -2,7 +2,9 @@ package com.akexorcist.kotlin.multiplatform.ui.component.template
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -92,31 +94,34 @@ fun ThankYouTemplate(
                         }
                     }
                     Spacer(modifier = Modifier.width(32.scaledDp()))
-                    Column(
-                        modifier = Modifier.fillMaxWidth().wrapContentHeight(),
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            modifier = Modifier.offset(x = 4.scaledDp()),
+                    Column {
+                        ContentText(
                             text = name,
-                            fontSize = MaterialTheme.typography.h5.fontSize,
-                            color = ThemeColors.TextPrimary,
-                            fontStyle = MaterialTheme.typography.h5.fontStyle,
                             fontWeight = FontWeight.SemiBold,
-                            letterSpacing = MaterialTheme.typography.h5.letterSpacing,
-                            lineHeight = MaterialTheme.typography.h5.lineHeight,
                         )
                         Spacer(modifier = Modifier.height(8.scaledDp()))
-                        Text(
-                            modifier = Modifier.offset(x = 4.scaledDp()),
-                            text = position,
-                            fontSize = MaterialTheme.typography.h5.fontSize,
-                            color = ThemeColors.TextPrimary,
-                            fontStyle = MaterialTheme.typography.h5.fontStyle,
-                            fontWeight = FontWeight.Normal,
-                            letterSpacing = MaterialTheme.typography.h5.letterSpacing,
-                            lineHeight = MaterialTheme.typography.h5.lineHeight,
-                        )
+                        Box(
+                            modifier = Modifier
+                                .border(
+                                    width = 1.5.scaledDp(),
+                                    color = ContentColor.Default.color,
+                                    shape = RoundedCornerShape(100),
+                                )
+                                .background(
+                                    color = BackgroundColor.White.color,
+                                    shape = RoundedCornerShape(100),
+                                )
+                                .padding(
+                                    horizontal = 24.scaledDp(),
+                                    vertical = 4.scaledDp(),
+                                ),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            SmallContentText(
+                                modifier = Modifier.offset(y = (-2).scaledDp()),
+                                text = position,
+                            )
+                        }
                     }
                 }
             }

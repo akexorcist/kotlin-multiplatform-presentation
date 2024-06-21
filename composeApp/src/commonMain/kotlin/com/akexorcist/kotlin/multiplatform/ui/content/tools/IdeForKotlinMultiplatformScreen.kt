@@ -70,7 +70,7 @@ fun IdeForKotlinMultiplatformScreen() {
                             fontWeight = FontWeight.Bold,
                             alignment = TextAlign.Center,
                         )
-                        ContentText(
+                        SmallContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "(Google)",
                             alignment = TextAlign.Center,

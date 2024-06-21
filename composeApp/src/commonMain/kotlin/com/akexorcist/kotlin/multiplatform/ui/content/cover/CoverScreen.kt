@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.TitleTemplate
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 
 private val Route = Screen.Cover.name
 
@@ -27,6 +28,8 @@ fun CoverScreen() {
         title = "Hello! Kotlin Multiplatform",
         name = "Somkiat Khitwongwattana",
         position = "Android GDE",
+        profileUrl = "https://akexorcist.dev/content/images/size/w2000/2020/06/about_me_header.jpg",
+        frameColor = GradientColor.BlueRed,
     )
 }
 
