@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.extension.px
 import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 data class TagData(
     val text: String,
@@ -31,8 +33,8 @@ private val TagHeight = 72.dp
 fun Tag(data: TagData) {
     val infiniteTransition = rememberInfiniteTransition(label = "background_color")
     val backgroundColorOffsetX by infiniteTransition.animateFloat(
-        initialValue = TagWidth.px(),
-        targetValue = TagWidth.px() * 3,
+        initialValue = TagWidth.scaled().px(),
+        targetValue = TagWidth.scaled().px() * 3,
         animationSpec = infiniteRepeatable(
             animation = TweenSpec(
                 durationMillis = 3750,
@@ -42,8 +44,8 @@ fun Tag(data: TagData) {
     )
     Box(
         modifier = Modifier
-            .width(TagWidth)
-            .height(TagHeight)
+            .width(TagWidth.scaled())
+            .height(TagHeight.scaled())
             .background(
                 brush = Brush.linearGradient(
                     colorStops = arrayOf(
@@ -63,11 +65,11 @@ fun Tag(data: TagData) {
                 shape = RoundedCornerShape(100),
             )
             .border(
-                width = 2.dp,
+                width = 2.scaledDp(),
                 color = ThemeColors.BorderPrimary,
                 shape = RoundedCornerShape(100),
             )
-            .padding(horizontal = 48.dp, vertical = 16.dp),
+            .padding(horizontal = 48.scaledDp(), vertical = 16.scaledDp()),
         contentAlignment = Alignment.Center,
     ) {
         Text(

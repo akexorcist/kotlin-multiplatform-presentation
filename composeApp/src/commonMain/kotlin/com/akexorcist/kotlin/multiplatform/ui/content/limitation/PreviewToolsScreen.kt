@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -19,7 +18,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.TextColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 private val Route = Screen.PreviewTools.name
 
@@ -59,17 +59,17 @@ fun PreviewToolsScreen() {
                 .fillMaxSize()
                 .background(BackgroundColor.GrayEvent.color)
                 .padding(
-                    vertical = VerticalScreenPadding,
-                    horizontal = HorizontalScreenPadding,
+                    vertical = VerticalScreenPadding.scaled(),
+                    horizontal = HorizontalScreenPadding.scaled(),
                 ),
         ) {
             Tag(data = LimitationTag)
-            Spacer(modifier = Modifier.height(48.dp))
+            Spacer(modifier = Modifier.height(48.scaledDp()))
             TitleText(
                 modifier = Modifier.fillMaxWidth(),
                 text = "Preview in Compose Multiplatform",
             )
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             previewItems.forEachIndexed { index, (ide, module, preview) ->
                 PreviewTypeContent(
                     ide = ide,
@@ -77,7 +77,7 @@ fun PreviewToolsScreen() {
                     preview = preview,
                 )
                 if (index != previewItems.lastIndex) {
-                    Spacer(modifier = Modifier.height(48.dp))
+                    Spacer(modifier = Modifier.height(48.scaledDp()))
                 }
             }
         }
@@ -96,7 +96,7 @@ private fun PreviewTypeContent(
             fontWeight = FontWeight.Medium,
         )
         ContentText(
-            modifier = Modifier.offset(y = (-4).dp),
+            modifier = Modifier.offset(y = (-4).scaledDp()),
             text = module,
             fontWeight = FontWeight.Medium,
         )

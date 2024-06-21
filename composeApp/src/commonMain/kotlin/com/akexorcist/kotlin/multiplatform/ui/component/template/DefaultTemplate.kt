@@ -10,9 +10,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 @Composable
 fun DefaultTemplate(
@@ -28,17 +29,17 @@ fun DefaultTemplate(
                 .weight(3f)
                 .fillMaxHeight()
                 .padding(
-                    vertical = VerticalScreenPadding,
-                    horizontal = HorizontalScreenPadding,
+                    vertical = VerticalScreenPadding.scaled(),
+                    horizontal = HorizontalScreenPadding.scaled(),
                 ),
         ) {
             Tag(data = tag)
-            Spacer(modifier = Modifier.height(48.dp))
+            Spacer(modifier = Modifier.height(48.scaledDp()))
             TitleText(
                 modifier = Modifier.fillMaxWidth(),
                 text = title,
             )
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             LargeContentText(
                 modifier = Modifier.fillMaxWidth(),
                 text = content,

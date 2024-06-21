@@ -11,9 +11,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.ContentColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.*
 
 @Composable
 private fun frameShape(cornerRadius: Dp) = RoundedCornerShape(cornerRadius)
@@ -44,15 +42,15 @@ fun DoubleFrame(
     Box(
         modifier = modifier
             .frameBorder(
-                cornerRadius = size.cornerRadius,
-                borderWidth = size.borderWidth,
+                cornerRadius = size.cornerRadius.scaled(),
+                borderWidth = size.borderWidth.scaled(),
             )
-            .clip(frameShape(size.cornerRadius)),
+            .clip(frameShape(size.cornerRadius.scaled())),
     ) {
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(size.spacing * 5)
+                .height(size.spacing.scaled() * 5)
                 .align(Alignment.BottomCenter)
                 .background(
                     brush = Brush.linearGradient(
@@ -70,11 +68,11 @@ fun DoubleFrame(
                     .weight(1f)
                     .fillMaxWidth()
                     .frameBorder(
-                        cornerRadius = size.cornerRadius,
-                        borderWidth = size.borderWidth,
+                        cornerRadius = size.cornerRadius.scaled(),
+                        borderWidth = size.borderWidth.scaled(),
                     )
             )
-            Spacer(modifier = Modifier.height(size.spacing))
+            Spacer(modifier = Modifier.height(size.spacing.scaled()))
         }
 
         Column(modifier = Modifier.fillMaxSize()) {
@@ -83,15 +81,15 @@ fun DoubleFrame(
                     .weight(1f)
                     .fillMaxWidth()
                     .frameBorder(
-                        cornerRadius = size.cornerRadius,
-                        borderWidth = size.borderWidth,
+                        cornerRadius = size.cornerRadius.scaled(),
+                        borderWidth = size.borderWidth.scaled(),
                     )
-                    .clip(frameShape(size.cornerRadius))
+                    .clip(frameShape(size.cornerRadius.scaled()))
                     .background(BackgroundColor.GrayEvent.color)
             ) {
                 content()
             }
-            Spacer(modifier = Modifier.height(size.spacing * 2))
+            Spacer(modifier = Modifier.height(size.spacing.scaled() * 2))
         }
     }
 }
@@ -109,15 +107,15 @@ fun SingleFrame(
     Box(
         modifier = modifier
             .frameBorder(
-                cornerRadius = SingleFrameCornerRadius,
-                borderWidth = SingleFrameBorderWidth,
+                cornerRadius = SingleFrameCornerRadius.scaled(),
+                borderWidth = SingleFrameBorderWidth.scaled(),
             )
-            .clip(frameShape(SingleFrameCornerRadius)),
+            .clip(frameShape(SingleFrameCornerRadius.scaled())),
     ) {
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(SingleFrameSpacing * 5)
+                .height(SingleFrameSpacing.scaled() * 5)
                 .align(Alignment.BottomCenter)
                 .background(
                     brush = Brush.linearGradient(
@@ -148,15 +146,15 @@ fun SingleFrame(
                     .weight(1f)
                     .fillMaxWidth()
                     .frameBorder(
-                        cornerRadius = SingleFrameCornerRadius,
-                        borderWidth = SingleFrameBorderWidth,
+                        cornerRadius = SingleFrameCornerRadius.scaled(),
+                        borderWidth = SingleFrameBorderWidth.scaled(),
                     )
-                    .clip(frameShape(SingleFrameCornerRadius))
+                    .clip(frameShape(SingleFrameCornerRadius.scaled()))
                     .background(BackgroundColor.GrayEvent.color)
             ) {
                 content()
             }
-            Spacer(modifier = Modifier.height(SingleFrameSpacing * 2))
+            Spacer(modifier = Modifier.height(SingleFrameSpacing.scaled() * 2))
         }
     }
 }

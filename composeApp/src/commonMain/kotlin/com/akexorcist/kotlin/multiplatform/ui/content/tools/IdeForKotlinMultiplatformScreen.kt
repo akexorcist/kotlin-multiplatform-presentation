@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -20,6 +19,8 @@ import com.akexorcist.kotlin.multiplatform.ui.component.template.MultipleCustomC
 import com.akexorcist.kotlin.multiplatform.ui.content.ToolsTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
@@ -55,14 +56,14 @@ fun IdeForKotlinMultiplatformScreen() {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        Spacer(modifier = Modifier.height(64.dp))
+                        Spacer(modifier = Modifier.height(64.scaledDp()))
                         Image(
-                            modifier = Modifier.size(200.dp),
+                            modifier = Modifier.size(200.scaledDp()),
                             painter = painterResource(Res.drawable.ic_ide_android_studio),
                             contentDescription = "Android Studio",
                             contentScale = ContentScale.Fit,
                         )
-                        Spacer(modifier = Modifier.height(32.dp))
+                        Spacer(modifier = Modifier.height(32.scaledDp()))
                         ContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "Android Studio",
@@ -86,14 +87,14 @@ fun IdeForKotlinMultiplatformScreen() {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        Spacer(modifier = Modifier.height(64.dp))
+                        Spacer(modifier = Modifier.height(64.scaledDp()))
                         Image(
-                            modifier = Modifier.size(200.dp),
+                            modifier = Modifier.size(200.scaledDp()),
                             painter = painterResource(Res.drawable.ic_ide_intellij),
                             contentDescription = "IntelliJ IDEA",
                             contentScale = ContentScale.Fit,
                         )
-                        Spacer(modifier = Modifier.height(32.dp))
+                        Spacer(modifier = Modifier.height(32.scaledDp()))
                         ContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "IntelliJ IDEA",
@@ -117,14 +118,14 @@ fun IdeForKotlinMultiplatformScreen() {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        Spacer(modifier = Modifier.height(64.dp))
+                        Spacer(modifier = Modifier.height(64.scaledDp()))
                         Image(
-                            modifier = Modifier.size(200.dp),
+                            modifier = Modifier.size(200.scaledDp()),
                             painter = painterResource(Res.drawable.ic_ide_fleet),
                             contentDescription = "Fleet",
                             contentScale = ContentScale.Fit,
                         )
-                        Spacer(modifier = Modifier.height(32.dp))
+                        Spacer(modifier = Modifier.height(32.scaledDp()))
                         ContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = "Fleet",

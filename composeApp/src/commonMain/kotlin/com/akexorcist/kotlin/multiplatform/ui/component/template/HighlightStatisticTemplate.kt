@@ -7,12 +7,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.HighlightText
 import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
 
 @Composable
 fun HighlightStatisticTemplate(
@@ -24,8 +24,8 @@ fun HighlightStatisticTemplate(
             .fillMaxSize()
             .background(BackgroundColor.GrayEvent.color)
             .padding(
-                vertical = VerticalScreenPadding,
-                horizontal = HorizontalScreenPadding,
+                vertical = VerticalScreenPadding.scaled(),
+                horizontal = HorizontalScreenPadding.scaled(),
             ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,

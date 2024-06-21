@@ -9,8 +9,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 
@@ -45,7 +43,11 @@ import com.akexorcist.kotlin.multiplatform.ui.navigation.NavigationBar
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.navigation.ScreenNavigationState
 import com.akexorcist.kotlin.multiplatform.ui.content.tools.*
-import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.*
+
+enum class ScreenSize {
+    Default, Small,
+}
 
 @Composable
 fun App(
@@ -53,6 +55,7 @@ fun App(
 ) {
     val currentScreen = screenNavigationState.currentScreen
     val navController = rememberNavController()
+    val screenSize = ScreenSize.Small
 
     LaunchedEffect(currentScreen) {
         when (currentScreen) {
@@ -126,100 +129,108 @@ fun App(
     }
 
     MaterialTheme(
-        typography = MaterialTheme.typography.copy(
-            h4 = MaterialTheme.typography.h4.copy(
-                lineHeight = 48.sp,
-            ),
-        )
+        typography = when (screenSize) {
+            ScreenSize.Default -> AppTypography.default()
+            ScreenSize.Small -> AppTypography.small()
+        }
     ) {
-        AppScaffold(
-            modifier = Modifier.background(BackgroundColor.White.color),
-            navigationBar = {
-                NavigationBar(
-                    currentScreen = currentScreen,
-                    onPreviousClicked = { screenNavigationState.back() },
-                    onNextClicked = { screenNavigationState.next() },
-                    onGoToFirstClicked = { screenNavigationState.first() },
-                    onGoToLastClicked = { screenNavigationState.last() },
-                )
-            },
-            content = {
-                NavHost(
-                    modifier = Modifier.fillMaxSize(),
-                    navController = navController,
-                    startDestination = currentScreen.name,
-                    enterTransition = { fadeIn(animationSpec = tween(300)) },
-                    exitTransition = { fadeOut(animationSpec = tween(300)) },
-                ) {
-                    cover()
-                    introKotlin()
-                    kotlinAndAndroid()
-                    kotlinMultiplatform()
-                    kotlinMultiplatformLogo()
-                    platformSupport()
-                    shareCodeStrategy()
-                    sharePartialCode()
-                    shareLogicCode()
-                    shareAllCode()
-                    platformBinary()
-                    platformAndroid()
-                    platformJvm()
-                    platformJs()
-                    platformWasm()
-                    platformNative()
-                    ideForKotlinMultiplatform()
-                    kDoctor()
-                    gradle()
-                    commonAndSpecificPlatform()
-                    projectStructureModule()
-                    kotlinMultiplatformWizard()
-                    getStartedWithDemo()
-                    platformSpecificCode()
-                    nativeExperience()
-                    composeMultiplatformIntroduction()
-                    composeMultiplatformBenefit()
-                    composeMultiplatformPlatform()
-                    composeMultiplatformRender()
-                    composeMultiplatformLimitation()
-                    kotlinMultiplatformBenefit()
-                    readyForProduction()
-                    cameraAccess1()
-                    cameraAccess2()
-                    mapRendering1()
-                    mapRendering2()
-                    thirdPartyAllPlatformLibrary()
-                    thirdPartyMobileLibrary()
-                    previewTools()
-                    otherLimitation()
-                    reallyReadyForProduction()
-                    dayAndNight()
-                    decisionMakingFactor()
-                    summary1()
-                    summary2()
-                    learningResource()
-                    thankYou()
-
-                    titleTemplate()
-                    sectionTitleTemplate()
-                    defaultTemplate()
-                    rightFrameTemplate()
-                    leftFrameTemplate()
-                    largeFrameTemplate()
-                    highlightStatisticTemplate()
-                    multipleContentTemplate()
-                    multipleIconContentTemplate()
-                    rightCustomContentTemplate()
-                    fullCustomTemplate()
-                    codeTemplate()
-                    codeCustomContentTemplate()
-                    thankYouTemplate()
-                    introduction()
-                    aboutKotlin()
-                    map()
-                    cameraViewFinder()
+        CompositionLocalProvider(
+            LocalSizeScale provides SizeScale(
+                when (screenSize) {
+                    ScreenSize.Default -> 1.0f
+                    ScreenSize.Small -> 0.8f
                 }
-            }
-        )
+            ),
+        ) {
+            AppScaffold(
+                modifier = Modifier.background(BackgroundColor.White.color),
+                navigationBar = {
+                    NavigationBar(
+                        currentScreen = currentScreen,
+                        onPreviousClicked = { screenNavigationState.back() },
+                        onNextClicked = { screenNavigationState.next() },
+                        onGoToFirstClicked = { screenNavigationState.first() },
+                        onGoToLastClicked = { screenNavigationState.last() },
+                    )
+                },
+                content = {
+                    NavHost(
+                        modifier = Modifier.fillMaxSize(),
+                        navController = navController,
+                        startDestination = currentScreen.name,
+                        enterTransition = { fadeIn(animationSpec = tween(300)) },
+                        exitTransition = { fadeOut(animationSpec = tween(300)) },
+                    ) {
+                        cover()
+                        introKotlin()
+                        kotlinAndAndroid()
+                        kotlinMultiplatform()
+                        kotlinMultiplatformLogo()
+                        platformSupport()
+                        shareCodeStrategy()
+                        sharePartialCode()
+                        shareLogicCode()
+                        shareAllCode()
+                        platformBinary()
+                        platformAndroid()
+                        platformJvm()
+                        platformJs()
+                        platformWasm()
+                        platformNative()
+                        ideForKotlinMultiplatform()
+                        kDoctor()
+                        gradle()
+                        commonAndSpecificPlatform()
+                        projectStructureModule()
+                        kotlinMultiplatformWizard()
+                        getStartedWithDemo()
+                        platformSpecificCode()
+                        nativeExperience()
+                        composeMultiplatformIntroduction()
+                        composeMultiplatformBenefit()
+                        composeMultiplatformPlatform()
+                        composeMultiplatformRender()
+                        composeMultiplatformLimitation()
+                        kotlinMultiplatformBenefit()
+                        readyForProduction()
+                        cameraAccess1()
+                        cameraAccess2()
+                        mapRendering1()
+                        mapRendering2()
+                        thirdPartyAllPlatformLibrary()
+                        thirdPartyMobileLibrary()
+                        previewTools()
+                        otherLimitation()
+                        reallyReadyForProduction()
+                        dayAndNight()
+                        decisionMakingFactor()
+                        summary1()
+                        summary2()
+                        learningResource()
+                        thankYou()
+
+                        titleTemplate()
+                        sectionTitleTemplate()
+                        defaultTemplate()
+                        rightFrameTemplate()
+                        leftFrameTemplate()
+                        largeFrameTemplate()
+                        highlightStatisticTemplate()
+                        multipleContentTemplate()
+                        multipleIconContentTemplate()
+                        rightCustomContentTemplate()
+                        fullCustomTemplate()
+                        codeTemplate()
+                        codeCustomContentTemplate()
+                        thankYouTemplate()
+                        introduction()
+                        aboutKotlin()
+                        map()
+                        cameraViewFinder()
+                    }
+                }
+            )
+        }
     }
 }
 
@@ -234,7 +245,7 @@ fun AppScaffold(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(16.scaledDp()),
             contentAlignment = Alignment.BottomCenter,
         ) {
             navigationBar()

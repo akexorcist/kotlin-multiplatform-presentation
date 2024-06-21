@@ -4,10 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 @Composable
 fun RightCustomContentTemplate(
@@ -26,23 +26,23 @@ fun RightCustomContentTemplate(
                 .weight(1.25f)
                 .fillMaxHeight()
                 .padding(
-                    vertical = VerticalScreenPadding,
-                    horizontal = HorizontalScreenPadding,
+                    vertical = VerticalScreenPadding.scaled(),
+                    horizontal = HorizontalScreenPadding.scaled(),
                 ),
         ) {
             Tag(data = tag)
-            Spacer(modifier = Modifier.height(48.dp))
+            Spacer(modifier = Modifier.height(48.scaledDp()))
             TitleText(
                 modifier = Modifier.fillMaxWidth(),
                 text = title,
             )
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(24.scaledDp()))
             ContentText(
                 modifier = Modifier.fillMaxWidth(),
                 text = description,
             )
         }
-        Spacer(Modifier.width(64.dp))
+        Spacer(Modifier.width(64.scaledDp()))
         Box(
             modifier = Modifier
                 .weight(1f)

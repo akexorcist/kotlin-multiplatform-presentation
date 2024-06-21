@@ -3,29 +3,24 @@ package com.akexorcist.kotlin.multiplatform.ui.content.summary
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.akexorcist.kotlin.multiplatform.ui.component.template.CustomContentItem
-import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
-import com.akexorcist.kotlin.multiplatform.ui.component.template.MultipleContentTemplate
 import com.akexorcist.kotlin.multiplatform.ui.component.template.MultipleCustomContentTemplate
-import com.akexorcist.kotlin.multiplatform.ui.content.AdoptionTag
 import com.akexorcist.kotlin.multiplatform.ui.content.SummaryTag
 import com.akexorcist.kotlin.multiplatform.ui.extension.gradientTint
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.ic_factor_platform
 import kotlinmultiplatform.composeapp.generated.resources.ic_factor_team
-import kotlinmultiplatform.composeapp.generated.resources.image_share_code_strategy_partial_logic
 import org.jetbrains.compose.resources.painterResource
 
 private val Route = Screen.DecisionMakingFactor.name
@@ -56,9 +51,9 @@ fun DecisionMakingFactorScreen() {
                 content = {
                     Image(
                         modifier = Modifier
-                            .size(120.dp)
+                            .size(120.scaledDp())
                             .gradientTint(GradientColor.BlueRed)
-                            .offset(x = 2.dp),
+                            .offset(x = 2.scaledDp()),
                         painter = painterResource(Res.drawable.ic_factor_team),
                         contentDescription = "Share a piece of logic",
                     )
@@ -70,9 +65,9 @@ fun DecisionMakingFactorScreen() {
                 content = {
                     Image(
                         modifier = Modifier
-                            .size(120.dp)
+                            .size(120.scaledDp())
                             .gradientTint(GradientColor.BlueRed)
-                            .offset(x = (-7).dp),
+                            .offset(x = (-7).scaledDp()),
                         painter = painterResource(Res.drawable.ic_factor_platform),
                         contentDescription = "Share a piece of logic",
                     )
@@ -84,9 +79,9 @@ fun DecisionMakingFactorScreen() {
                 content = {
                     Image(
                         modifier = Modifier
-                            .size(120.dp)
+                            .size(120.scaledDp())
                             .gradientTint(GradientColor.BlueRed)
-                            .offset(x = (-12).dp),
+                            .offset(x = (-12).scaledDp()),
                         painter = painterResource(Res.drawable.ic_factor_functionality),
                         contentDescription = "App Functionality",
                     )
@@ -98,9 +93,9 @@ fun DecisionMakingFactorScreen() {
                 content = {
                     Image(
                         modifier = Modifier
-                            .size(120.dp)
+                            .size(120.scaledDp())
                             .gradientTint(GradientColor.BlueRed)
-                            .offset(x = (-14).dp),
+                            .offset(x = (-14).scaledDp()),
                         painter = painterResource(Res.drawable.ic_factor_usage),
                         contentDescription = "Usage",
                     )

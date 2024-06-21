@@ -10,12 +10,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.component.EventLogo
 import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.background_decoration
 import org.jetbrains.compose.resources.painterResource
@@ -32,12 +33,12 @@ fun TitleTemplate(
                 .fillMaxSize()
                 .background(BackgroundColor.GrayEvent.color)
                 .padding(
-                    vertical = VerticalScreenPadding,
-                    horizontal = HorizontalScreenPadding,
+                    vertical = VerticalScreenPadding.scaled(),
+                    horizontal = HorizontalScreenPadding.scaled(),
                 ),
         ) {
             EventLogo(
-                modifier = Modifier.offset(y = (-32).dp)
+                modifier = Modifier.offset(y = (-32).scaledDp())
             )
             Column(
                 modifier = Modifier.fillMaxSize(),
@@ -60,9 +61,9 @@ fun TitleTemplate(
                     )
                     Spacer(modifier = Modifier.weight(1f))
                 }
-                Spacer(modifier = Modifier.height(72.dp))
+                Spacer(modifier = Modifier.height(72.scaledDp()))
                 Text(
-                    modifier = Modifier.offset(x = 4.dp),
+                    modifier = Modifier.offset(x = 4.scaledDp()),
                     text = name,
                     fontSize = MaterialTheme.typography.h4.fontSize,
                     color = ThemeColors.TextPrimary,
@@ -71,9 +72,9 @@ fun TitleTemplate(
                     letterSpacing = MaterialTheme.typography.h4.letterSpacing,
                     lineHeight = MaterialTheme.typography.h4.lineHeight,
                 )
-                Spacer(modifier = Modifier.height(2.dp))
+                Spacer(modifier = Modifier.height(2.scaledDp()))
                 Text(
-                    modifier = Modifier.offset(x = 4.dp),
+                    modifier = Modifier.offset(x = 4.scaledDp()),
                     text = position,
                     fontSize = MaterialTheme.typography.h5.fontSize,
                     color = ThemeColors.TextPrimary,

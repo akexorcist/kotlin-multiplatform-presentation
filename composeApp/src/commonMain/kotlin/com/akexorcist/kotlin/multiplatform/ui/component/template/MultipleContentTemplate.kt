@@ -5,9 +5,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 @Composable
 fun MultipleContentTemplate(
@@ -22,12 +23,12 @@ fun MultipleContentTemplate(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
-                    vertical = VerticalScreenPadding,
-                    horizontal = HorizontalScreenPadding,
+                    vertical = VerticalScreenPadding.scaled(),
+                    horizontal = HorizontalScreenPadding.scaled(),
                 ),
         ) {
             Tag(data = tag)
-            Spacer(modifier = Modifier.height(48.dp))
+            Spacer(modifier = Modifier.height(48.scaledDp()))
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -38,9 +39,9 @@ fun MultipleContentTemplate(
                     modifier = Modifier.fillMaxWidth(),
                     text = title,
                 )
-                Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(32.scaledDp()))
             }
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -53,14 +54,14 @@ fun MultipleContentTemplate(
                             text = subtitle,
                             fontWeight = FontWeight.SemiBold,
                         )
-                        Spacer(modifier = Modifier.height(24.dp))
+                        Spacer(modifier = Modifier.height(24.scaledDp()))
                         ContentText(
                             modifier = Modifier.fillMaxWidth(),
                             text = content,
                         )
                     }
                     if (index != contents.lastIndex) {
-                        Spacer(modifier = Modifier.width(64.dp))
+                        Spacer(modifier = Modifier.width(64.scaledDp()))
                     }
                 }
             }

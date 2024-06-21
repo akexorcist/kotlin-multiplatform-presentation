@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.vectorResource
 import kotlinmultiplatform.composeapp.generated.resources.ic_event_logo_black
@@ -30,7 +30,7 @@ fun EventLogo(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
-            modifier = Modifier.width(300.dp),
+            modifier = Modifier.width(300.scaledDp()),
             imageVector = vectorResource(
                 when (color) {
                     EventLogoColor.Black -> Res.drawable.ic_event_logo_black

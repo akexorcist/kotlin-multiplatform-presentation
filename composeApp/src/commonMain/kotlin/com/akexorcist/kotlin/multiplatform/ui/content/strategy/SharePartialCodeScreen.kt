@@ -6,7 +6,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -14,6 +13,7 @@ import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomCont
 import com.akexorcist.kotlin.multiplatform.ui.content.StrategyTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
@@ -40,7 +40,7 @@ fun SharePartialCodeScreen() {
         Row(
             modifier = Modifier
                 .align(Alignment.Center)
-                .offset(x = (-72).dp),
+                .offset(x = (-72).scaledDp()),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(

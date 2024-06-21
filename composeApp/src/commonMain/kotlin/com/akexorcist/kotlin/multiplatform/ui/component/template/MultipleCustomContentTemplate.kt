@@ -5,9 +5,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 data class CustomContentItem(
     val weight: Float = 1f,
@@ -28,8 +29,8 @@ fun MultipleCustomContentTemplate(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(
-                    vertical = VerticalScreenPadding,
-                    horizontal = HorizontalScreenPadding,
+                    vertical = VerticalScreenPadding.scaled(),
+                    horizontal = HorizontalScreenPadding.scaled(),
                 ),
         ) {
             Tag(data = tag)
@@ -43,20 +44,20 @@ fun MultipleCustomContentTemplate(
                 contents.forEachIndexed { index, (weight, subtitle, description, content) ->
                     Column(modifier = Modifier.weight(weight)) {
                         content()
-                        Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(16.scaledDp()))
                         ContentText(
                             modifier = Modifier.wrapContentHeight(),
                             text = subtitle,
                             fontWeight = FontWeight.Bold,
                         )
-                        Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(16.scaledDp()))
                         SmallContentText(
                             modifier = Modifier.fillMaxWidth(),
                             text = description,
                         )
                     }
                     if (index != contents.lastIndex) {
-                        Spacer(modifier = Modifier.width(96.dp))
+                        Spacer(modifier = Modifier.width(96.scaledDp()))
                     }
                 }
             }

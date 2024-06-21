@@ -11,12 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
-import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.ContentColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
-import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
+import com.akexorcist.kotlin.multiplatform.ui.theme.*
 import io.kamel.core.Resource
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
@@ -35,14 +31,14 @@ fun ThankYouTemplate(
             .fillMaxSize()
             .background(BackgroundColor.GrayEvent.color)
             .padding(
-                vertical = VerticalScreenPadding,
-                horizontal = HorizontalScreenPadding,
+                vertical = VerticalScreenPadding.scaled(),
+                horizontal = HorizontalScreenPadding.scaled(),
             ),
     ) {
         EventLogo(
             modifier = Modifier
                 .align(Alignment.TopEnd)
-                .offset(y = (-24).dp)
+                .offset(y = (-24).scaledDp())
         )
         Column(
             modifier = Modifier.fillMaxSize()
@@ -69,7 +65,7 @@ fun ThankYouTemplate(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     DoubleFrame(
-                        modifier = Modifier.width(120.dp).height(130.dp),
+                        modifier = Modifier.width(120.scaledDp()).height(130.scaledDp()),
                         size = DoubleFrameSize.Small,
                         gradientColor = frameColor,
                     ) {
@@ -77,7 +73,7 @@ fun ThankYouTemplate(
                             is Resource.Loading -> {
                                 CircularProgressIndicator(
                                     modifier = Modifier
-                                        .size(36.dp)
+                                        .size(36.scaledDp())
                                         .align(Alignment.Center),
                                     color = ContentColor.Blue.color,
                                 )
@@ -95,13 +91,13 @@ fun ThankYouTemplate(
                             is Resource.Failure -> {}
                         }
                     }
-                    Spacer(modifier = Modifier.width(32.dp))
+                    Spacer(modifier = Modifier.width(32.scaledDp()))
                     Column(
                         modifier = Modifier.fillMaxWidth().wrapContentHeight(),
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            modifier = Modifier.offset(x = 4.dp),
+                            modifier = Modifier.offset(x = 4.scaledDp()),
                             text = name,
                             fontSize = MaterialTheme.typography.h5.fontSize,
                             color = ThemeColors.TextPrimary,
@@ -110,9 +106,9 @@ fun ThankYouTemplate(
                             letterSpacing = MaterialTheme.typography.h5.letterSpacing,
                             lineHeight = MaterialTheme.typography.h5.lineHeight,
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(8.scaledDp()))
                         Text(
-                            modifier = Modifier.offset(x = 4.dp),
+                            modifier = Modifier.offset(x = 4.scaledDp()),
                             text = position,
                             fontSize = MaterialTheme.typography.h5.fontSize,
                             color = ThemeColors.TextPrimary,
@@ -124,7 +120,7 @@ fun ThankYouTemplate(
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
         }
     }
 }

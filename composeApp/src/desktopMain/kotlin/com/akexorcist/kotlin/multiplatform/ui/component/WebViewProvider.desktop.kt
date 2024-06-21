@@ -7,8 +7,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.theme.ContentColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import dev.datlag.kcef.KCEF
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -93,10 +93,10 @@ private fun BoxScope.Loading(progress: Int) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         CircularProgressIndicator(
-            modifier = Modifier.size(64.dp),
+            modifier = Modifier.size(64.scaledDp()),
             color = ContentColor.Blue.color,
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.scaledDp()))
         ContentText(
             text = "Downloading (${progress}%)",
         )
@@ -112,7 +112,7 @@ private fun BoxScope.RestartRequired(onRestartClicked: () -> Unit) {
         ContentText(
             text = "Please restart to apply changes for WebView",
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.scaledDp()))
         Button(onClick = onRestartClicked) {
             Text(text = "Restart")
         }

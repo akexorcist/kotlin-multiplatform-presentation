@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -14,6 +13,7 @@ import com.akexorcist.kotlin.multiplatform.ui.component.template.MultipleCustomC
 import com.akexorcist.kotlin.multiplatform.ui.content.StrategyTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
@@ -40,8 +40,8 @@ fun ShareCodeStrategyScreen() {
                 content = {
                     Image(
                         modifier = Modifier
-                            .width(300.dp)
-                            .offset(x = (-20).dp),
+                            .width(300.scaledDp())
+                            .offset(x = (-20).scaledDp()),
                         painter = painterResource(Res.drawable.image_share_code_strategy_partial_logic),
                         contentDescription = "Share a piece of logic",
                     )
@@ -53,8 +53,8 @@ fun ShareCodeStrategyScreen() {
                 content = {
                     Image(
                         modifier = Modifier
-                            .width(300.dp)
-                            .offset(x = (-20).dp),
+                            .width(300.scaledDp())
+                            .offset(x = (-20).scaledDp()),
                         painter = painterResource(Res.drawable.image_share_code_strategy_all_logic),
                         contentDescription = "Share logic",
                     )
@@ -66,8 +66,8 @@ fun ShareCodeStrategyScreen() {
                 content = {
                     Image(
                         modifier = Modifier
-                            .width(300.dp)
-                            .offset(x = (-20).dp),
+                            .width(300.scaledDp())
+                            .offset(x = (-20).scaledDp()),
                         painter = painterResource(Res.drawable.image_share_code_strategy_all),
                         contentDescription = "Share UI and logic",
                     )

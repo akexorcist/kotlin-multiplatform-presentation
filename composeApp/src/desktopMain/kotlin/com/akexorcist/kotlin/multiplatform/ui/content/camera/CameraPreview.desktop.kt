@@ -14,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.theme.ContentColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import com.github.eduramiba.webcamcapture.drivers.NativeDriver
 import com.github.sarxos.webcam.Webcam
 import com.github.sarxos.webcam.WebcamEvent
@@ -46,7 +46,7 @@ actual fun CameraPreview(modifier: Modifier) {
         )
     } ?: run {
         CircularProgressIndicator(
-            modifier = Modifier.size(64.dp),
+            modifier = Modifier.size(64.scaledDp()),
             color = ContentColor.Blue.color,
         )
     }

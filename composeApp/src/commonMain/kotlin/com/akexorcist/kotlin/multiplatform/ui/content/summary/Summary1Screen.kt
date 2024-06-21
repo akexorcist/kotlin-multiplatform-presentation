@@ -8,7 +8,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -18,6 +17,7 @@ import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultCustomCo
 import com.akexorcist.kotlin.multiplatform.ui.content.SummaryTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.image_summary_kotlin_multiplatform
 import org.jetbrains.compose.resources.painterResource
@@ -43,16 +43,16 @@ fun Summary1Screen() {
         Row(modifier = Modifier.fillMaxSize()) {
             Column(modifier = Modifier.weight(2f)) {
                 ContentText(text = "Simplify the development of cross-platform projects while retaining the flexibility and benefits of native programming.")
-                Spacer(modifier = Modifier.height(64.dp))
+                Spacer(modifier = Modifier.height(64.scaledDp()))
                 ContentText(
                     text = "Use cases",
                     fontWeight = FontWeight.Bold,
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.scaledDp()))
                 ContentText(text = "• Android and iOS applications")
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.scaledDp()))
                 ContentText(text = "• Multiplatform libraries")
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.scaledDp()))
                 ContentText(text = "• Desktop applications")
             }
             Column(
@@ -65,7 +65,7 @@ fun Summary1Screen() {
                 Image(
                     modifier = Modifier
                         .fillMaxSize()
-                        .offset(y = (-128).dp),
+                        .offset(y = (-128).scaledDp()),
                     painter = painterResource(Res.drawable.image_summary_kotlin_multiplatform),
                     contentDescription = "Kotlin",
                     contentScale = ContentScale.Fit,

@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -19,6 +18,7 @@ import com.akexorcist.kotlin.multiplatform.ui.content.ToolsTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import com.multiplatform.webview.web.WebView
 import com.multiplatform.webview.web.rememberWebViewState
 
@@ -46,15 +46,15 @@ fun KDoctorScreen() {
             Column(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(64.dp)
+                    .padding(64.scaledDp())
             ) {
                 Tag(data = ToolsTag)
-                Spacer(modifier = Modifier.height(48.dp))
+                Spacer(modifier = Modifier.height(48.scaledDp()))
                 LargeContentText(
                     text = "KDoctor",
                     fontWeight = FontWeight.Medium,
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.scaledDp()))
                 SmallContentText(text = "Command-line tool that helps to set up the environment for Kotlin Multiplatform Mobile app development.")
                 Spacer(modifier = Modifier.weight(1f))
                 SmallContentText(

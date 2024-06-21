@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -15,6 +14,7 @@ import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomCont
 import com.akexorcist.kotlin.multiplatform.ui.content.IntroductionTag
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.ic_android
@@ -44,28 +44,28 @@ fun KotlinAndAndroidScreen() {
         Column(
             modifier = Modifier
                 .align(Alignment.Center)
-                .offset(x = (-128).dp),
+                .offset(x = (-128).scaledDp()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Image(
                 modifier = Modifier
-                    .height(96.dp)
+                    .height(96.scaledDp())
                     .fillMaxWidth(),
                 painter = painterResource(Res.drawable.ic_android),
                 contentDescription = "Android",
                 contentScale = ContentScale.Fit,
             )
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             Image(
-                modifier = Modifier.size(48.dp),
+                modifier = Modifier.size(48.scaledDp()),
                 imageVector = vectorResource(Res.drawable.ic_favourite),
                 contentDescription = "Love",
                 contentScale = ContentScale.Fit,
             )
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(32.scaledDp()))
             Image(
                 modifier = Modifier
-                    .height(64.dp)
+                    .height(64.scaledDp())
                     .fillMaxWidth(),
                 painter = painterResource(Res.drawable.ic_kotlin),
                 contentDescription = "Kotlin",

@@ -6,11 +6,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.ContentText
 import com.akexorcist.kotlin.multiplatform.ui.component.LargeContentText
 import com.akexorcist.kotlin.multiplatform.ui.extension.gradientTint
 import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 @Composable
 internal fun LibraryContent(
@@ -24,7 +24,7 @@ internal fun LibraryContent(
             text = type,
             fontWeight = FontWeight.Medium,
         )
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(4.scaledDp()))
         LargeContentText(
             text = name,
         )

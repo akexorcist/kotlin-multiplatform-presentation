@@ -18,10 +18,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.akexorcist.kotlin.multiplatform.ui.theme.ContentColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 import com.markodevcic.peko.PermissionRequester
 import com.markodevcic.peko.allGranted
 import kotlin.coroutines.resume
@@ -43,7 +43,7 @@ actual fun CameraPreview(modifier: Modifier) {
         CameraViewFinder(modifier)
     } else {
         CircularProgressIndicator(
-            modifier = Modifier.size(64.dp),
+            modifier = Modifier.size(64.scaledDp()),
             color = ContentColor.Blue.color,
         )
     }

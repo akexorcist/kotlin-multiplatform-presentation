@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinmultiplatform.composeapp.generated.resources.*
 import kotlinmultiplatform.composeapp.generated.resources.Res
@@ -30,6 +29,7 @@ import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.vectorResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 @Composable
 fun NavigationBar(
@@ -61,18 +61,18 @@ fun NavigationBar(
             .hoverable(interactionSource)
             .alpha(animatedNavigationBarAlpha)
             .shadow(
-                elevation = 4.dp,
+                elevation = 4.scaledDp(),
                 shape = RoundedCornerShape(100),
             )
             .background(
                 color = BackgroundColor.Bar.color,
                 shape = RoundedCornerShape(100),
             )
-            .padding(4.dp),
+            .padding(4.scaledDp()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconButton(
-            modifier = Modifier.size(48.dp),
+            modifier = Modifier.size(48.scaledDp()),
             onClick = onGoToFirstClicked,
         ) {
             Icon(
@@ -80,9 +80,9 @@ fun NavigationBar(
                 contentDescription = "First screen",
             )
         }
-        Spacer(Modifier.width(2.dp))
+        Spacer(Modifier.width(2.scaledDp()))
         IconButton(
-            modifier = Modifier.size(48.dp),
+            modifier = Modifier.size(48.scaledDp()),
             onClick = onPreviousClicked,
         ) {
             Icon(
@@ -90,17 +90,17 @@ fun NavigationBar(
                 contentDescription = "Back screen",
             )
         }
-        Spacer(Modifier.width(4.dp))
+        Spacer(Modifier.width(4.scaledDp()))
         Text(
-            modifier = Modifier.width(200.dp),
+            modifier = Modifier.width(200.scaledDp()),
             text = currentScreen.name.addSpaceForCamelCase(),
             fontSize = 14.sp,
             lineHeight = 16.sp,
             textAlign = TextAlign.Center,
         )
-        Spacer(Modifier.width(4.dp))
+        Spacer(Modifier.width(4.scaledDp()))
         IconButton(
-            modifier = Modifier.size(48.dp),
+            modifier = Modifier.size(48.scaledDp()),
             onClick = onNextClicked,
         ) {
             Icon(
@@ -108,9 +108,9 @@ fun NavigationBar(
                 contentDescription = "Next screen",
             )
         }
-        Spacer(Modifier.width(2.dp))
+        Spacer(Modifier.width(2.scaledDp()))
         IconButton(
-            modifier = Modifier.size(48.dp),
+            modifier = Modifier.size(48.scaledDp()),
             onClick = onGoToLastClicked,
         ) {
             Icon(

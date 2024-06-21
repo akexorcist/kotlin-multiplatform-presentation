@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.snipme.highlights.Highlights
 import dev.snipme.highlights.model.SyntaxLanguage
@@ -27,6 +26,7 @@ import com.akexorcist.kotlin.multiplatform.ui.component.CodeView
 import com.akexorcist.kotlin.multiplatform.ui.component.HorizontalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.component.VerticalScreenPadding
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
 
 @Composable
 fun CodeTemplate(
@@ -47,8 +47,8 @@ fun CodeTemplate(
             .fillMaxSize()
             .background(BackgroundColor.Code.color)
             .padding(
-                vertical = VerticalScreenPadding,
-                horizontal = HorizontalScreenPadding,
+                vertical = VerticalScreenPadding.scaled(),
+                horizontal = HorizontalScreenPadding.scaled(),
             ),
         contentAlignment = Alignment.CenterStart,
     ) {

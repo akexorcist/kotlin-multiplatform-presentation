@@ -8,10 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.akexorcist.kotlin.multiplatform.ui.component.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.BackgroundColor
 import com.akexorcist.kotlin.multiplatform.ui.theme.ThemeColors
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaled
+import com.akexorcist.kotlin.multiplatform.ui.theme.scaledDp
 
 @Composable
 fun SectionTitleTemplate(
@@ -24,14 +25,14 @@ fun SectionTitleTemplate(
             .fillMaxSize()
             .background(BackgroundColor.GrayEvent.color)
             .padding(
-                vertical = VerticalScreenPadding,
-                horizontal = HorizontalScreenPadding,
+                vertical = VerticalScreenPadding.scaled(),
+                horizontal = HorizontalScreenPadding.scaled(),
             ),
     ) {
         EventLogo(
             modifier = Modifier
                 .align(Alignment.TopEnd)
-                .offset(y = (-48).dp)
+                .offset(y = (-48).scaledDp())
         )
         Column(
             modifier = Modifier.fillMaxSize()
@@ -42,7 +43,7 @@ fun SectionTitleTemplate(
             ) {
                 Tag(data = tag)
             }
-            Spacer(modifier = Modifier.height(72.dp))
+            Spacer(modifier = Modifier.height(72.scaledDp()))
             Row(
                 modifier = Modifier
                     .weight(5f)
@@ -54,8 +55,8 @@ fun SectionTitleTemplate(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(
-                                horizontal = 64.dp,
-                                vertical = 48.dp,
+                                horizontal = 64.scaledDp(),
+                                vertical = 48.scaledDp(),
                             ),
                     ) {
                         Text(
@@ -70,7 +71,7 @@ fun SectionTitleTemplate(
                         )
 
                         description?.let {
-                            Spacer(modifier = Modifier.height(72.dp))
+                            Spacer(modifier = Modifier.height(72.scaledDp()))
                             ContentText(text = description)
                         }
                     }
