@@ -62,7 +62,7 @@ fun KDoctorScreen() {
                 )
             }
             Box(modifier = Modifier.weight(2f)) {
-                WebViewContent(url = KDoctorWebUrl)
+                WebViewContent(url = "https://$KDoctorWebUrl")
             }
         }
     }

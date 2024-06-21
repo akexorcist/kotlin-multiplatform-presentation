@@ -69,7 +69,7 @@ fun SlideResourceScreen() {
                 )
             }
             Box(modifier = Modifier.weight(2f)) {
-                WebViewContent(url = SlideResourceWebUrl)
+                WebViewContent(url = "https://$SlideResourceWebUrl")
             }
         }
     }

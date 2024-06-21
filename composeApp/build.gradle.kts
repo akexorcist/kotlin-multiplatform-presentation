@@ -34,7 +34,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "17"
+                jvmTarget = "11"
             }
         }
     }
@@ -97,7 +97,6 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
             implementation("com.akexorcist.kotlin.multiplatform:dayandnight:1.0.0")
             implementation("media.kamel:kamel-image-default:1.0.0-beta.6")
-            implementation("io.ktor:ktor-client-core:2.3.11")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

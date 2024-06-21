@@ -46,7 +46,7 @@ import com.akexorcist.kotlin.multiplatform.ui.content.tools.*
 import com.akexorcist.kotlin.multiplatform.ui.theme.*
 
 enum class ScreenSize {
-    Default, Small,
+    Large, Medium, Small,
 }
 
 @Composable
@@ -55,7 +55,7 @@ fun App(
 ) {
     val currentScreen = screenNavigationState.currentScreen
     val navController = rememberNavController()
-    val screenSize = ScreenSize.Small
+    val screenSize = ScreenSize.Medium
 
     LaunchedEffect(currentScreen) {
         when (currentScreen) {
@@ -89,7 +89,6 @@ fun App(
             Screen.ComposeMultiplatformPlatform -> navController.navigateToComposeMultiplatformPlatform()
             Screen.ComposeMultiplatformRender -> navController.navigateToComposeMultiplatformRender()
             Screen.ComposeMultiplatformLimitation -> navController.navigateToComposeMultiplatformLimitation()
-            Screen.KotlinMultiplatformBenefit -> navController.navigateToKotlinMultiplatformBenefit()
             Screen.ReadyForProduction -> navController.navigateToReadyForProduction()
             Screen.CameraAccess -> navController.navigateToCameraAccess()
             Screen.MapRendering -> navController.navigateToMapRendering1()
@@ -130,14 +129,16 @@ fun App(
 
     MaterialTheme(
         typography = when (screenSize) {
-            ScreenSize.Default -> AppTypography.default()
+            ScreenSize.Large -> AppTypography.large()
+            ScreenSize.Medium -> AppTypography.medium()
             ScreenSize.Small -> AppTypography.small()
         }
     ) {
         CompositionLocalProvider(
             LocalSizeScale provides SizeScale(
                 when (screenSize) {
-                    ScreenSize.Default -> 1.0f
+                    ScreenSize.Large -> 1.0f
+                    ScreenSize.Medium -> 0.85f
                     ScreenSize.Small -> 0.8f
                 }
             ),
@@ -191,7 +192,6 @@ fun App(
                         composeMultiplatformPlatform()
                         composeMultiplatformRender()
                         composeMultiplatformLimitation()
-                        kotlinMultiplatformBenefit()
                         readyForProduction()
                         cameraAccess()
                         mapRendering()

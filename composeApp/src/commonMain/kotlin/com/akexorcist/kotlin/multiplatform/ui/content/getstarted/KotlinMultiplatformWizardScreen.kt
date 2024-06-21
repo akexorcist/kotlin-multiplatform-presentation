@@ -62,7 +62,7 @@ fun KotlinMultiplatformWizardScreen() {
                 )
             }
             Box(modifier = Modifier.weight(2f)) {
-                WebViewContent(url = KotlinMultiplatformWizardWebUrl)
+                WebViewContent(url = "https://$KotlinMultiplatformWizardWebUrl")
             }
         }
     }
