@@ -47,7 +47,7 @@ object AppTypography {
         h5 = MaterialTheme.typography.h5.copy(
             fontWeight = FontWeight.Normal,
             fontSize = 24.sp * 0.85,
-            lineHeight = 24.sp * 0.85,
+            lineHeight = 32.sp * 0.85,
             letterSpacing = 0.sp * 0.85,
         ),
         h6 = MaterialTheme.typography.h6.copy(

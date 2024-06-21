@@ -7,32 +7,34 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.akexorcist.kotlin.multiplatform.ui.component.TagData
-import com.akexorcist.kotlin.multiplatform.ui.component.template.DefaultTemplate
 import com.akexorcist.kotlin.multiplatform.ui.component.template.RightCustomContentTemplate
 import com.akexorcist.kotlin.multiplatform.ui.content.AdoptionTag
 import com.akexorcist.kotlin.multiplatform.ui.content.maps.MapContent
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.akexorcist.kotlin.multiplatform.ui.navigation.Screen
-import com.akexorcist.kotlin.multiplatform.ui.theme.GradientColor
 
-private val Route = Screen.MapRendering1.name
+private val Route = Screen.MapRendering.name
 
 fun NavController.navigateToMapRendering1() {
     navigate(Route)
 }
 
-fun NavGraphBuilder.mapRendering1() {
+fun NavGraphBuilder.mapRendering() {
     composable(route = Route) {
-        MapRendering1Screen()
+        MapRenderingScreen()
     }
 }
 
 @Composable
-fun MapRendering1Screen() {
+fun MapRenderingScreen() {
     RightCustomContentTemplate(
         title = "Display Map",
-        description = "",
+        description = """
+            ✅ Android
+            ✅ iOS
+            ✅ Desktop
+            ❌ Web
+        """.trimIndent(),
         tag = AdoptionTag,
         content = { MapContent(modifier = Modifier.fillMaxSize()) },
     )
@@ -40,8 +42,8 @@ fun MapRendering1Screen() {
 
 @Preview
 @Composable
-fun MapRendering1ScreenPreview() {
+fun MapRenderingScreenPreview() {
     MaterialTheme {
-        MapRendering1Screen()
+        MapRenderingScreen()
     }
 }
