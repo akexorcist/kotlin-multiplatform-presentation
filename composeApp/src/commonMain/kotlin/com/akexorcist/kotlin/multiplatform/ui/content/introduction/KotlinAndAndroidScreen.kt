@@ -38,7 +38,9 @@ fun NavGraphBuilder.kotlinAndAndroid() {
 fun KotlinAndAndroidScreen() {
     RightCustomContentTemplate(
         title = "Android’s commitment to Kotlin",
-        description = "At Google I/O 2019, Google announced that Android development will be increasingly Kotlin-first.\n\nWhen building new Android development tools and content, such as Jetpack libraries, samples, documentation, and training content, they will design them with Kotlin users in mind.",
+        description = """
+            At Google I/O 2019, Google announced that Android development will be increasingly Kotlin-first.
+        """.trimIndent(),
         tag = IntroductionTag,
     ) {
         Column(
