@@ -26,7 +26,6 @@ fun TitleTemplateScreen() {
         title = "Here is a short title for a talk.",
         name = "Somkiat Khitwongwattana",
         position = "Android GDE",
-        profileUrl = "https://akexorcist.dev/content/images/size/w2000/2020/06/about_me_header.jpg",
         frameColor = GradientColor.YellowGreen,
     )
 }

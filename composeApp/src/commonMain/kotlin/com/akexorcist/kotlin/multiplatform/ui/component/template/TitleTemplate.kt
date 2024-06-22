@@ -21,6 +21,7 @@ import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 import kotlinmultiplatform.composeapp.generated.resources.Res
 import kotlinmultiplatform.composeapp.generated.resources.background_decoration
+import kotlinmultiplatform.composeapp.generated.resources.image_speaker_profile
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
@@ -28,10 +29,8 @@ fun TitleTemplate(
     title: String,
     name: String,
     position: String,
-    profileUrl: String,
     frameColor: GradientColor,
 ) {
-    val resource = asyncPainterResource(profileUrl)
     Box {
         Box(
             modifier = Modifier
@@ -78,27 +77,12 @@ fun TitleTemplate(
                         size = DoubleFrameSize.Small,
                         gradientColor = frameColor,
                     ) {
-                        when (resource) {
-                            is Resource.Loading -> {
-                                CircularProgressIndicator(
-                                    modifier = Modifier
-                                        .size(36.scaledDp())
-                                        .align(Alignment.Center),
-                                    color = ContentColor.Blue.color,
-                                )
-                            }
-
-                            is Resource.Success -> {
-                                KamelImage(
-                                    resource = { resource },
-                                    contentDescription = "profile_image",
-                                    contentScale = ContentScale.Crop,
-                                    animationSpec = tween()
-                                )
-                            }
-
-                            is Resource.Failure -> {}
-                        }
+                        Image(
+                            modifier = Modifier.fillMaxSize(),
+                            painter = painterResource(Res.drawable.image_speaker_profile),
+                            contentDescription = "Speaker",
+                            contentScale = ContentScale.Crop,
+                        )
                     }
                     Spacer(modifier = Modifier.width(32.scaledDp()))
                     Column {

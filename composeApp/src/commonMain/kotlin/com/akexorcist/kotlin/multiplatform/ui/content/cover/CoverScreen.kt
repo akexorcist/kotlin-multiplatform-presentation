@@ -28,7 +28,6 @@ fun CoverScreen() {
         title = "Hello! Kotlin Multiplatform",
         name = "Somkiat Khitwongwattana",
         position = "Android GDE",
-        profileUrl = "https://akexorcist.dev/content/images/size/w2000/2020/06/about_me_header.jpg",
         frameColor = GradientColor.BlueRed,
     )
 }
